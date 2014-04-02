@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: StatLight | My Octopress Blog]]></title>
+  <title><![CDATA[Category: StatLight | Developing on Staxmanade]]></title>
   <link href="http://staxmanade.github.io/blog/categories/statlight/atom.xml" rel="self"/>
   <link href="http://staxmanade.github.io/"/>
-  <updated>2014-04-01T21:19:37-07:00</updated>
+  <updated>2014-04-01T21:30:28-07:00</updated>
   <id>http://staxmanade.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Jason Jarrett]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
