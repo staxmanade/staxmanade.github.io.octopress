@@ -1,657 +1,585 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://staxmanade.github.io/blog/2008/04/11/timing-debug-code-using-lamdas/</loc>
+        <loc>http://staxmanade.github.io/blog/2008/04/timing-debug-code-using-lamdas/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2008/04/13/binarysearchordefault/</loc>
+        <loc>http://staxmanade.github.io/blog/2008/04/binarysearchordefault/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2008/05/14/how-best-to-expose-value-that-could/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2008/05/how-best-to-expose-value-that-could/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2008/08/30/unitdrivens-ui-gets-minor-makeover/</loc>
+        <loc>http://staxmanade.github.io/blog/2008/08/unitdrivens-ui-gets-minor-makeover/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2008/09/13/wcf-service-proxy-inside-silverlight/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2008/09/wcf-service-proxy-inside-silverlight/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2008/09/13/how-can-c-variable-have-sign-in-front/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2008/09/how-can-c-variable-have-sign-in-front/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2008/10/01/unbound-tfs-project-how-do-i-get/</loc>
+        <loc>http://staxmanade.github.io/blog/2008/10/unbound-tfs-project-how-do-i-get/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2008/11/24/wcf-silverlight-default-constructor-not/
+            http://staxmanade.github.io/blog/2008/11/wcf-silverlight-default-constructor-not/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2008/11/30/db4o-with-systemtransactionstransaction/
+            http://staxmanade.github.io/blog/2008/11/db4o-with-systemtransactionstransaction/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2008/12/02/i4o-with-silverlight-compiles-first-try/
+            http://staxmanade.github.io/blog/2008/12/i4o-with-silverlight-compiles-first-try/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2008/12/05/is-my-hsa-trying-to-tell-me-something/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2008/12/is-my-hsa-trying-to-tell-me-something/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2008/12/07/i4o-silverlight-unit-tests-little-more/
+            http://staxmanade.github.io/blog/2008/12/i4o-silverlight-unit-tests-little-more/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2008/12/13/t4-text-templating-in-silverlight/</loc>
+        <loc>http://staxmanade.github.io/blog/2008/12/t4-text-templating-in-silverlight/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2008/12/18/i-can-stand-mass-mailings-especially/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2008/12/i-can-stand-mass-mailings-especially/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2008/12/18/leverage-live-mesh-to-sync-windows-live/
+            http://staxmanade.github.io/blog/2008/12/leverage-live-mesh-to-sync-windows-live/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2008/12/20/i4o-update/</loc>
+        <loc>http://staxmanade.github.io/blog/2008/12/i4o-update/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2008/12/25/i4o-indexspecification-for/</loc>
+        <loc>http://staxmanade.github.io/blog/2008/12/i4o-indexspecification-for/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2009/01/02/what-do-when-silverlight-is-missing/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2009/01/what-do-when-silverlight-is-missing/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/01/04/castledynamicproxy2-now-ported-to/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/01/castledynamicproxy2-now-ported-to/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/01/04/silverlight-moq-automocker-teaser/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/01/silverlight-moq-automocker-teaser/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/01/23/silverlight-automocker-with-unity/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/01/silverlight-automocker-with-unity/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/02/04/fluent-specification-extensions/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/02/fluent-specification-extensions/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2009/02/06/fluent-specification-extensions-1-more/
+            http://staxmanade.github.io/blog/2009/02/fluent-specification-extensions-1-more/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2009/02/07/2-for-fluent-specification-extensions/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2009/02/2-for-fluent-specification-extensions/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/02/08/xunit-light-for-silverlight/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/02/xunit-light-for-silverlight/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2009/02/22/moq-30-released-with-full-silverlight/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2009/02/moq-30-released-with-full-silverlight/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/03/09/nate-delegatefactory-to-bypass/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/03/nate-delegatefactory-to-bypass/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2009/03/25/silverlight-datagrid-not-sorting-when/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2009/03/silverlight-datagrid-not-sorting-when/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2009/04/07/introducing-statlight-silverlight_07/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2009/04/introducing-statlight-silverlight_07/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/04/10/t4-replacement-for-add-service/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/04/t4-replacement-for-add-service/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2009/04/22/potentially-serious-bug-sql-server-2008/
+            http://staxmanade.github.io/blog/2009/04/potentially-serious-bug-sql-server-2008/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/04/24/to-be-checked-in-or-not/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/04/to-be-checked-in-or-not/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/05/09/console-icon-swapping-just-for-fun/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/05/console-icon-swapping-just-for-fun/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/05/11/statlight-v05-released/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/05/statlight-v05-released/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2009/06/19/silverlight-unity-moq-backed-automocker/
+            http://staxmanade.github.io/blog/2009/06/silverlight-unity-moq-backed-automocker/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2009/06/26/c-checked-keyword-learn-something-new/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2009/06/c-checked-keyword-learn-something-new/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2009/07/11/live-messenger-disconnected-prompt-come/
+            http://staxmanade.github.io/blog/2009/07/live-messenger-disconnected-prompt-come/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2009/08/06/branch-per-feature-with-team-foundation_06/
+            http://staxmanade.github.io/blog/2009/08/branch-per-feature-with-team-foundation_06/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2009/08/06/branch-per-feature-with-team-foundation_9077/
+            http://staxmanade.github.io/blog/2009/08/branch-per-feature-with-team-foundation_9077/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2009/08/12/branch-per-feature-with-team-foundation_12/
+            http://staxmanade.github.io/blog/2009/08/branch-per-feature-with-team-foundation_12/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2009/08/13/development-environment-mergecompare/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2009/08/development-environment-mergecompare/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/08/26/dont-forget-whats-happening-behind/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/08/dont-forget-whats-happening-behind/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2009/09/15/how-do-i-get-uispyexe-on-my-windows-7/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2009/09/how-do-i-get-uispyexe-on-my-windows-7/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2009/09/30/powershell-compiling-with-cscexe-more/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2009/09/powershell-compiling-with-cscexe-more/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2009/10/07/statlight-silverlight-test-automation/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2009/10/statlight-silverlight-test-automation/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/10/14/new-windows-7-taskbar-theme/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/10/new-windows-7-taskbar-theme/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/10/21/invited-to-join-bloggers-over-at/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/10/invited-to-join-bloggers-over-at/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/10/25/integration-test-brought-to-you-by/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/10/integration-test-brought-to-you-by/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/11/07/massive-search-replace-among-files/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/11/massive-search-replace-among-files/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/11/14/enum-conversion-why-oh-why/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/11/enum-conversion-why-oh-why/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/11/23/pdc-2009-talking-about-win7-user/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/11/pdc-2009-talking-about-win7-user/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2009/12/01/go-to-definition-tip-with-c-var-keyword/
+            http://staxmanade.github.io/blog/2009/12/go-to-definition-tip-with-c-var-keyword/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/12/10/statlight-goes-open-source/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/12/statlight-goes-open-source/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2009/12/22/powershell-load-assembly-without/</loc>
+        <loc>http://staxmanade.github.io/blog/2009/12/powershell-load-assembly-without/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2010/01/03/unitymoq-automocker-or/</loc>
+        <loc>http://staxmanade.github.io/blog/2010/01/unitymoq-automocker-or/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2010/01/21/networking-brain-fart/</loc>
+        <loc>http://staxmanade.github.io/blog/2010/01/networking-brain-fart/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2010/01/28/c-40-optional-parameters-exploration/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2010/01/c-40-optional-parameters-exploration/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2010/02/15/powershell-background-task-that-speaks/
+            http://staxmanade.github.io/blog/2010/02/powershell-background-task-that-speaks/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2010/03/21/diffing-tool-feature-request/</loc>
+        <loc>http://staxmanade.github.io/blog/2010/03/diffing-tool-feature-request/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2010/05/15/silverlight-profiling-powershell-helper/
+            http://staxmanade.github.io/blog/2010/05/silverlight-profiling-powershell-helper/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2010/05/22/silverlight-databind-to-anonymous-type/
+            http://staxmanade.github.io/blog/2010/05/silverlight-databind-to-anonymous-type/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2010/05/30/statlight-v10-v11-released-silverlight/
+            http://staxmanade.github.io/blog/2010/05/statlight-v10-v11-released-silverlight/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2010/09/21/odatas-dataservicequery-and-removing/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2010/09/odatas-dataservicequery-and-removing/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2010/10/17/odatas-dataservicequery-and-removing/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2010/10/odatas-dataservicequery-and-removing/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2010/11/10/powershell-url-checker-check-if-list-of/
+            http://staxmanade.github.io/blog/2010/11/powershell-url-checker-check-if-list-of/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2010/12/09/duplicate-dom-elements-with-same-id/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2010/12/duplicate-dom-elements-with-same-id/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2010/12/14/statlight-release-v12-v13/</loc>
+        <loc>http://staxmanade.github.io/blog/2010/12/statlight-release-v12-v13/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2011/01/09/bookmark-to-inject-firebug-light-into/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2011/01/bookmark-to-inject-firebug-light-into/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2011/04/02/dynamically-load-embedded-assemblies/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2011/04/dynamically-load-embedded-assemblies/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2011/04/13/using-vsdbcmd-to-deploy-entity/</loc>
+        <loc>http://staxmanade.github.io/blog/2011/04/using-vsdbcmd-to-deploy-entity/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2011/06/18/git-on-windows-creating-network-shared/
+            http://staxmanade.github.io/blog/2011/06/git-on-windows-creating-network-shared/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2011/07/14/statlight-14-and-almost-15/</loc>
+        <loc>http://staxmanade.github.io/blog/2011/07/statlight-14-and-almost-15/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2011/07/16/slightly-modified-cd-command-for/</loc>
+        <loc>http://staxmanade.github.io/blog/2011/07/slightly-modified-cd-command-for/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2011/08/31/powershell-text-to-speech-and-fun-with/
+            http://staxmanade.github.io/blog/2011/08/powershell-text-to-speech-and-fun-with/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2011/09/27/whats-happening-on-nuget-feed/</loc>
+        <loc>http://staxmanade.github.io/blog/2011/09/whats-happening-on-nuget-feed/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2011/10/05/chocolatey-free-and-open-source-windows/
+            http://staxmanade.github.io/blog/2011/10/chocolatey-free-and-open-source-windows/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2011/10/22/excited-to-announce-my-new-career/</loc>
+        <loc>http://staxmanade.github.io/blog/2011/10/excited-to-announce-my-new-career/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2011/12/31/statlight-v16-is-out/</loc>
+        <loc>http://staxmanade.github.io/blog/2011/12/statlight-v16-is-out/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2012/01/06/you-are-responsible-for-making-that/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2012/01/you-are-responsible-for-making-that/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2012/01/22/nuget-project-uncovered-introduction-to/
+            http://staxmanade.github.io/blog/2012/01/nuget-project-uncovered-introduction-to/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/01/23/nuget-project-uncovered-pinecone/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/01/nuget-project-uncovered-pinecone/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/01/24/nuget-project-uncovered-xizzle/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/01/nuget-project-uncovered-xizzle/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/01/25/nuget-project-uncovered-nfeature/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/01/nuget-project-uncovered-nfeature/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/01/26/nuget-project-uncovered-anna/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/01/nuget-project-uncovered-anna/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/01/27/nuget-project-uncovered-stimpack/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/01/nuget-project-uncovered-stimpack/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/01/28/nuget-project-uncovered-nspec/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/01/nuget-project-uncovered-nspec/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/01/29/nuget-project-uncovered-guard/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/01/nuget-project-uncovered-guard/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/01/30/nuget-project-uncovered-verifyargs/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/01/nuget-project-uncovered-verifyargs/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2012/01/31/nuget-project-uncovered-enum-metadata/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2012/01/nuget-project-uncovered-enum-metadata/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/02/01/nuget-project-uncovered-chronic/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-chronic/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/02/02/nuget-project-uncovered-burro/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-burro/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/02/03/nuget-project-uncovered-intx/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-intx/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2012/02/05/nuget-project-uncovered-dynamicxaml/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-dynamicxaml/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/02/06/nuget-project-uncovered-deleporter/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-deleporter/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2012/02/07/nuget-project-uncovered-northwinddb/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-northwinddb/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/02/08/nuget-project-uncovered-aboditnlp/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-aboditnlp/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2012/02/09/nuget-project-uncovered-studioshell/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-studioshell/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/02/10/nuget-project-uncovered-nukito/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-nukito/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2012/02/11/nuget-project-uncovered-disruptor-net/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-disruptor-net/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/02/12/nuget-project-uncovered-specsfor/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-specsfor/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2012/02/13/nuget-project-uncovered-naturalspec/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-naturalspec/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/02/14/nuget-project-uncovered-fakeo/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-fakeo/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/02/15/nuget-project-uncovered-fastmember/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-fastmember/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2012/02/16/nuget-project-uncovered-jsvalidator/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-jsvalidator/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/02/17/nuget-project-uncovered/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/02/18/nuget-project-uncovered_18/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered_18/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/02/19/nuget-project-uncovered-nancy/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-nancy/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/02/20/nuget-project-uncovered-dumptotext/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered-dumptotext/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/02/21/nuget-project-uncovered_21/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered_21/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/02/22/nuget-project-uncovered_22/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/02/nuget-project-uncovered_22/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2012/10/19/tfs-bisect-manual-way-when-was-that-bug/
+            http://staxmanade.github.io/blog/2012/10/tfs-bisect-manual-way-when-was-that-bug/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2012/10/25/powershell-presentation-at-northern/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2012/10/powershell-presentation-at-northern/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2012/11/01/more-than-slightly-modified-cd-command/
+            http://staxmanade.github.io/blog/2012/11/more-than-slightly-modified-cd-command/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2012/12/06/easily-set-visual-studio-keyboard/</loc>
+        <loc>http://staxmanade.github.io/blog/2012/12/easily-set-visual-studio-keyboard/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2013/01/22/testacular-cannot-find-chrome-on-windows/
+            http://staxmanade.github.io/blog/2013/01/testacular-cannot-find-chrome-on-windows/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2013/02/12/it-markdown-no-powershell-wait-its/</loc>
+        <loc>http://staxmanade.github.io/blog/2013/02/it-markdown-no-powershell-wait-its/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2013/02/23/how-do-i-undo-bad-rebase-in-git/</loc>
+        <loc>http://staxmanade.github.io/blog/2013/02/how-do-i-undo-bad-rebase-in-git/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2013/02/24/definitelytyped-typescript-definitions/
+            http://staxmanade.github.io/blog/2013/02/definitelytyped-typescript-definitions/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2013/03/07/windows-8-hackathon-good-for/</loc>
+        <loc>http://staxmanade.github.io/blog/2013/03/windows-8-hackathon-good-for/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2013/03/12/windows-8-share-charm-data-inspector/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2013/03/windows-8-share-charm-data-inspector/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2013/03/19/richeditbox-gives-unauthorizedaccessexc/
+            http://staxmanade.github.io/blog/2013/03/richeditbox-gives-unauthorizedaccessexc/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2013/05/09/developer-humor/</loc>
+        <loc>http://staxmanade.github.io/blog/2013/05/developer-humor/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2013/06/20/authentication-error-connecting-to-git/
+            http://staxmanade.github.io/blog/2013/06/authentication-error-connecting-to-git/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2013/08/31/typescript-presentation-at-northern/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2013/08/typescript-presentation-at-northern/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2013/10/31/introducing-totypescriptd-automatic/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2013/10/introducing-totypescriptd-automatic/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2013/11/29/convert-existing-winjs-app-to-use/</loc>
+        <loc>http://staxmanade.github.io/blog/2013/11/convert-existing-winjs-app-to-use/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://staxmanade.github.io/blog/2013/12/05/leave-yourself-breadcrumb-for-tomorrow/
+            http://staxmanade.github.io/blog/2013/12/leave-yourself-breadcrumb-for-tomorrow/
         </loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>http://staxmanade.github.io/blog/2013/12/18/format-your-net-exceptions-to-see/</loc>
+        <loc>http://staxmanade.github.io/blog/2013/12/format-your-net-exceptions-to-see/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2014/02/17/segregate-your-code-commits-into-tiny/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2014/02/segregate-your-code-commits-into-tiny/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2014/03/01/rake-psake-grunt-gulp-jake-make-cake/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2014/03/rake-psake-grunt-gulp-jake-make-cake/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://staxmanade.github.io/blog/2014/03/15/infinite-scrolling-uicollectionview/
-        </loc>
+        <loc>http://staxmanade.github.io/blog/2014/03/infinite-scrolling-uicollectionview/</loc>
         <lastmod>2014-04-01T21:15:52-07:00</lastmod>
     </url>
     <url>

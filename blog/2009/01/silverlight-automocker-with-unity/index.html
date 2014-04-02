@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Silverlight AutoMocker With Unity Container and Moq - Developing on Staxmanade</title>
+  <meta name="author" content="Jason Jarrett">
+
+  
+  <meta name="description" content="A couple weeks back I threw out a Teaser about a Silverlight AutoMocker&#8230; Here&#8217;s the follow up I promised. UPDATE: Moq 3.0 released with &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://staxmanade.github.io/blog/2009/01/silverlight-automocker-with-unity">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Developing on Staxmanade" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1017448-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Developing on Staxmanade</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:staxmanade.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Silverlight AutoMocker With Unity Container and Moq</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-23T23:14:00-08:00" pubdate data-updated="true">Jan 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<p>A couple weeks back I threw out a <a href="http://staxmanade.blogspot.com/2009/01/silverlight-moq-automocker-teaser.html" target="_blank">Teaser about a Silverlight AutoMocker</a>&#8230; Here&#8217;s the follow up I promised.</p>  <p><strong><u> UPDATE: Moq 3.0 released with full Silverlight support </u></strong><a href="http://moq.me/get"><strong><u>http://moq.me/get </u></strong></a></p>  <p>I&#8217;ve been working on this off and on for a while now, and finally decided to sit down and finalize (at least this version) of both Moq for Silverlight and an AutoMocking container backed by the <a href="http://codeplex.com/Unity" target="_blank">Unity IoC</a> from Microsoft.</p>  <p>This isn&#8217;t by any means &quot;Official&quot;, but probably not far from what will be coming out when it&#8217;s done&#8230; </p>  <p>Below are the necessary steps (I can come up with) to get an official version of Moq.</p>  <ol>   <li>We need an &quot;Official&quot; build of the Castle.DynamicProxy2 dependency      <ol>       <li>Create NAnt build scripts (Jonathon Rossi said he&#8217;d try to work on it this weekend 1/23) Thank God! It tried porting the NAnt build to Silverlight and each of the 3 times I got so lost I gave up&#8230; :( </li>        <li>Fix the Castle.Core-Silverlight build (some changes have occurred to the main without being pushed to the Silverlight Version) </li>        <li>Create an official binaries of          <ol>           <li>Castle.Core </li>            <li>Castle.DynamicProxy </li>         </ol>       </li>     </ol>   </li>    <li>Port Moq to Silverlight      <ol>       <li>I supplied a patch to Daniel a while ago, but he said he wouldn&#8217;t include it until #1 above. </li>     </ol>   </li> </ol>  <p>But until the official versions become available, here are what I have so far!!!</p>  <p><strong>UPDATE</strong>: oops, realized I posted the files below as .7z. You can download and install the free open source zip utility here <a href="http://www.7-zip.org/">http://www.7-zip.org/</a></p>  <p>&#160;</p>  <p>This contains the Moq, Moq-Contrib (w/unity AutoMocker) source    <br /><iframe style="border-right: #dde5e9 1px solid; padding-right: 0px; border-top: #dde5e9 1px solid; padding-left: 0px; padding-bottom: 0px; margin: 3px; border-left: #dde5e9 1px solid; width: 240px; padding-top: 0px; border-bottom: #dde5e9 1px solid; height: 66px; background-color: #ffffff" marginwidth="0" marginheight="0" src="http://cid-c0f357e4555270e7.skydrive.live.com/embedrowdetail.aspx/Public/src-MoqAndMoqContribForSilverlight.7z" frameborder="0" scrolling="no"></iframe></p>  <p>This contains all the binaries you need to run Moq&#8230;    <br /><iframe style="border-right: #dde5e9 1px solid; padding-right: 0px; border-top: #dde5e9 1px solid; padding-left: 0px; padding-bottom: 0px; margin: 3px; border-left: #dde5e9 1px solid; width: 240px; padding-top: 0px; border-bottom: #dde5e9 1px solid; height: 66px; background-color: #ffffff" marginwidth="0" marginheight="0" src="http://cid-c0f357e4555270e7.skydrive.live.com/embedrowdetail.aspx/Public/bin-MoqAndMoqContribForSilverlight.7z" frameborder="0" scrolling="no"></iframe></p>  <p>&#160;</p>  <p>Please keep in mind I&#8217;m by no means an IoC pro and the whole AutoMocker was a one afternoon attempt at throwing one together that I could use in Silverlight. It&#8217;s very basic, but seems to support most of what I need for now.</p>  <p>Could an AutoMocking container backed by Moq and Unity be a project that the community needs?</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Jason.Jarrett</div>
+<div class='content'>
+@Mark<br /><br />I&#39;ve been disconnected from the castle dynamic proxy for quite a while. (Last I knew Mr. Rossi was going to get it into the build process) If that&#39;s true, building from src would be your best bet. If it&#39;s not possible through the NAnt script, then, the way I originally did it, was opening up the Silverlight project in VS and building that way&#8230; (I think you have to run the NAnt build at least once for it to setup the AssemblyInfo.cs stuff before you try to vs build)<br /><br />Hope this helps. (sorry I don&#39;t have more info than this)</div>
+</div>
+<div class='comment'>
+<div class='author'>Mark</div>
+<div class='content'>
+Re: the error with generic constraints - I created a test for this and it is fixed on the main build see here: http://support.castleproject.org/projects/DYNPROXY/issues/view/DYNPROXY-ISSUE-92<br /><br />I&#39;m not sure how to get this into a silverlight version - there doesn&#39;t seem to be a Silverlight build. Can you help?<br /><br />Thanks<br /><br />Mark</div>
+</div>
+<div class='comment'>
+<div class='author'>Jason.Jarrett</div>
+<div class='content'>
+Any chance you could send an example test?</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Hi Jason, <BR/>This is really cool&#8230;thanks!<BR/><BR/>I thought you might want to know about an error I received. When mocking an interface containing generic parameter constraints, I receive the error&#8230; <BR/><BR/>System.BadImageFormatException: An attempt was made to load a program with an incorrect format.<BR/><BR/>&#8230;when running the test. <BR/><BR/>Thanks!</div>
+</div>
+<div class='comment'>
+<div class='author'>Jason.Jarrett</div>
+<div class='content'>
+@Adam - There&#8217;s two things you can do.<BR/><BR/>1. Moq-contrib at google code already has an AutoMocker that uses the AutoFac IoC.<BR/><BR/>or<BR/><BR/>2. Take my source, recompile the AutoMocker in .net (make sure to get the correct full-framework dependencies)<BR/><BR/>Hope that helps&#8230;</div>
+</div>
+<div class='comment'>
+<div class='author'>Adam</div>
+<div class='content'>
+I would really like an Automocker for the *WPF* side of things.</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jason Jarrett</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-23T23:14:00-08:00" pubdate data-updated="true">Jan 23<span>rd</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/silverlight/'>Silverlight</a>, <a class='category' href='/blog/categories/testing/'>Testing</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://staxmanade.github.io/blog/2009/01/silverlight-automocker-with-unity/" data-via="staxmanade" data-counturl="http://staxmanade.github.io/blog/2009/01/silverlight-automocker-with-unity/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/01/silverlight-moq-automocker-teaser/" title="Previous Post: Silverlight Moq AutoMocker Teaser...">&laquo; Silverlight Moq AutoMocker Teaser...</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/02/fluent-specification-extensions/" title="Next Post: Fluent Specification Extensions">Fluent Specification Extensions &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/rake-psake-grunt-gulp-jake-make-cake/">Rake, Psake, Grunt, Gulp, Jake, Make, Cake, Brunch, Ant, Bash, Maven, or Fabric. As Long as You putOnAHelmet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/segregate-your-code-commits-into-tiny/">Segregate Your Code Commits Into Tiny Topical Changes.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/format-your-net-exceptions-to-see/">Format Your .Net Exceptions to See the StackTrace.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/leave-yourself-breadcrumb-for-tomorrow/">Leave Yourself a Breadcrumb for Tomorrow.</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/staxmanade">@staxmanade</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'staxmanade',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+<section class="twitter">
+	<a class="twitter-timeline" href="https://twitter.com/staxmanade" data-widget-id="451218682652286976">Tweets by @staxmanade</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Jason Jarrett -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

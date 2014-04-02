@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Slightly Modified “CD” Command for Powershell - Developing on Staxmanade</title>
+  <meta name="author" content="Jason Jarrett">
+
+  
+  <meta name="description" content="BackgroundIn my previous job, I spent all my development time in a Linux environment. Was rather impressed at how much could get done at the command &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://staxmanade.github.io/blog/2011/07/slightly-modified-cd-command-for">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Developing on Staxmanade" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1017448-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Developing on Staxmanade</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:staxmanade.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Slightly Modified “CD” Command for Powershell</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-16T19:33:00-07:00" pubdate data-updated="true">Jul 16<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<h3>Background</h3>In my previous job, I spent all my development time in a Linux environment. Was rather impressed at how much could get done at the command line, and how efficient some of those tasks became. My next job was based on Windows and mostly the Microsoft stack of development tools. This&nbsp; meant I pretty much left the command line behind. That was, until, I started using git. And since I wanted to learn PowerShell, I used PowerShell to execute my git commands.<br />One thing that has bugged me for a while is simply moving between directories. Even with tab completion, all that typing is a still quite annoying. Especially if you jump between a set of similar directories. One feature from the Linux CD command that I missed was “CD -&#8220;. This command in Linux can be used to jump to the previous directory (and then back again). One limitation of this command is it only could jump back to the previous directory, and it did not retain a memory of recent directories. <em>There may be something better in Linux that I don’t know of, but I’m basing this on a limited experience a number of years ago.</em><br />So I threw a question out on twitter.    <br /><a href="http://lh3.ggpht.com/-Ucrl4yvnrIk/TiJJ_Nnk3eI/AAAAAAAAAQI/k5Mm8x_Twhs/s1600-h/image_thumb63.png"><img alt="image_thumb6" border="0" height="97" src="http://lh5.ggpht.com/-iijA6mLrgEU/TiJJ_Xbp0hI/AAAAAAAAAQM/lHv0bksIGys/image_thumb6_thumb.png?imgmax=800" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image_thumb6" width="318" /></a>     <br />After several tweets back and forth, @cwprogram threw an interesting spike at me.<br /><a href="http://lh5.ggpht.com/-ilEGIJk7VRI/TiJJ_kt8a-I/AAAAAAAAAQQ/XJ0iAJq5384/s1600-h/image_thumb942.png"><img alt="image_thumb9[4]" border="0" height="97" src="http://lh4.ggpht.com/-T4MVc7vKolw/TiJKACBtvyI/AAAAAAAAAQU/Pn71WMECKcQ/image_thumb94_thumb.png?imgmax=800" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image_thumb9[4]" width="312" /></a>&nbsp; <a href="http://pastebin.com/xwtkn0am">http://pastebin.com/xwtkn0am</a>     <br />Although this wasn’t exactly what I was looking for, it contained enough of what I needed to spark my curiosity to write a version of my own.<br />And so a little script was born that I’m now using to replace the “CD” command in my PowerShell runtime.<br /><h3>What does this do?</h3>After you get it installed (see install steps below), when you type “CD” with no parameters at the command prompt. It will list up to 10 of the most recent distinct paths you’ve been to recently. This list also gives an index lookup number that you can use as a shortcut to jump to that path.<br />Example:<br /><blockquote><span style="font-family: Courier New;">C:\code&gt; cd        <br />&nbsp;&nbsp;&nbsp;&nbsp; 1) C:\Users\jasonj         <br />&nbsp;&nbsp;&nbsp;&nbsp; 2) D:\temp         <br />C:\code&gt; cd 2         <br />D:\temp&gt;</span></blockquote>You can continue to use the “CD” command to do your usual changing directories. Now you can quickly get a history of where you’ve been, and quickly jump to any of those previous histories without typing the entire paths again.<br />It defaults to only showing you the last 10 distinct items, but if you find yourself needing to go back farther than that, you can use the following command to list more than 10 items.<br /><blockquote>D:\temp&gt; cd -ShowCount 100</blockquote><h3>How to Install</h3><ol><li>Download the file and save it to a location you can reference later.      <br /><a href="https://github.com/staxmanade/DevMachineSetup/blob/master/GlobalScripts/Change-Directory.ps1">https://github.com/staxmanade/DevMachineSetup/blob/master/GlobalScripts/Change-Directory.ps1</a> </li><li>Open your $PROFILE (<a href="http://www.howtogeek.com/50236/customizing-your-powershell-profile/">What is that?</a>) </li><li>Type the following two commands into your profile to replace the existing “CD” command with the new one.      <br />      <br /><span style="font-family: Courier New;">Remove-Item alias:cd        <br />Set-Alias cd {Your_Saved_Directory}\Change-Directory.ps1</span>       </li><li>Exit your PowerShell console and start a new one up. </li></ol><br />Happy Commanding!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Jason.Jarrett</div>
+<div class='content'>
+Thanks for the tip.</div>
+</div>
+<div class='comment'>
+<div class='author'>Bartek Bielawski</div>
+<div class='content'>
+If you want some more *nix features, including cd - you may want to look at pscx.codeplex.com - I made mistake of ignoring what it has to offer and also re-invented cd- in my module. ;) IMO pscx should be added to win build by default. ;)</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jason Jarrett</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-07-16T19:33:00-07:00" pubdate data-updated="true">Jul 16<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/powershell/'>PowerShell</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://staxmanade.github.io/blog/2011/07/slightly-modified-cd-command-for/" data-via="staxmanade" data-counturl="http://staxmanade.github.io/blog/2011/07/slightly-modified-cd-command-for/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/07/statlight-14-and-almost-15/" title="Previous Post: StatLight 1.4 and almost 1.5">&laquo; StatLight 1.4 and almost 1.5</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/08/powershell-text-to-speech-and-fun-with/" title="Next Post: Powershell Text-To-Speech and fun with a 4yr old.">Powershell Text-To-Speech and fun with a 4yr old. &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/rake-psake-grunt-gulp-jake-make-cake/">Rake, Psake, Grunt, Gulp, Jake, Make, Cake, Brunch, Ant, Bash, Maven, or Fabric. As Long as You putOnAHelmet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/segregate-your-code-commits-into-tiny/">Segregate Your Code Commits Into Tiny Topical Changes.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/format-your-net-exceptions-to-see/">Format Your .Net Exceptions to See the StackTrace.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/leave-yourself-breadcrumb-for-tomorrow/">Leave Yourself a Breadcrumb for Tomorrow.</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/staxmanade">@staxmanade</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'staxmanade',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+<section class="twitter">
+	<a class="twitter-timeline" href="https://twitter.com/staxmanade" data-widget-id="451218682652286976">Tweets by @staxmanade</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Jason Jarrett -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
