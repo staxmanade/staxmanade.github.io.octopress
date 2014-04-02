@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Segregate Your Code Commits Into Tiny Topical Changes. - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="If your not using source control for your coding projects, get off my lawn. :P (#JustHadToSayIt)Now that I&#8217;m only reaching people who use &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://staxmanade.github.io/blog/2014/02/17/segregate-your-code-commits-into-tiny">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:staxmanade.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Segregate Your Code Commits Into Tiny Topical Changes.</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-17T10:25:00-08:00" pubdate data-updated="true">Feb 17<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<div style="color: #333333; font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px;">If your not using source control for your coding projects, get off my lawn. :P (#JustHadToSayIt)</div><div style="color: #333333; font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px;">Now that I&#8217;m only reaching people who use source control (serious developers), I&#8217;d like to ask that you focus hard to only commit changes that belong to a single topic at a time. Think&nbsp;<a data-mce-href="http://en.wikipedia.org/wiki/Single_responsibility_principle" href="http://en.wikipedia.org/wiki/Single_responsibility_principle" target="_blank">SRP</a>&nbsp;for code commits/check-ins.</div><h4 style="color: #333333; font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px;">What is a topical commit?</h4><div style="color: #333333; font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px;">That almost looks like &#8216;t<strong>r</strong>opical&#8217; and wouldn&#8217;t it be nice to be in a tropical place doing commits to your code, but I digress&#8230;</div><div style="color: #333333; font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px;">The topics I&#8217;m referring to are specific functional units of change where each tiny commit is related to a single topic or theme.</div><div style="color: #333333; font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px;">For example:</div><ul style="color: #333333; font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px;"><li>adding feature X</li><li>refactoring</li><li>bug fix</li><li>spelling fix</li><li>Updating comments/documentation</li><li><strong>*** code formatting ***</strong></li></ul><div style="color: #333333; font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px;">I highlighted that last one for a reason as it&#8217;s the impetus for writing this post.</div><h3 style="color: #333333; font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; line-height: 19px;">Don&#8217;t mix topics/themes within a single commit!</h3><div style="color: #333333; font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px;">Instead break them into multiple commits. If you&#8217;re using git, checkout &#8217;<a data-mce-href="http://johnkary.net/blog/git-add-p-the-most-powerful-git-feature-youre-not-using-yet/" href="http://johnkary.net/blog/git-add-p-the-most-powerful-git-feature-youre-not-using-yet/" target="_blank">git add -p</a>&#8217;</div><div style="color: #333333; font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px;">If you have a one line bug fix but the file has 20 lines of code formatting changes (you know who you are). It makes determining what the bug fix is nearly impossible from the changes that are code formatting.</div><div style="color: #333333; font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px;">Using tools like git bisect to look at history become difficult. Pull Requests in GitHub become difficult to understand. If you&#8217;ve left a codebase for a while and come back, try reading changes that have happened over time to get caught up can be extremely difficult to do if your commits are not topically based.</div><div style="color: #333333; font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px;">Let&#8217;s just NOT mix topics in our commits, ok?</div><div style="color: #333333; font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px;">K, THX bye!</div><div style="color: #333333; font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 13px; line-height: 19px;">Happy Coding!</div></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Jay Bazuzi</div>
+<div class='content'>
+I also split each refactoring out in to a separate commit, and tag the description with &quot;REFACTOR: &quot;. When things go well, I take tiny, safe refactoring steps, commit each one separately, until the feature I&#39;m trying to write is easye to implement. My commit history then looks like this:<br /><br />    REFACTOR: Extract Method `X.Y()`<br />    REFACTOR: Rename `A` -&gt; `B`<br />    Implement feature &quot;Foo&quot;<br /><br />If you are looking for a specific deliberate behavior change, you can scan the history and look at only the non-REFACTOR commits. That commit is small and clear, because I have refactored ahead of time. <br /><br />If you ever see a behavior change under a REFACTOR tag, you know it was not deliberate - that I screwed up.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jay Bazuzi</div>
+<div class='content'>
+I&#39;ve tried to work this way for a long time, but wasn&#39;t ever able to articulate it as well as you have.<br /><br />Just 2 days ago I told a coworker to commit his change in two parts, and he looked at me blankly and asked &quot;Why?&quot;. I said &quot;Single-Responsibility Principle&quot; and got more blank. *sigh* </div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-17T10:25:00-08:00" pubdate data-updated="true">Feb 17<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/git/'>Git</a>, <a class='category' href='/blog/categories/source-control/'>Source Control</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://staxmanade.github.io/blog/2014/02/17/segregate-your-code-commits-into-tiny/" data-via="" data-counturl="http://staxmanade.github.io/blog/2014/02/17/segregate-your-code-commits-into-tiny/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/12/18/format-your-net-exceptions-to-see/" title="Previous Post: Format your .Net exceptions to see the StackTrace.">&laquo; Format your .Net exceptions to see the StackTrace.</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/03/01/rake-psake-grunt-gulp-jake-make-cake/" title="Next Post: rake, psake, grunt, gulp, jake, make, cake, brunch, ant, bash, maven, or fabric. as long as you putOnAHelmet">rake, psake, grunt, gulp, jake, make, cake, brunch, ant, bash, maven, or fabric. as long as you putOnAHelmet &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/15/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/01/rake-psake-grunt-gulp-jake-make-cake/">Rake, Psake, Grunt, Gulp, Jake, Make, Cake, Brunch, Ant, Bash, Maven, or Fabric. As Long as You putOnAHelmet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/17/segregate-your-code-commits-into-tiny/">Segregate Your Code Commits Into Tiny Topical Changes.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/18/format-your-net-exceptions-to-see/">Format Your .Net Exceptions to See the StackTrace.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/05/leave-yourself-breadcrumb-for-tomorrow/">Leave Yourself a Breadcrumb for Tomorrow.</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

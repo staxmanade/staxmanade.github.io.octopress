@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>How Can C# Variable Have an @ Sign in Front of It? - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="I remember a year ago I noticed in some code a coworker put together had a variable with an @ sign in front of it. At first I was baffled that it &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://staxmanade.github.io/blog/2008/09/13/how-can-c-variable-have-sign-in-front">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:staxmanade.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">How Can C# Variable Have an @ Sign in Front of It?</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-13T21:26:00-07:00" pubdate data-updated="true">Sep 13<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+I remember a year ago I noticed in some code a coworker put together had a variable with an @ sign in front of it. At first I was baffled that it even compiled. I asked my c-worker about it and he said he had no clue as to why it was there and what it was for&#8230; so then I spent some time googling and couldn&#8217;t find anything on the net describing this and why it compiled.<br /><br />basically what I&#8217;m talking about is if you have some code<br /><br />private void MyMethod(string myparam)<br />{<br />   int a = @myparam.Length;<br />}<br /><br />Notice the @ sign in front of the myparam variable&#8230; That is what I saw in my co-workers code and I couldn&#8217;t explain how that worked&#8230;<br /><br />now, nearly a year later I was perusing through the SLUnity framework on codeplex [<a href="http://www.codeplex.com/unitycontributions">http://www.codeplex.com/unitycontributions</a>] and saw the @ sign again&#8230;<br /><br /><br />public void UnregisterSubscriber(string publishedEventName, EventHandler subscriber)<br />{<br />   PublishedEvent @event = GetEvent(publishedEventName);<br />   @event.RemoveSubscriber(subscriber);<br />   RemoveDeadEvents();<br />}<br /><br />I did some more googling and still can&#8217;t find anything, (I&#8217;m sure it&#8217;s out there, just can&#8217;t put together the right search criteria)&#8230;<br /><br />Then I went back to the code, looked at it for a minute, and it dawned on me that &#8220;event&#8221; is a keyword in c#&#8230; Then I thought, maybe this is what you can do to use a C# keyword in another context than the desired reason to have the keyword.<br /><br />So I wrote a little test to see if this hypothesis was correct.<br /><br />private static void MyMethod(string class)<br />{<br />   int a = class.Length;<br />}<br /><br />this won&#8217;t compile because of the &#8220;class&#8221; keyword&#8230;<br /><br />then I put the @ sign in front of class<br /><br />private static void MyMethod(string @class)<br />{<br />   int a = @class.Length;<br />}<br /><br />and it not only compiled, but you also get intellasense on the variable&#8230;<br /><br />How cool&#8230;<br /><br />I&#8217;m not sure I would do that on a regular basis, seems like it might be  a bit of a pain to write&#8230; However maybe framework code may need to have this to allow it to be more readable to it&#8217;s consumers? Anyone know why on this?</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+nice one :), had me fooled for a bit too when I found a variable named @@delegate</div>
+</div>
+<div class='comment'>
+<div class='author'>Justin Chase</div>
+<div class='content'>
+That is exactly what it is for, so you can use reserved words for variable names. You&#8217;ll see this in some of the .NET framework even, with method parameters named @object in some places. I suspect it was added to C# specifically to be compatible with libraries written in other languages so that when it generates methods for you and uses the defined parameter name it won&#8217;t have a compile error if it happens to be a C# keyword.</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-13T21:26:00-07:00" pubdate data-updated="true">Sep 13<span>th</span>, 2008</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://staxmanade.github.io/blog/2008/09/13/how-can-c-variable-have-sign-in-front/" data-via="" data-counturl="http://staxmanade.github.io/blog/2008/09/13/how-can-c-variable-have-sign-in-front/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/09/13/wcf-service-proxy-inside-silverlight/" title="Previous Post: WCF Service Proxy inside Silverlight with a generic type">&laquo; WCF Service Proxy inside Silverlight with a generic type</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/10/01/unbound-tfs-project-how-do-i-get/" title="Next Post: unbound TFS project - how do I get the offline changes checked in?">unbound TFS project - how do I get the offline changes checked in? &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/15/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/01/rake-psake-grunt-gulp-jake-make-cake/">Rake, Psake, Grunt, Gulp, Jake, Make, Cake, Brunch, Ant, Bash, Maven, or Fabric. As Long as You putOnAHelmet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/17/segregate-your-code-commits-into-tiny/">Segregate Your Code Commits Into Tiny Topical Changes.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/18/format-your-net-exceptions-to-see/">Format Your .Net Exceptions to See the StackTrace.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/05/leave-yourself-breadcrumb-for-tomorrow/">Leave Yourself a Breadcrumb for Tomorrow.</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

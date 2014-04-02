@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>You Are Responsible for Making That Feature Work. Write a Test. Just Do It… - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Today the PM of a project I am working on sent an email with a small list of issues that we needed to get resolved before shipping an early build to &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://staxmanade.github.io/blog/2012/01/06/you-are-responsible-for-making-that">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:staxmanade.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">You Are Responsible for Making That Feature Work. Write a Test. Just Do It…</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-06T21:59:00-08:00" pubdate data-updated="true">Jan 6<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<p>Today the <a href="http://en.wikipedia.org/wiki/Project_manager">PM</a> of a project I am working on sent an email with a small list of issues that we needed to get resolved before shipping an early build to the customer for a weekly review. In his list of issues MY NAME was tagged next to a feature that I KNOW was working. I dev’d it, tested, saw it work.</p>  <p>Now the project I’m working on encourages unit tested code, which is a fantastic project to be on since I am a big proponent of Unit/Integration/Automated tests. Heck I wrote a tool to help run them easier (<a href="http://statlight.codeplex.com/">StatLight</a>).</p>  <h4>What I did.</h4>  <p>The problem was this. I dev’d a feature out in like 5 minutes, took about 2 seconds to decide if I should write a unit test to prove my feature worked and <b>this</b><b><i> </i></b><b>is where I failed</b>. Manually verified my change checked in the production code without its test and I was hurriedly moved on to the next task.</p>  <p>About 20 min later I get a quick <a href="http://en.wikipedia.org/wiki/Instant_messaging">I.M.</a> from a co-worker saying he had a small merge conflict in the file I just checked-in. Quickly told him how to get around his merge issue (not realizing after he checked in) that my “quick 5min dev task” was accidently removed in the merge.</p>  <h4>What I SHOULD have done!</h4>  <p>What I<b> should </b>have done was write the <strong>2 lines of test code first</strong>. <i>(you can argue test after/test first, I prefer test-first)</i>. Proven my code wasn’t working, by running the test, and then implement the 5 min feature making the test pass. Then when my co-worker ran into his merge issue.</p>  <p><img src="http://boldandfab.files.wordpress.com/2010/11/pow.jpg" width="179" height="126" /></p>  <p>Test would have failed telling him his merge didn’t go as planned.</p>  <h4>This would have also avoided</h4>  <ul>   <li>PM wouldn’t have had to discover the issue, Screenshot and write up an email. </li>    <li>I wouldn’t have had to peruse source control history to understand why my “working” feature wasn’t working. </li>    <li>I wouldn’t have had to willingly confess my sins in this post.</li> </ul>  <p>If your feature doesn’t have a coinciding automated test. How do you know it’s still working?</p>  <p>Happy Testing!</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>rcecil</div>
+<div class='content'>
+Love it!</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-06T21:59:00-08:00" pubdate data-updated="true">Jan 6<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/testing/'>Testing</a>, <a class='category' href='/blog/categories/unit-tests/'>Unit Tests</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://staxmanade.github.io/blog/2012/01/06/you-are-responsible-for-making-that/" data-via="" data-counturl="http://staxmanade.github.io/blog/2012/01/06/you-are-responsible-for-making-that/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/12/31/statlight-v16-is-out/" title="Previous Post: StatLight v1.6 is Out">&laquo; StatLight v1.6 is Out</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/01/22/nuget-project-uncovered-introduction-to/" title="Next Post: NuGet Project Uncovered: An Introduction to the Series">NuGet Project Uncovered: An Introduction to the Series &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/15/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/01/rake-psake-grunt-gulp-jake-make-cake/">Rake, Psake, Grunt, Gulp, Jake, Make, Cake, Brunch, Ant, Bash, Maven, or Fabric. As Long as You putOnAHelmet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/17/segregate-your-code-commits-into-tiny/">Segregate Your Code Commits Into Tiny Topical Changes.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/18/format-your-net-exceptions-to-see/">Format Your .Net Exceptions to See the StackTrace.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/05/leave-yourself-breadcrumb-for-tomorrow/">Leave Yourself a Breadcrumb for Tomorrow.</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
