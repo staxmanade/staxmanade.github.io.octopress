@@ -1,0 +1,25 @@
+---
+layout: post
+title: "Silverlight Moq AutoMocker Teaser..."
+date: 2009-01-04T18:12:00-08:00
+comments: false
+categories:
+ - Testing
+ - Silverlight
+---
+
+<div class='post'>
+<p>Although we don't have an official Moq for Silverlight yet. You can go to the email list and pull the <a href="http://groups.google.com/group/moqdisc/browse_thread/thread/957e056bd3458fb1" target="_blank">patch I submitted</a> to get an early version up and running.</p>  <p>I have, in the queue of blog posts, a Silverlight AutoMocker leveraging the new <a href="http://msdn.microsoft.com/en-us/library/dd362339.aspx" target="_blank">Microsoft Unity container for Silverlight</a>.</p>  <p>I'll wait till we get a full Silverlight version of Moq before posting.</p>  <p>&#160;</p>  <p>P.S.</p>  <p>The existing Moq automocker for the full .NET framework, over at <a href="http://code.google.com/p/moq-contrib/wiki/Automocking" target="_blank">Moq-contrib</a>, is leveraging the <a href="http://code.google.com/p/autofac/" target="_blank">Autofac</a> contianer, and when I threw my Silverlight version together Autofac hadn't been ported (yet), however just <a href="http://blogs.msdn.com/nblumhardt/archive/2009/01/04/ioc-on-silverlight.aspx" target="_blank">read a blog today</a> that said it has an early port available.</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Jason.Jarrett</div>
+<div class='content'>
+Not sure what you mean bout the "trick"... Mocking just works in Silverlight with Moq. There is one unit test that fails in the Silverlight version when trying to mock the System.Stream class. I didn't dig too far into the specific failure, however I'm sure there are lots of things out there that you won't be allowed to mock because of the security restrictions...</div>
+</div>
+<div class='comment'>
+<div class='author'>Justin Chase</div>
+<div class='content'>
+In a nutshell, what's the trick to mocking with the given security constraints (on reflection) in Silverlight?</div>
+</div>
+</div>

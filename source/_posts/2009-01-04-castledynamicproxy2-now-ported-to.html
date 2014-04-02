@@ -1,0 +1,24 @@
+---
+layout: post
+title: "Castle.DynamicProxy2 now ported to Silverlight!!!"
+date: 2009-01-04T18:02:00-08:00
+comments: false
+categories:
+ - Silverlight
+---
+
+<div class='post'>
+<p>I know what you're thinking (or at least what I was thinking before I knew better). What is the Castle.DynamicProxy and who cares it was ported to Silverlight?</p>  <p>To be honest I didn't know it existed until I tried to find a mocking framework for doing Silverlight unit testing. Then I found <a href="http://code.google.com/p/moq/issues/detail?id=73" target="_blank">this thread</a> over on the <a href="http://code.google.com/p/moq/" target="_blank">Moq</a> mocking framework's home site which talked about needing to get the Castle.DynamicProxy ported before Moq could be ported to Silverlight.</p>  <p>Turns out, the DynamicProxy is one of the core dependencies of the two major open source mocking frameworks out there. <em>(Moq, and Rhino Mocks)...</em><em>(I'm sure there's others out there, but for now I only care about Moq because it's what we use at work)</em></p>  <p>After sitting around for about three months since I first read the thread and not hearing any word about the DynamicProxy being ported, I thought I'd take a stab.</p>  <p>Joined the castle devl email group, threw a ping about the port and I was off...after a couple weeks several late nights, and a few patch submittal turn-backs by hammett I finally got the patch in a place he liked and he applied it on Jan 3 2009.</p>  <p>What a great feeling of relief, this was a big step forward to getting full mocking support in Silverlight.</p>  <p>There is still one pending thing with the DynamicProxy &amp; all Castle.Silverlight projects to date...we need to integrate the build and testing into their NAnt builds. Once that's done and a binary release is out, Moq port to Silverlight...here I come. </p>  <p>p.s. I already have a patch for Moq, but <a href="http://code.google.com/u/kzu.net/" target="_blank">Daniel</a> said he won't apply it till he can get the &quot;official&quot; binaries, which is fine. I would probably do the same if I were overseeing a decent sized open source project like Moq.</p>  <p>Soon enough...we'll have Silverlight mocking...</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>timvw</div>
+<div class='content'>
+Great job ;)</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+This is very good news. Thanks for the work.</div>
+</div>
+</div>
