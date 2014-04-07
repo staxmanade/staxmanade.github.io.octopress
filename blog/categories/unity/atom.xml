@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Unity | Developing on Staxmanade]]></title>
   <link href="http://staxmanade.github.io/blog/categories/unity/atom.xml" rel="self"/>
   <link href="http://staxmanade.github.io/"/>
-  <updated>2014-04-02T08:56:35-07:00</updated>
+  <updated>2014-04-07T00:03:44-07:00</updated>
   <id>http://staxmanade.github.io/</id>
   <author>
     <name><![CDATA[Jason Jarrett]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Silverlight Unity & Moq Backed AutoMocker]]></title>
-    <link href="http://staxmanade.github.io/blog/2009/06/silverlight-unity-moq-backed-automocker/"/>
+    <link href="http://staxmanade.github.io/2009/06/silverlight-unity-moq-backed-automocker/"/>
     <updated>2009-06-19T08:06:00-07:00</updated>
-    <id>http://staxmanade.github.io/blog/2009/06/silverlight-unity-moq-backed-automocker</id>
+    <id>http://staxmanade.github.io/2009/06/silverlight-unity-moq-backed-automocker</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>I’ve pushed the <a href="http://code.google.com/p/moq-contrib/source/detail?r=22">Silverlight Unity/Moq AutoMocker</a> into the <a href="http://code.google.com/p/moq-contrib/">moq-contrib</a> project.</p>  <p>Well the other day I need the automocker and ended up running into a bug that was in my old-old-old pre-release version of <a href="http://code.google.com/p/moq-contrib/">moq for Silverlight</a>, so I took the time to get the released version and re-compile the automocker.</p>  <p>I published it to the <a href="http://code.google.com/p/moq-contrib/">moq-contrib</a> project. Haven’t taken the time to create a binary release, but should be able to get latest build, execute the build.Silverlight.cmd and in the drops\Current-Silverlight should be Moq.Contrib.UnityAutoMocker.Silverlight.dll</p>  <p>Enjoy!</p>  </div>
 

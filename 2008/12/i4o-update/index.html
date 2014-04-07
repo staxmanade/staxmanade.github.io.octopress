@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>I4o: Update (Index for Objects) - Developing on Staxmanade</title>
+  <meta name="author" content="Jason Jarrett">
+
+  
+  <meta name="description" content="Recently I was added as a developer to the i4o codeplex project by Aaron and last night I made my first commit. There were a few pretty big changes &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://staxmanade.github.io/2008/12/i4o-update">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Developing on Staxmanade" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1017448-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Developing on Staxmanade</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:staxmanade.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">I4o: Update (Index for Objects)</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-20T11:10:00-08:00" pubdate data-updated="true">Dec 20<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<p>Recently I was added as a developer to the <a href="http://www.codeplex.com/i4o" target="_blank">i4o codeplex project</a> by <a href="http://blog.magenic.com/blogs/aarone/default.aspx" target="_blank">Aaron</a> and last night I made my first commit.</p>  <p>There were a few pretty big changes to the library. I&#8217;ll highlight some of them below, and in a couple future posts will describe in a little more detail how you can use these features.</p>  <h4>Removed the IndexableAttribute:</h4>  <p>This was removed for two reasons.</p>  <ul>   <li>It did not allow you index objects you didn&#8217;t own. </li> </ul>  <p>Say you want to index a collection of System.IO.FileInfo objects. Since that&#8217;s owned by the .Net framework, you can&#8217;t apply an attribute to the properties of the class you want to index.</p>  <p>The solution to that was to allow adding indexed properties dynamically, however you had to give it a string representing the property name, which leads into the second issue&#8230; </p>  <ul>   <li>Didn&#8217;t provide any compile time checking or refactor support for properties using the dynamic add/remove methods. </li> </ul>  <p>If you refactored a property and forgot to rename the string to match the refactor you would end up with a runtime error.</p>  <p>To resolve the two issues above I&#8217;ve introduced the <strong>IndexSpecification&lt;T&gt;</strong> (I&#8217;ll describe how to use it a later post)</p>  <h4>Performance tuning:</h4>  <p>Although we haven&#8217;t enhanced the Linq support for IndexableCollection (should come soon), I was able to eek some performance by doing some internal caching of property types and a few other tweaks resulting in the Index creation becoming about 30% faster&#8230;</p>  <h4>Fluent interface for managing the Indexes</h4>  <p>The last big change which fits in with the IndexSpecification&lt;T&gt; is the Fluent interface for dynamically adding/removing properties to be indexed. One short example could be:</p>  <p><a href="http://lh6.ggpht.com/_L6Vw0x_R3iw/SU1DKLdou8I/AAAAAAAAAD4/JBUBIgkDNNo/s1600-h/image3.png"><img style="border-width: 0px;" alt="image" src="http://lh5.ggpht.com/_L6Vw0x_R3iw/SU1DKcGWDjI/AAAAAAAAAD8/zU7TUvRY2T0/image_thumb1.png?imgmax=800" width="347" border="0" height="217" /></a></p></div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jason Jarrett</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-20T11:10:00-08:00" pubdate data-updated="true">Dec 20<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/i4o/'>i4o</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://staxmanade.github.io/2008/12/i4o-update/" data-via="staxmanade" data-counturl="http://staxmanade.github.io/2008/12/i4o-update/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2008/12/leverage-live-mesh-to-sync-windows-live/" title="Previous Post: Leverage Live Mesh to sync Windows Live Writer blog drafts between and multiple computers.">&laquo; Leverage Live Mesh to sync Windows Live Writer blog drafts between and multiple computers.</a>
+      
+      
+        <a class="basic-alignment right" href="/2008/12/i4o-indexspecification-for/" title="Next Post: i4o: IndexSpecification<T> for the IndexableCollection<T>">i4o: IndexSpecification<T> for the IndexableCollection<T> &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/03/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/03/rake-psake-grunt-gulp-jake-make-cake/">Rake, Psake, Grunt, Gulp, Jake, Make, Cake, Brunch, Ant, Bash, Maven, or Fabric. As Long as You putOnAHelmet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/02/segregate-your-code-commits-into-tiny/">Segregate Your Code Commits Into Tiny Topical Changes.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/12/format-your-net-exceptions-to-see/">Format Your .Net Exceptions to See the StackTrace.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/12/leave-yourself-breadcrumb-for-tomorrow/">Leave Yourself a Breadcrumb for Tomorrow.</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/staxmanade">@staxmanade</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'staxmanade',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+<section class="twitter">
+	<a class="twitter-timeline" href="https://twitter.com/staxmanade" data-widget-id="451218682652286976">Tweets by @staxmanade</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Jason Jarrett -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -81,7 +81,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2011/06/git-on-windows-creating-network-shared/">Git on Windows: Creating a Network Shared Central Repository.</a></h1>
+      <h1 class="entry-title"><a href="/2011/06/git-on-windows-creating-network-shared/">Git on Windows: Creating a Network Shared Central Repository.</a></h1>
     
     
       <p class="meta">
@@ -131,7 +131,7 @@ Hi Jason, thanks for your post.<br />I&#39;m using this exact setup to deploy ap
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2011/04/using-vsdbcmd-to-deploy-entity/">Using VSDBCMD to Deploy an Entity Framework (EF) CodeFirst (or Any Other) Database to AppHarbor</a></h1>
+      <h1 class="entry-title"><a href="/2011/04/using-vsdbcmd-to-deploy-entity/">Using VSDBCMD to Deploy an Entity Framework (EF) CodeFirst (or Any Other) Database to AppHarbor</a></h1>
     
     
       <p class="meta">
@@ -168,7 +168,7 @@ Hi Jason, thanks for your post.<br />I&#39;m using this exact setup to deploy ap
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2011/04/dynamically-load-embedded-assemblies/">Dynamically Load Embedded Assemblies – Because ILMerge Appeared to Be Out.</a></h1>
+      <h1 class="entry-title"><a href="/2011/04/dynamically-load-embedded-assemblies/">Dynamically Load Embedded Assemblies – Because ILMerge Appeared to Be Out.</a></h1>
     
     
       <p class="meta">
@@ -205,7 +205,7 @@ Hi Jason, thanks for your post.<br />I&#39;m using this exact setup to deploy ap
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2011/01/bookmark-to-inject-firebug-light-into/">Bookmark to Inject FireBug Light Into Internet Explorer.</a></h1>
+      <h1 class="entry-title"><a href="/2011/01/bookmark-to-inject-firebug-light-into/">Bookmark to Inject FireBug Light Into Internet Explorer.</a></h1>
     
     
       <p class="meta">
@@ -242,7 +242,7 @@ Hi Jason, thanks for your post.<br />I&#39;m using this exact setup to deploy ap
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2010/12/statlight-release-v12-v13/">StatLight Release (V1.2 & V1.3)</a></h1>
+      <h1 class="entry-title"><a href="/2010/12/statlight-release-v12-v13/">StatLight Release (V1.2 & V1.3)</a></h1>
     
     
       <p class="meta">
@@ -279,7 +279,7 @@ Hi Jason, thanks for your post.<br />I&#39;m using this exact setup to deploy ap
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2010/12/duplicate-dom-elements-with-same-id/">Duplicate DOM Elements With the Same ID</a></h1>
+      <h1 class="entry-title"><a href="/2010/12/duplicate-dom-elements-with-same-id/">Duplicate DOM Elements With the Same ID</a></h1>
     
     
       <p class="meta">
@@ -316,7 +316,7 @@ Hi Jason, thanks for your post.<br />I&#39;m using this exact setup to deploy ap
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2010/11/powershell-url-checker-check-if-list-of/">PowerShell Url Checker (Check if a List of Url’s Is Valid)</a></h1>
+      <h1 class="entry-title"><a href="/2010/11/powershell-url-checker-check-if-list-of/">PowerShell Url Checker (Check if a List of Url’s Is Valid)</a></h1>
     
     
       <p class="meta">
@@ -353,7 +353,7 @@ Hi Jason, thanks for your post.<br />I&#39;m using this exact setup to deploy ap
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2010/10/odatas-dataservicequery-and-removing/">OData’s DataServiceQuery and Removing the .Expand(“MagicStrings”) –Part II</a></h1>
+      <h1 class="entry-title"><a href="/2010/10/odatas-dataservicequery-and-removing/">OData’s DataServiceQuery and Removing the .Expand(“MagicStrings”) –Part II</a></h1>
     
     
       <p class="meta">
@@ -377,7 +377,7 @@ Hi Jason, thanks for your post.<br />I&#39;m using this exact setup to deploy ap
 
 
   <div class="entry-content"><div class='post'>
-<p>In a <a href="http://staxmanade.blogspot.com/2010/09/odatas-dataservicequery-and-removing.html" target="_blank">previous post</a> I elaborated on the problem of magic strings in <a href="http://www.odata.org/" target="_blank">OData</a> service queries, and gave a quick (but lacking in depth) statically typed helper solution.</p>  <p>A commenter <a href="http://elegantcode.com/2010/09/21/odatas-dataservicequery-and-removing-the-expandmagicstrings/#comment-58997">mynkow</a> left a note stating that my solution would not work with nested objects. I initially replied asking if he could give an example (as I hadn’t run into that scenario yet being a noob to OData). He didn’t get back to me, but it wasn’t long before I ran into the problem he was talking about.</p>  <p>If we go back to <a href="http://www.linqpad.net/">LinqPad</a> and look again at the Netflix OData api. Let’s say we want to pull down the <strong>People</strong>, their related <strong>TitlesDirected</strong> and the TitlesDirected <strong>ScreenFormats</strong>. (No real world scenario there – just made it up because they’re related properties). The OData query (with magic strings) would look like:</p>  <blockquote>   <p><font face="Courier New">(from x in People.Expand(&quot;TitlesDirected/ScreenFormats&quot;)        <br />select x).Take(5)</font></p> </blockquote>  <p>If you tried to take the above and translate it to my “no magic string” fix from the previous post you would get something like.</p>  <blockquote>   <p><font face="Courier New">(from x in People.Expand(p =&gt; p.TitlesDirected /* Now what? dead end. /ScreenFormats*/ )        <br />select x).Take(5)         <br /></font></p> </blockquote>  <p>Now that the problem in my solution was apparent, and using his example as a quick guide (It wasn’t quite what I was looking for, but had the general theme). The solution became more than a few lines of code and I wanted to wrap some tests around the whole thing just to verify it was all working correctly…</p>  <h4>ODataMuscle was born:</h4>  <p><a href="http://github.com/Staxmanade/ODataMuscle">http://github.com/Staxmanade/ODataMuscle</a></p>  <p>Sorry for the name. Just think of “Strong Typing” your OData queries and giving them a little Muscle. I threw this little project up on github since this blog is not the best place to version code and if anyone felt inclined to extend it they could easily fork it and do so.</p>  <p>I hacked the initial version together, and once a co-worker of mine was done with it I think he cleaned it up nicely.</p>  <p>This new version now supports expanding not only <strong>child properties</strong>, but <strong>grandchild properties</strong> and <strong>grandchild properties of collections</strong>. (That doesn’t seem to translate well…)</p>  <p>EX: our little Netflix example from above would now look like </p>  <blockquote><font face="Courier New">(from x in People.Expand(p =&gt; p.TitlesDirected.Expand(p2 =&gt; p2.ScreenFormats))      <br />select x).Take(5)</font></blockquote>  <p>Which would translate into the following query</p>  <blockquote>   <p><a title="http://odata.netflix.com/catalog/People()?$top=5&amp;$expand=TitlesDirected/ScreenFormats" href="http://odata.netflix.com/catalog/People()?$top=5&amp;$expand=TitlesDirected/ScreenFormats">http://odata.netflix.com/catalog/People()?$top=5&amp;$expand=TitlesDirected/ScreenFormats</a></p> </blockquote>  <p>Thanks to <a href="http://elegantcode.com/2010/09/21/odatas-dataservicequery-and-removing-the-expandmagicstrings/#comment-58997">mynkow</a> for the initial feedback and I hope this helps someone else…</p>  </div>
+<p>In a <a href="/2010/09/odatas-dataservicequery-and-removing" target="_blank">previous post</a> I elaborated on the problem of magic strings in <a href="http://www.odata.org/" target="_blank">OData</a> service queries, and gave a quick (but lacking in depth) statically typed helper solution.</p>  <p>A commenter <a href="http://elegantcode.com/2010/09/21/odatas-dataservicequery-and-removing-the-expandmagicstrings/#comment-58997">mynkow</a> left a note stating that my solution would not work with nested objects. I initially replied asking if he could give an example (as I hadn’t run into that scenario yet being a noob to OData). He didn’t get back to me, but it wasn’t long before I ran into the problem he was talking about.</p>  <p>If we go back to <a href="http://www.linqpad.net/">LinqPad</a> and look again at the Netflix OData api. Let’s say we want to pull down the <strong>People</strong>, their related <strong>TitlesDirected</strong> and the TitlesDirected <strong>ScreenFormats</strong>. (No real world scenario there – just made it up because they’re related properties). The OData query (with magic strings) would look like:</p>  <blockquote>   <p><font face="Courier New">(from x in People.Expand(&quot;TitlesDirected/ScreenFormats&quot;)        <br />select x).Take(5)</font></p> </blockquote>  <p>If you tried to take the above and translate it to my “no magic string” fix from the previous post you would get something like.</p>  <blockquote>   <p><font face="Courier New">(from x in People.Expand(p =&gt; p.TitlesDirected /* Now what? dead end. /ScreenFormats*/ )        <br />select x).Take(5)         <br /></font></p> </blockquote>  <p>Now that the problem in my solution was apparent, and using his example as a quick guide (It wasn’t quite what I was looking for, but had the general theme). The solution became more than a few lines of code and I wanted to wrap some tests around the whole thing just to verify it was all working correctly…</p>  <h4>ODataMuscle was born:</h4>  <p><a href="http://github.com/Staxmanade/ODataMuscle">http://github.com/Staxmanade/ODataMuscle</a></p>  <p>Sorry for the name. Just think of “Strong Typing” your OData queries and giving them a little Muscle. I threw this little project up on github since this blog is not the best place to version code and if anyone felt inclined to extend it they could easily fork it and do so.</p>  <p>I hacked the initial version together, and once a co-worker of mine was done with it I think he cleaned it up nicely.</p>  <p>This new version now supports expanding not only <strong>child properties</strong>, but <strong>grandchild properties</strong> and <strong>grandchild properties of collections</strong>. (That doesn’t seem to translate well…)</p>  <p>EX: our little Netflix example from above would now look like </p>  <blockquote><font face="Courier New">(from x in People.Expand(p =&gt; p.TitlesDirected.Expand(p2 =&gt; p2.ScreenFormats))      <br />select x).Take(5)</font></blockquote>  <p>Which would translate into the following query</p>  <blockquote>   <p><a title="http://odata.netflix.com/catalog/People()?$top=5&amp;$expand=TitlesDirected/ScreenFormats" href="http://odata.netflix.com/catalog/People()?$top=5&amp;$expand=TitlesDirected/ScreenFormats">http://odata.netflix.com/catalog/People()?$top=5&amp;$expand=TitlesDirected/ScreenFormats</a></p> </blockquote>  <p>Thanks to <a href="http://elegantcode.com/2010/09/21/odatas-dataservicequery-and-removing-the-expandmagicstrings/#comment-58997">mynkow</a> for the initial feedback and I hope this helps someone else…</p>  </div>
 </div>
   
   
@@ -390,7 +390,7 @@ Hi Jason, thanks for your post.<br />I&#39;m using this exact setup to deploy ap
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2010/09/odatas-dataservicequery-and-removing/">OData’s DataServiceQuery and Removing the .Expand(“MagicStrings”)</a></h1>
+      <h1 class="entry-title"><a href="/2010/09/odatas-dataservicequery-and-removing/">OData’s DataServiceQuery and Removing the .Expand(“MagicStrings”)</a></h1>
     
     
       <p class="meta">
@@ -427,7 +427,7 @@ Hi Jason, thanks for your post.<br />I&#39;m using this exact setup to deploy ap
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2010/05/statlight-v10-v11-released-silverlight/">StatLight V1.0 & V1.1 Released (Silverlight Testing Automation Tool)</a></h1>
+      <h1 class="entry-title"><a href="/2010/05/statlight-v10-v11-released-silverlight/">StatLight V1.0 & V1.1 Released (Silverlight Testing Automation Tool)</a></h1>
     
     
       <p class="meta">
@@ -476,23 +476,23 @@ Hi Jason, thanks for your post.<br />I&#39;m using this exact setup to deploy ap
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2014/03/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
+        <a href="/2014/03/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/03/rake-psake-grunt-gulp-jake-make-cake/">Rake, Psake, Grunt, Gulp, Jake, Make, Cake, Brunch, Ant, Bash, Maven, or Fabric. As Long as You putOnAHelmet</a>
+        <a href="/2014/03/rake-psake-grunt-gulp-jake-make-cake/">Rake, Psake, Grunt, Gulp, Jake, Make, Cake, Brunch, Ant, Bash, Maven, or Fabric. As Long as You putOnAHelmet</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/02/segregate-your-code-commits-into-tiny/">Segregate Your Code Commits Into Tiny Topical Changes.</a>
+        <a href="/2014/02/segregate-your-code-commits-into-tiny/">Segregate Your Code Commits Into Tiny Topical Changes.</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/12/format-your-net-exceptions-to-see/">Format Your .Net Exceptions to See the StackTrace.</a>
+        <a href="/2013/12/format-your-net-exceptions-to-see/">Format Your .Net Exceptions to See the StackTrace.</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/12/leave-yourself-breadcrumb-for-tomorrow/">Leave Yourself a Breadcrumb for Tomorrow.</a>
+        <a href="/2013/12/leave-yourself-breadcrumb-for-tomorrow/">Leave Yourself a Breadcrumb for Tomorrow.</a>
       </li>
     
   </ul>
