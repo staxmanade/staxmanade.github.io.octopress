@@ -1,2 +1,22 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
+
+
+.seriesNote {
+    border: 1px solid;
+    border-radius: 10px;
+    padding:20px;
+	margin-bottom: 1.5em;
+}
+
+.seriesNote ul {
+	margin-bottom: 0em;
+}
+
+.seriesNote p {
+    margin-bottom: 0.5em;
+}
+
+.seriesNote ul {
+    padding-left: 30px;
+}

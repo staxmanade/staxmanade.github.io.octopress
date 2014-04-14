@@ -1,7 +1,9 @@
 {% assign series = '' %}
+{% assign thisPost = nil %}
 {% for post in site.posts %}
 	{% if post.url == page.url %}
 		{% assign series = post.series %}
+		{% assign thisPost = post %}
 	{% endif %}
 {% endfor %}
 
@@ -17,17 +19,19 @@
 {% endfor %}
 
 <div class="seriesNote">
-	<p>This article is <strong>Part {{ idx }}</strong> in a <strong>{{ count }}-Part</strong> Series.</p>
+	<p>This article is <strong>Part {{ idx }}</strong> of <strong>{{ count }}</strong> in a series about <strong>{{thisPost.series_about}}</strong>.</p>
 	<ul>
 	{% assign count = '0' %}
 	{% for post in site.posts reversed %}
 	{% if post.series == series %}
 		{% capture count %}{{ count | plus: '1' }}{% endcapture %}
-		<li>Part {{ count }} - 
+		<li> Part  {{ count }} - 
 		{% if page.url == post.url %}
-			This Article
+			(current) - {{post.series_title}}
+		{% elsif post.published == false %}
+			(coming soon) {{post.series_title}}
 		{% else %}
-			<a href="{{post.url}}">{{post.title}}</a>
+			<a href="{{post.url}}">{{post.series_title}}</a>
 		{% endif %}
 		</li>
 	{% endif %}
