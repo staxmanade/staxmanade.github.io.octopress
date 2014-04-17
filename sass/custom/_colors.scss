@@ -2,17 +2,29 @@
 // To give it a try, uncomment some of the lines below rebuild your blog, and see how it works.
 // If you need a handy color picker try http://hslpicker.com
 
-//$header-bg: #263347;
+//#0d141e
+//#38526e
+//#5b6c83
+//#D7CCB8
+//#C4AF99
+
+$link-color: #5b6c83;
+
+//$main-bg: #D7CCB8 !default;
+$page-bg: #0d141e !default;
+$article-border: #eeeeee !default;
+
+$header-bg: #38526e;
 //$subtitle-color: lighten($header-bg, 58);
-//$nav-bg: desaturate(lighten(#8fc17a, 18), 5);
+$nav-bg: desaturate(lighten(#5b6c83, 18), 5);
 //$nav-bg-front: image-url('noise.png');
 //$nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11));
-//$sidebar-bg: desaturate(#eceff5, 8);
-//$sidebar-link-color: saturate(#526f9a, 10);
-//$sidebar-link-color-hover: darken(#7ab662, 9);
-//$footer-bg: #ccc !default;
-//$footer-bg-front: image-url('noise.png');
-//$footer-bg-back: linear-gradient(lighten($footer-bg, 8), $footer-bg, darken($footer-bg, 11));
+$sidebar-bg: #D7CCB8;
+//$sidebar-link-color: saturate($sidebar-bg, 10);
+//$sidebar-link-color-hover: $sidebar-bg;
+$footer-bg: #38526e !default;
+$footer-bg-front: image-url('noise.png');
+$footer-bg-back: linear-gradient(lighten($footer-bg, 8), $footer-bg, darken($footer-bg, 11));
 
 
 /* To use the light Solarized highlighting theme uncomment the following line */
