@@ -7,6 +7,8 @@ sharing: true
 footer: true
 ---
 
+{% img right https://0.gravatar.com/avatar/b92a22c70f03a3218b358cfeeb566ac4?d=https%3A%2F%2Fidenticons.github.com%2F2872c3d34506ba9999ee2d69d6afd44f.png&s=150 150 150 Jason Jarrett %}
+
 My name is Jason Jarrett. I've been a software developer since 2000, a technology enthusiast, husband, and father of 2. I'm a continuous learner who enjoys being challenged by new ideas and technologies. I work from my home office in Reno, NV for [Vertigo](http://vertigo.com) where I've been on teams that have shipped various apps on Xbox 360, Xbox One, iPhone/iPad, and many more I can't talk about publicly. I'm a member of the [ElegantCode](http://elegantcode.com) blogging community and blog as topics and time arise.
 
 My interests include following the new and shiny ([squirrel](http://youtu.be/SSUXXzN26zg)) while focusing on lessons learned, best practices, and teachings of respected developers in the software community.
