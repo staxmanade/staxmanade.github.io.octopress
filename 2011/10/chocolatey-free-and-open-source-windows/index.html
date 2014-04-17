@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Chocolatey - the Free and Open Source Windows App Store. - Developing on Staxmanade</title>
+  <meta name="author" content="Jason Jarrett">
+
+  
+  <meta name="description" content="If you haven’t heard of it, you’re about to be delighted. Every developer (at least those on Windows) should know about this project, if for nothing &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://staxmanade.github.io/2011/10/chocolatey-free-and-open-source-windows">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Developing on Staxmanade" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1017448-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Developing on Staxmanade</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:staxmanade.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Chocolatey - the Free and Open Source Windows App Store.</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-05T15:39:00-07:00" pubdate data-updated="true">Oct 5<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<p>If you haven’t heard of it, you’re about to be delighted. Every developer (at least those on Windows) should know about this project, if for nothing more than to make life setting up your dev machine a piece of cake.</p>  <h4>What is Chocolatey?</h4>  <p>Straight from the <a href="http://chocolatey.org">Chocolatey.org</a> site:</p>  <blockquote>   <p>Chocolatey NuGet is a Machine Package Manager, somewhat like apt-get, but built with windows in mind.</p> </blockquote>  <p>If you’ve not ever used a linux machine or understand what the power of an “apt-get” like tool is, well It’s basically the simplest possible way to install an application to your machine. </p>  <p>What could be simpler than finding the app’s website, download the app, and next, next, next through the the installer? How about just typing “chocolaty install notepadplusplus” at a powershell command prompt? That simple little command will download and install Notepad++ right on your machine with virtually no need to interact with the installer. AWESOME!!!</p>  <blockquote>   <p><strong>Disclaimer!</strong></p>    <p>I know there are other installer applications out there that aggregate and install different&#160; programs; however, to be honest, I don’t use any of them. I am also going to assume that most of them aren’t catered to the windows developer (maybe I’m wrong). Either way I like this project and I’m just trying to share it with the community. <strong>So There…</strong></p> </blockquote>  <p>Ok, my above salesmanship is a little loud mouthy, but maybe your interest is peaked enough to give it a try.</p>  <h4>How do I install Chocolatey?</h4>  <p>It’s about as simple to install Chocolatey as it is to use Chocolatey to install other applications. One single powershell command. Just paste the below command in your powershell prompt and let er rip.</p>  <blockquote>   <p>First, make sure you have your powershell environment set to “Unrestricted”.<a href="http://lh6.ggpht.com/-4sSRlJeweTI/TozckReE5MI/AAAAAAAAASA/JG0ULKiPil0/s1600-h/image8.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="image" border="0" alt="image" src="http://lh3.ggpht.com/-Vviqle2o908/TozclWiZ6TI/AAAAAAAAASE/1-_0QwA6KAs/image_thumb4.png?imgmax=800" width="644" height="235" /></a></p> </blockquote>  <p>Run the Chocolatey install.</p>  <pre>  iex ((new-object net.webclient).DownloadString(&quot;http://bit.ly/psChocInstall&quot;))</pre><br />  <h4>Packages!</h4>  <p>Now that you have chocolatey installed, head over to the <a href="http://Chocolatey.org">Chocolatey.org</a> website and browse the packages you can now install.</p>  <p>EX:</p>  <blockquote>   <p><font style="background-color: #ffffff">C:\Code&gt;<strong>chocolatey install notepadplusplus</strong></font></p> </blockquote>  <h4>How can I know when new packages are added to the Chocolatey.org feed?</h4>  <p>You can get more background on this approach by following my previous post <a href="http://elegantcode.com/2011/09/27/whats-happening-on-the-nuget-feed-leveraging-odata-in-an-rss-reader/" target="_blank">What’s happening on the NuGet feed (leveraging OData in an RSS reader)</a></p>  <p>The direct RSS link I have is as follows:</p>  <blockquote>   <p><a href="http://chocolatey.org/api/feeds/Packages()?$filter=Id%20ne%20'SymbolSource.TestPackage'&amp;$orderby=Published%20desc">http://chocolatey.org/api/feeds/Packages()?$filter=Id%20ne%20&#8217;SymbolSource.TestPackage&#8217;&amp;$orderby=Published%20desc</a></p> </blockquote>  <p>Plug that into your RSS reader and you should be notified when new packages are added to the Chocolatey.org feed.</p>  <p>Happy Setting up your Dev Machine!</p></div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jason Jarrett</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-05T15:39:00-07:00" pubdate data-updated="true">Oct 5<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/powershell/'>PowerShell</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://staxmanade.github.io/2011/10/chocolatey-free-and-open-source-windows/" data-via="staxmanade" data-counturl="http://staxmanade.github.io/2011/10/chocolatey-free-and-open-source-windows/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2011/09/whats-happening-on-nuget-feed/" title="Previous Post: What’s happening on the NuGet feed (leveraging OData in an RSS reader)">&laquo; What’s happening on the NuGet feed (leveraging OData in an RSS reader)</a>
+      
+      
+        <a class="basic-alignment right" href="/2011/10/excited-to-announce-my-new-career/" title="Next Post: Excited to Announce My New Career Opportunity">Excited to Announce My New Career Opportunity &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/03/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/03/rake-psake-grunt-gulp-jake-make-cake/">Rake, Psake, Grunt, Gulp, Jake, Make, Cake, Brunch, Ant, Bash, Maven, or Fabric. As Long as You putOnAHelmet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/02/segregate-your-code-commits-into-tiny/">Segregate Your Code Commits Into Tiny Topical Changes.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/12/format-your-net-exceptions-to-see/">Format Your .Net Exceptions to See the StackTrace.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/12/leave-yourself-breadcrumb-for-tomorrow/">Leave Yourself a Breadcrumb for Tomorrow.</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/staxmanade">@staxmanade</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'staxmanade',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+<section class="twitter">
+	<a class="twitter-timeline" href="https://twitter.com/staxmanade" data-widget-id="451218682652286976">Tweets by @staxmanade</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Jason Jarrett -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

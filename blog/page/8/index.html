@@ -1,0 +1,612 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Developing on Staxmanade</title>
+  <meta name="author" content="Jason Jarrett">
+
+  
+  <meta name="description" content="I searched the web for the idea first. I was certain somebody had blogged about this before, and just wanted to quickly confirm it’s truth. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://staxmanade.github.io/blog/page/8">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Developing on Staxmanade" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1017448-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Developing on Staxmanade</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:staxmanade.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/05/silverlight-databind-to-anonymous-type/">Silverlight – DataBind to an Anonymous Type (Who Knew?)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-22T19:36:00-07:00" pubdate data-updated="true">May 22<span>nd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>I searched the web for the idea first. I was certain somebody had blogged about this before, and just wanted to quickly confirm it’s truth. Unfortunately all I came across were work-a-rounds and people telling you it’s not possible. So hopefully this post will help the next guy.</p>  <p>Since anonymous types are generated in an assembly as <a href="http://msdn.microsoft.com/en-us/library/7c5ka91b(VS.80).aspx">internal</a> types, by default, if you try to DataBind to an anonymous type, you’ll probably receive a binding error much like the following.</p>  <pre>System.Windows.Data Error: <br />    Cannot get 'Age' value (type 'System.Int32') from '{ Name = World, Age = 23 }' (type '&lt;&gt;f__AnonymousType0`2[System.String,System.Int32]'). <br />    BindingExpression: Path='Age' DataItem='{ Name = World, Age = 23 }' (HashCode=-172495608);<br />    target element is 'System.Windows.Controls.TextBlock' (Name=''); <br />    target property is 'Text' (type 'System.String').. <br />    System.MethodAccessException: Attempt by method 'System.Windows.CLRPropertyListener.get_Value()' <br />    to access method '&lt;&gt;f__AnonymousType0`2&lt;System.__Canon,System.Int32&gt;.get_Age()' failed.<br /><br />   at System.RuntimeMethodHandle.PerformSecurityCheck(Object obj,...<br />   at System.RuntimeMethodHandle.PerformSecurityCheck(Object obj,...<br />   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, Bind...<br />   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, Bind...<br />   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, ...<br />   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, ...<br />   at System.Windows.CLRPropertyListener.get_Value()<br />   at System.Windows.PropertyAccessPathStep.ConnectToPropertyInSo...</pre><br /><br /><h4>Turns out, it _IS_ possible to DataBind to an anonymous type in Silverlight.</h4><br /><br /><p>All you have to do is expose your privates. Placing the following into your AssemblyInfo.cs will give the built in bindings the ability DataBind to your object(s).</p><br /><br /><p><strong><br />    <br />[assembly: System.Runtime.CompilerServices.InternalsVisibleTo(&quot;System.Windows&quot;)]</strong></p><br /><br /><p>&#160;</p><br /><br /><p>I’m not going to say whether this is or is not a good idea, and I’m sure there’s many ways to abuse it.</p><br /><br /><p>Don’t inhale too much of this stuff.</p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Jason.Jarrett</div>
+<div class='content'>
+W.Meints<br /><br />I&#39;m not sure I understand your question. Could you elaborate a little?</div>
+</div>
+<div class='comment'>
+<div class='author'>W.Meints</div>
+<div class='content'>
+What about dynamics, does the same trick apply to those kind of objects as well?</div>
+</div>
+<div class='comment'>
+<div class='author'>Obsidience</div>
+<div class='content'>
+I prefer to keep my privates unexposed, thank you very much! ;)</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/05/silverlight-profiling-powershell-helper/">Silverlight Profiling PowerShell Helper.</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-15T09:50:00-07:00" pubdate data-updated="true">May 15<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>I was playing around with some Silverlight profiling the other night to see if I could find any obvious issues with my open source project <a href="http://statlight.net" target="_blank">StatLight</a> and wound up writing a little script in PowerShell I hoped someone might find helpful.</p>  <h4>But I didn’t know you could profile a Silverlight app.</h4>  <p>I didn’t until I started doing some digging online. Now, the Silverlight profiling story (at least from what I’ve seen/tried) is not near the easy of say <a href="http://www.red-gate.com/products/ants_performance_profiler/index.htm">Redgate ANTS Performance Profiler</a>. However, it’s do-able. (And with this helper script – hopefully a little simpler?)</p>  <h4>How can I profile a Silverlight Application?</h4>  <p>I would recommend you read the following blog, which explains one way of doing it very well.</p>  <p><a title="http://blogs.msdn.com/profiler/archive/2010/04/26/vs2010-silverlight-4-profiling.aspx" href="http://blogs.msdn.com/profiler/archive/2010/04/26/vs2010-silverlight-4-profiling.aspx">http://blogs.msdn.com/profiler/archive/2010/04/26/vs2010-silverlight-4-profiling.aspx</a></p>  <h4>So… what’s this script for?</h4>  <p>If you read the blog above, or have done this before, then you probably noticed that there was quite a series of commands you had to execute before you could wind up with a performance report. </p>  <p>I threw together a quick little PowerShell script in an attempt to automate smooth out the process.</p>  <h4>Hot do I use it?</h4>  <ol>   <li>Download the script &amp; save it somewhere. <a href="http://github.com/staxmanade/Scripts/blob/master/SilverlightProfiler.ps1"><strong>http://github.com/staxmanade/Scripts/blob/master/SilverlightProfiler.ps1</strong></a> </li>    <li>Open the PowerShell console. cd to the directory your xap/assemblies are stored.      <br />(EX: {myProject}\Bin\Debug\ ) </li>    <li>Execute:      <br />{pathToScript}\SilverlightProfiler.ps1 -urlPath &quot;{myProject}\Bin\Debug\TestPage.html&quot; </li>    <li>When your done profiling press enter to signal that your done.      <p></p> Once complete, it will print the location your profiling report was saved. You can then open it with Visual Studio. </li> </ol>  <h5>Couple of disclaimers.</h5>  <ul>   <li>Some paths are hard-coded to my x86 machine. </li>    <li>I had troubles running the built in visual studio .bat files (from powershell) that are supposed to set the environment variables. So I extracted out what vars I could find to make it work. </li>    <li>I’m not a profiling expert – just hacked this together to get it to work for me. </li> </ul>  <p>I hope this is useful, and if you know of a better way, I’m always interested in hearing your feedback.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/03/diffing-tool-feature-request/">Diffing Tool Feature Request</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-21T21:08:00-07:00" pubdate data-updated="true">Mar 21<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>Most of us have probably tried different versions of a file diffing tool. Some are picky about their choice. Personally I’m fond of two different tools (mostly because they’re easy to find/install and setup). Here’s a post where I talk about how I like to integrate these tools when working with <a href="http://msdn.microsoft.com/en-us/teamsystem/dd408382.aspx">TFS</a> and Visual Studio - <a href="/2009/08/development-environment-mergecompare">/2009/08/development-environment-mergecompare.html</a></p>  <p>A couple months ago, I _slowly_ started learning <a href="http://git-scm.com/">Git</a>. Since that initial plunge, I’m now in a place where much of it still scary unknown; however, I know enough get what I need done. And when I get to the point where I need to do something I’ve never done, well I go figure it out, and it becomes another part of the personal Git toolbox.</p>  <p>I’ve been working git solely through the command line (in PowerShell actually). I know it’s not the best place to take full advantage of <a href="http://git-scm.com/">Git</a>; however, it’s working for me. </p>  <p>The other day needed to review changes in a file back in the commit history. Up until this point I had only diff’d uncommitted files with the most recent version of that file, and I already wired a visual diffing tool where I could then use the “git difftool …” command to review differences. </p>  <p>However this was the first time I had to look at a file further back in time than the head. After a quick search I came across the “<a href="http://ftp.sunet.se/pub/Linux/kernel.org/software/scm/git/docs/gitk.html">gitk</a>” command. gitk is “The git repository browser”. I’ve known about this tool, however am trying to keep with the command line tools. (Except for diffing files)</p>  <p>Below is the UI when running the “gitk build-tasks.ps1” in the root of the <a href="http://statlight.net" target="_blank">StatLight</a> project.</p>  <p>Notice how there’s a list of changes to the file, and under that the diff of the previous version to the selected version.</p>  <p><a href="http://lh6.ggpht.com/_L6Vw0x_R3iw/S6btMyZortI/AAAAAAAAAN4/TTo1Bfy1OQc/s1600-h/image4.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://lh6.ggpht.com/_L6Vw0x_R3iw/S6btONpjuqI/AAAAAAAAAN8/mrgvUVTrIj8/image_thumb2.png?imgmax=800" width="810" height="638" /></a> </p>  <p>One thing do like about the above, is the list of revisions and how they are right there in your face. Going back in time is really easy. My only problem is I’m not accustomed to the linux style diffing, and still prefer the side/by side file diffing.</p>  <p>On to the feature request…</p>  <h4>What problem is this new feature trying to solve?</h4>  <p>The problem of having a file diff between version E &amp; F and then needing to look at the previous version to E. (easily) <strong>AND</strong> show the different versioned files side by side <strong>AND</strong> make it easy and intuitive to go back in time.</p>  <h4>How might this feature request look?<img style="display: inline; margin-left: 0px; margin-right: 0px" align="right" src="http://i.zdnet.com/blogs/iphone-touchscreen.png" width="130" height="129" /></h4>  <p>Maybe someone is doing this, maybe not. It would be interesting to leverage a (mouse drag – or text command [EX: Ctrl+Alt+Right Arrow]) to “pan” between versions through file diffing view. Kind of like you can drag the pictures on an iPhone to view the previous or next one. I could drag the mouse across the screen to pan to the previous/next view of the diff. </p>  <p>&#160;</p>  <p>Below is a quick mockup of the thought – definitely far from refined. </p>  <p><a href="http://lh4.ggpht.com/_L6Vw0x_R3iw/S6btOnz3LRI/AAAAAAAAAOA/FDCh-WJo2_k/s1600-h/image9.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://lh5.ggpht.com/_L6Vw0x_R3iw/S6btPwPn4pI/AAAAAAAAAOE/YrXZIPjUtUQ/image_thumb5.png?imgmax=800" width="1017" height="380" /></a></p>  <p></p>  <p></p>  <p></p>  <p></p>  <p></p>  <p></p>  <h4>One challenge to true implementation?</h4>  <p>The main problem to solve (if you write a generic text diffing tool) is needing to interface with different <a href="http://en.wikipedia.org/wiki/Revision_control">SCM</a>’s so you can retrieve the the previous/next versions of the file. Basically having to know what <a href="http://en.wikipedia.org/wiki/Revision_control">SCM</a> the file is under.</p>  <p>&#160;</p>  <p>Anyone mind taking this project on and implementing this in one of the decent open source file diffing tools out there? (ex: <a href="http://winmerge.org/">http://winmerge.org/</a>)&#160; I would love you for it. Well… I’d buy you a beer.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/02/powershell-background-task-that-speaks/">PowerShell – Background Task That Speaks to Me</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-15T21:11:00-08:00" pubdate data-updated="true">Feb 15<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>Today I was testing a long running task where my basic scenario was to execute at the PowerShell prompt.</p>  <blockquote>   <p>C:\dev&gt; LongRunningTask.exe &gt; Test1.txt</p>    <p>C:\dev&gt; LongRunningTask.exe &gt; Test2.txt</p>    <p>C:\dev&gt; LongRunningTask.exe &gt; Test3.txt</p> </blockquote>  <p>Change some code and do it all over again.</p>  <blockquote>   <p>C:\dev&gt; LongRunningTask.exe &gt; Test4.txt</p>    <p>C:\dev&gt; LongRunningTask.exe &gt; Test5.txt</p>    <p>C:\dev&gt; LongRunningTask.exe &gt; Test6.txt</p> </blockquote>  <p>Although seemingly simple and really not that tough. It became really inefficient because I didn’t like sitting there waiting for it to finish. I was off reading blogs, responding to email, investigating other coding issues and generally forgetting about the long running tasks in the background. On top of that, when I came back to it I couldn’t remember what the last run was (was that test 2 or 3 or 5?) without querying disk to see what it was.</p>  <p>Sine I had all this time to kill in between test runs, I wrote a quick PowerShell script that would fully automate test 1,2,3 and stop. This was great and the first time I ran it was much more efficient as I didn’t have to keep checking back to see when to start it up again.</p>  <p>However, I not only had time to kill, but now I had 3 times that time to kill. I decided to elaborate on the script. I searched the tubes for a way to play a sound when a task was done, so I could be notified as to it’s progress, and completion.</p>  <p>I stumbled upon this blog, which was great for showing me how to play sounds within PowerShell.</p>  <p><a href="http://scriptolog.blogspot.com/2007/09/playing-sounds-in-powershell.html">http://scriptolog.blogspot.com/2007/09/playing-sounds-in-powershell.html</a></p>  <p>I implemented the sounds and was off and running on another batch of testing, all tuned in to the sounds of progress.</p>  <p>Her we go again, more time to think about how to improve the process (that I’m not even trying to improve).</p>  <p>What if the script talked back to me? Some more googlefoo and I found this great example blog.</p>  <p><a href="http://huddledmasses.org/powershell-speaks/">http://huddledmasses.org/powershell-speaks/</a></p>  <p>Basically using the built in <a href="http://en.wikipedia.org/wiki/Microsoft_Speech_API">Microsoft speech api’s</a> you can get PowerShell to talk to you. This was just too much fun for the day. </p>  <p>At the end of the day the script below is basically what I was using. Don’t have too much fun, as you might not get any real work done…</p>  <p>The content of this blog isn’t necessarily top notch, but I just had to blog about it, as I was very impressed as to how easy it was to work with the speech api’s. Never knew it could be so easy to make a script verbally interactive.</p>  <pre>$Voice = new-object -com SAPI.SpVoice<br /><br />function speak([string] $msg)<br />{<br />    $Voice.Speak( $msg, 1 )<br />}<br /><br />function execScriptWithNotify([string] $completionMessage, [scriptblock] $scriptToExecute)<br />{<br />    . $scriptToExecute<br />    speak $completionMessage<br />}<br /><br />function execLongRunningTask([scriptblock] $scriptToExecute)<br />{<br />    . $scriptToExecute<br /><br />    Write-Host &quot;Long running task complete!&quot;<br />    speak &quot;All tasks are done!&quot;<br />}<br /><br /><br /># Start the long running task<br />execLongRunningTask {<br /><br />    #***************************************************************<br />    #***************** How many times to run task? ***************** <br />    #***************************************************************<br />    $iterationCount = 3<br />    <br />    for ($i=1; $i -le $iterationCount; $i++)<br />    {<br />        execScriptWithNotify &quot;Task $i Complete&quot; {<br />        <br />            #***************************************************************<br />            #***************** Long Running Task Goes Here ***************** <br />            #***************************************************************<br />            Write-Host &quot;begin long running task # $i&quot;<br />            [System.Threading.Thread]::Sleep(3000);<br />            Write-Host &quot;end   long running task # $i&quot;<br />            #***************************************************************<br />            #***************************************************************<br />            #***************************************************************<br />        }<br />    }<br /><br />}</pre>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/01/c-40-optional-parameters-exploration/">C# 4.0 Optional Parameters – Exploration.</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-01-28T14:09:00-08:00" pubdate data-updated="true">Jan 28<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>{… Removed big long story about how I ended up writing this post which provides no value to the blog…}</p>  <p>Summary of big long story to at least give a little context as to why (yet another post on optional parameters):</p>  <blockquote>   <p>I threw an idea out to the <a href="http://code.google.com/p/moq/">Moq</a> discussion group of how we could use the <a href="http://msdn.microsoft.com/en-us/library/dd264739(VS.100).aspx">named/optional</a> parameters in a future version of Moq. (<a href="http://groups.google.com/group/moqdisc/browse_thread/thread/de73db381cacee9b/a6fa5cff1e7b0cc8?lnk=gst&amp;q=Ideas+for+v4+sugar#a6fa5cff1e7b0cc8">you can read the thread here</a>) In my original feature request I displayed my lack of concrete knowledge in the named/optional parameters support that is eventually coming with .net 4.0.</p> </blockquote>  <p>Once I learned that you could place default values on interfaces it left me with questions… So, what better way to figure them out? Go test it…</p>  <p><strong>Disclaimer</strong>: (Shouldn’t every blog have some context enlightening disclaimer?)     <br />I haven’t looked up best practices or lessons learned from people that have had this language feature (VB), so I’m just doing this as an experiment for myself. Hope some of my findings help the other C#’ers wanting to learn a little about the feature.</p>  <h4>What are optional parameters? </h4>  <p><a href="http://www.dimecasts.net">DimeCasts.Net</a>, <a href="http://www.dimecasts.net/Casts/ByAuthor/Derik%20Whittaker">Derik Whittaker</a> has a nice intro video <a href="http://www.dimecasts.net/Casts/CastFeedDetails/153?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed:+Dimecastsnet--InformAndEducateIn10MinutesOrLess+(DimeCasts.Net+--+Inform+and+Educate+in+~+10+minutes+or+less)&amp;utm_content=Google+Reader"># 153 - Exploring .Net 4 Features - Named and Optional Parameters</a></p>  <p>OR check out - <a href="http://tinyurl.com/yz3pc9o">http://tinyurl.com/yz3pc9o</a></p>  <p>&#160;</p>  <h4>Can an interface define a default value?</h4>  <p><strong>Yes!</strong>     <br /><a href="http://lh4.ggpht.com/_L6Vw0x_R3iw/S2ILApwzkNI/AAAAAAAAANU/Ydi4SHTsePA/s1600-h/image9.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://lh6.ggpht.com/_L6Vw0x_R3iw/S2ILA63cf3I/AAAAAAAAANY/WnbpitXg4IM/image_thumb3.png?imgmax=800" width="286" height="124" /></a> </p>  <h5>&#160;</h5>  <h4>Can I specify a default in the concrete implementation, if the interface has a default also?</h4>  <p><strong>Yes!</strong></p>  <p><a href="http://lh5.ggpht.com/_L6Vw0x_R3iw/S2ILBNcSRYI/AAAAAAAAANc/mZmlaInB4OQ/s1600-h/image13.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://lh4.ggpht.com/_L6Vw0x_R3iw/S2ILBmlHVtI/AAAAAAAAANg/gagdT5CuMVs/image_thumb5.png?imgmax=800" width="370" height="276" /></a> </p>  <h4>What happens when the concrete implementation has a different default value than the interface’s default?</h4>  <p><strong>If the interface has a default value specified, that is different from the concrete implementation, then it depends on what reference you’re using when executing the method.</strong></p>  <p><a href="http://lh6.ggpht.com/_L6Vw0x_R3iw/S2ILB0Ic0PI/AAAAAAAAANk/TDRVo_bYV5w/s1600-h/image17.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://lh5.ggpht.com/_L6Vw0x_R3iw/S2ILCJiKGfI/AAAAAAAAANo/yQ15IDDZnc0/image_thumb7.png?imgmax=800" width="381" height="275" /></a> </p>  <p>In the case below we are executing the method directly off of the Foo instance and will therefore get the concrete implementation’s default value when executing.</p>  <blockquote>   <p><strong>(new Foo()).Bar()</strong> – would use the value of ‘1000’.<strong> </strong><strong></strong></p> </blockquote>  <p>And in the case below we cast the Foo instance to an IFoo and it will then use the interfaces default value when executing.</p>  <blockquote>   <p><strong>((IFoo) new Foo()).Bar() </strong>– would use the value of ‘1’. </p> </blockquote>  <p>Below are some examples of the different use cases.</p>  <pre class="brush: csharp;">[TestClass]<br />public class UnitTest1<br />{<br />    [TestMethod]<br />    public void Should_get_the_concrete_class_default_value()<br />    {<br />        Foo f1 = new Foo();<br />        f1.Bar();<br />        f1.ParamValue.ShouldBeEqualTo(1000);<br />    }<br /><br />    [TestMethod]<br />    public void Should_get_the_interface_default_value()<br />    {<br />        IFoo f = new Foo();<br />        f.Bar();<br />        f.ParamValue.ShouldBeEqualTo(1);<br />    }<br /><br />    [TestMethod]<br />    public void Should_get_the_interface_default_value_because_of_explicit_cast()<br />    {<br />        Foo f = new Foo();<br />        ((IFoo)f).Bar();<br />        f.ParamValue.ShouldBeEqualTo(1);<br />    }<br /><br />    [TestMethod]<br />    public void Should_get_the_concrete_class_default_value_because_of_explicit_cast()<br />    {<br />        IFoo f = new Foo();<br />        ((Foo)f).Bar();<br />        f.ParamValue.ShouldBeEqualTo(1000);<br />    }<br />}<br /><br />interface IFoo<br />{<br />    int ParamValue { get; }<br /><br />    void Bar(int paramValue = 1);<br />}<br /><br />class Foo : IFoo<br />{<br />    public int ParamValue { get; private set; }<br />    public void Bar(int paramValue = 1000)<br />    {<br />        ParamValue = paramValue;<br />    }<br />} </pre><br /><br /><p>&#160;</p><br /><br /><h4>The next experiment - Extract Interface.</h4><br /><br /><p>Next I tried removing the IFoo interface that I’d created manually, because I wanted to exercise the “<a href="http://msdn.microsoft.com/en-us/library/fb3dyx26.aspx">Extract Interface…</a>” functionality, just to see how it dealt with the these defaults.</p><br /><br /><p>Luckily, <strong>there were no surprises.</strong> The interface it created was exactly (less spacing) the same as I originally had. </p><br /><br /><p>Although it didn’t display the default constant value in the dialog during creation, there was a hint that the method signature had a default by placing [] around the int resulting in “Bar([int])”.</p><br /><br /><p><a href="http://lh3.ggpht.com/_L6Vw0x_R3iw/S2ILCUb7m1I/AAAAAAAAANs/1r4ZBNlQUUU/s1600-h/image221.png"><img style="border-right-width: 0px; display: block; float: none; border-top-width: 0px; border-bottom-width: 0px; margin-left: auto; border-left-width: 0px; margin-right: auto" title="image" border="0" alt="image" src="http://lh4.ggpht.com/_L6Vw0x_R3iw/S2ILCwi2KSI/AAAAAAAAANw/pHnAuYpcab4/image22_thumb.png?imgmax=800" width="411" height="341" /></a></p><br /><br /><blockquote><br />  <p><strong>Side <strong>Tool </strong>Issue:</strong> Can’t say I like how it forced me to put the interface in a different file, I guess it’s enforcing “best practice” here, but I prefer to do this later in the dev cycle than immediately (kind of like how R# allows you to place in the file next to the original class). #ToolGettingInWay</p><br /></blockquote><br /><br /><blockquote><br />  <p><strong>Optional Parameter Issue:</strong> One issues I see with this solution was the dirty/icky copy/paste feeling I got when extracting the interface – the default was copied from the class to the interface. </p><br /></blockquote><br /><br /><h5>Possible solutions to the “dirty/icky copy/paste feeling” the extract interface gives.</h5><br /><br /><p>(in no particular order of preference)</p><br /><br /><ul><br />  <li>Place all defaults into a constant and reference the constant in both the interface and the concrete implementation(s). </li><br /><br />  <li>Don’t place the defaults in the concrete implementation (only in the interface). As you should probably not be depending on the concrete implementation to begin with, you wouldn’t need it there (and wouldn’t even call it). This would also help in the case that there are multiple concrete implementation and having to sift through the code looking for all instances to updated defaults for could be very error prone. </li><br /></ul><br /><br /><p>On the surface named parameters seem like a very simple feature to the C# language. But after delving into the feature a little, I can see there are many complicated scenarios you can get your self caught up into.</p><br /><br /><p>As with anything…<strong>Use with care</strong>!</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/01/networking-brain-fart/">Networking Brain Fart.</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-01-21T17:59:00-08:00" pubdate data-updated="true">Jan 21<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>This one was just too funny to not write down. The epitome of a <a href="http://en.wikipedia.org/wiki/Brain_fart">Brain Fart</a>.</p>  <p>There sure seem to be quote a few posts lately talking about the Software (Crafts-Man/Woman/person/whatever); I may have many many more years of Craft practicum to study up on before I can truly consider myself a Craftsman. However, it’s humbling to screw up and remember that we are human. Below is one such story. Luckily there was no software, business value, or puppies hurt in the process.</p>  <h4>Setup:</h4>  <p>I work from home part time. Where I usually just remote desktop into my 64bit, quad-core, 12 gig of ram, supercomputer desktop at work. (I’m sure I’ll read this post in the future and go what? supercomputer? you have no idea young man.) I choose the RDP network latency over not being able to compile (in under XXX_too_much_time_XXX) on my laptop at home. (It’s part time one day a week and not worth the investment to beef up the home setup. &#8211; yet) <strong>Point is: I’m working from home and via remote desktop on my computer at the office</strong>.</p>  <p>So I’m working on this project and…let’s just say I somehow got into a position where I thought my best option was to take my solution offline from TFS. (long story I don’t want to overshadow the “Brain Fart” part of this post)</p>  <p>This is where I got into trouble…</p>  <h4>How do I take my solution offline from TFS?</h4>  <p>I searched for how to take my solution offline and found this great post “<a href="http://ozgrant.com/2008/06/01/force-visual-studio-to-think-tfs-is-offline/">Force Visual Studio to think TFS is offline</a>” which outlines several options…</p>  <blockquote>   <p>Option 1 – Use the ‘tfpt tweakui’ utility</p>    <p>Option 2 – Yank the network cable before starting Visual Studio</p>    <p>Option 3 – Set a registry key</p> </blockquote>  <p><strong>Option 1:</strong> I didn’t think I had TFS Power Tools installed (turns out I did, just didn’t spend the 2 seconds to figure it out - doh).</p>  <p><strong>Option 3</strong>: I couldn’t seem to get the registry key version to work (for some reason???) &amp; wasn’t interested in wasting the day to figure it out.</p>  <p><strong>&#8212; So what was left?</strong></p>  <p><strong>Option 2</strong>: “Yank the network cable before starting Visual Studio”. I didn’t yank the cord because clearly I’m not at the office so how could I do that????, but tried the next best thing. <strong>I disabled my network connection </strong>(so I could open the solution and have it NOT find TFS)<strong>.</strong></p>  <p><img style="display: block; float: none; margin-left: auto; margin-right: auto" src="http://i223.photobucket.com/albums/dd272/Solblade44/You%20Fail/fail-i-told-you.jpg" /></p>  <p>If you missed the detail earlier in the post – I said that I was working through <a href="http://en.wikipedia.org/wiki/Remote_Desktop_Protocol">RDP</a>. </p>  <p>Huh - Not anymore… Sigh!</p>  <p>Some days it may just be safer to work from home (disconnected from the world).</p>  <p>&#160;</p>  <h5>P.S. thanks to a co-worker for getting me back online :)</h5>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Jason.Jarrett</div>
+<div class='content'>
+I know there is (supposed to be this button) but for some reason whenever I&#39;m on a machine with Visual Studio &amp; TFS It&#39;s never there&#8230; :)</div>
+</div>
+<div class='comment'>
+<div class='author'>justinmchase</div>
+<div class='content'>
+What&#39;s even worse is that there&#39;s a little button on the top of the Solution Explorer when you have a project that&#39;s associated with TFS and you just click it ;)</div>
+</div>
+<div class='comment'>
+<div class='author'>Obsidience</div>
+<div class='content'>
+if you&#39;re gonna do it, do it right.  next time give me a call and I&#39;ll yank the cable for real :-P</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/01/unitymoq-automocker-or/">Unity/Moq - AutoMocker or AutoMockingContainer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-01-03T08:53:00-08:00" pubdate data-updated="true">Jan 3<span>rd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<h4>What is an Auto Mocking Container?</h4>  <p>This post started to get a little long, so I won’t re-explain the concept.</p>  <p><a href="http://lostechies.com/joshuaflanagan/">Joshua Flanagan</a> wrote a nice overview at his <a href="http://www.lostechies.com/">Los Techies</a> blog: <a href="http://www.lostechies.com/blogs/joshuaflanagan/archive/2009/02/03/auto-mocking-explained.aspx"><strong>Auto mocking Explained</strong></a>.</p>  <p>My post is mainly here to describe the Unity version of an automocking container I threw together.</p>  <h4>In Jan 2009 I blogged about my initial version of the Unity AutoMocker - Why am I blogging about it again?</h4>  <p>I originally wrote the AutoMocker for the Unity container a year ago (Jan 2009, in Silverlight), and finally got around to placing the code up in the <a href="http://code.google.com/p/moq-contrib/">moq-contrib</a> project in June of 2009.</p>  <p>I’m writing another post today in hopes to:</p>  <ol>   <li>Get some feedback on how this little snippet of code should continue. </li>    <li>Give a little more how-to/example code </li>    <li>Describe some updates I made since I originally created it.&#160; </li> </ol>  <h4>Where can I get it?</h4>  <p><strong>This is one part where I’d appreciate some feedback.</strong></p>  <p>I have two slightly different versions out there (currently).</p>  <p>I have one version at the <a href="http://code.google.com/p/elegantcode/source/browse/#svn/trunk/Coders/JasonJarrett/UnityAutoMocker">ElegantCode</a> repository where I was working on it, and the other I threw up at <a href="http://code.google.com/p/moq-contrib/">moq-contrib</a>.</p>  <p>The core of the UnityAutoMockContainer is the same in both places, it’s how the tests are separated out that differ.</p>  <p>In the <a href="http://code.google.com/p/elegantcode/source/browse/#svn/trunk/Coders/JasonJarrett/UnityAutoMocker">ElegantCode repository</a> it’s an all in one self contained single file (that you can copy into your own test project(s)). You can then setup a single test in your own testing framework that runs all internal automocker tests (in case you need to modify it yourself, and don’t want to break any existing functionality). EX: test</p>  <pre class="brush: csharp;">[Test]<br />public void Should_run_all_UnityAutoMockContainer_internal_tests()<br />{<br />    Moq.AutoMocking.SelfTesting.UnityAutoMockContainerFixture<br />        .RunAllTests(Console.WriteLine);<br />}</pre><br /><br /><p>I kind of like this format as it makes it easy to port between test libraries. Can’t say I like having the tests in the same file as the core, but it certainly is not a large chunk of code (so far) so it’s relatively small to maintain and definitely easier to manage as a single .cs file than another assembly (which would have to be version dependent on both Unity and Moq).</p><br /><br /><p>The <a href="http://code.google.com/p/moq-contrib/">moq-contrib</a> is definitely where I think this helper should end up (and it is there). I just happened to break the tests out into the Silverlight test project and the core is alone in a file. </p><br /><br /><p>It’s current state isn’t as easy to copy to a test library (Silverlight/Desktop/Unity 1.2/Unity 2.0) as the one at <a href="http://elegantcode.com/">ElegantCode</a>. <strong>What does anyone think?</strong> Should I put them all together in one file?</p><br /><br /><p>However it ends up (1. all in one file or two (1 test) (1 core)) it will continue to be maintained on the <a href="http://code.google.com/p/moq-contrib/">moq-contrib</a> project.</p><br /><br /><h4>What is the high level API of the container?</h4><br /><br /><p>It’s pretty simple, (currently) there are four methods on the container.</p><br /><br /><p><strong>Two for registering items with the container</strong>. Say you want to register an already created instance, or say you want to map an interface to a concrete class and _not_ have the container generate mocks automatically for special cases. </p><br /><br /><p>And <strong>two for pulling items out of the container</strong>. Whether you want a instance of T or a Mock&lt;T&gt;, it gives you ways to retrieve both.</p><br /><br /><blockquote><br />  <p><a href="http://lh4.ggpht.com/_L6Vw0x_R3iw/S0DLkBR_DzI/AAAAAAAAANM/VOt0g3C4xD0/s1600-h/image3.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://lh5.ggpht.com/_L6Vw0x_R3iw/S0DLkezvL7I/AAAAAAAAANQ/3CZqGQAh-fA/image_thumb1.png?imgmax=800" width="396" height="106" /></a> </p><br /></blockquote><br /><br /><h4>How can I setup my own registrations with the container? </h4><br /><br /><p>Say I don’t want to have the container generate mocks for specific items and I want to supply specific configuration to the UnityContainer.</p><br /><br /><blockquote><br />  <p>public UnityAutoMockContainer RegisterInstance&lt;TService&gt;(TService instance)</p><br /><br />  <p>public UnityAutoMockContainer Register&lt;TService, TImplementation&gt;() <br />    <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; where TImplementation : TService</p><br /></blockquote><br /><br /><p><strong>Note</strong>: both of these registration methods return the container itself so you can fluently stack registration. <strong>EX:</strong></p><br /><br /><pre class="brush: csharp;">AutoMockContainer<br />    .Register&lt;IServiceA, ServiceA&gt;()<br />    .Register&lt;IServiceB, ServiceB&gt;();</pre><br /><br /><p><strong>Let me know</strong>: I haven’t tested or played around with how this automocking container deals with any container specific xml configuration… So although I don’t think you should probably have that in a test assembly (stuff happens). Let me know if there are any issues.</p><br /><br /><h4>How do I get items out of the container?</h4><br /><br /><p>First is the Resolve&lt;T&gt;(). It will pull an item T out of the container. (Creating it if not already existing)</p><br /><br /><blockquote><br />  <p>public T Resolve&lt;T&gt;()</p><br /></blockquote><br /><br /><p>When T is an interface Resolve&lt;T&gt; (unless you setup registration specifically with the container) should return basically “(new Mock&lt;T&gt;()).Object”</p><br /><br /><p>When T is a concrete Class, the container should return an instance of T and any of it’s dependencies will be satisfied by mocks. (Note that T will not be any sort of mocked instance of T, unless you used the GetMock&lt;T&gt; as described below first)</p><br /><br /><blockquote><br />  <p>public Mock&lt;T&gt; GetMock&lt;T&gt;() where T : class</p><br /></blockquote><br /><br /><p>When T is an interface GetMock&lt;T&gt; should return basically “(new Mock&lt;T&gt;())” </p><br /><br /><p>When T is a concrete Class, the container should return a new Mock&lt;T&gt;() and any of it’s dependencies will be satisfied by mocks.</p><br /><br /><h4>How do I use the UnityAutoMockContainer?</h4><br /><br /><p>It’s pretty basic, you first create an instance of the UnityAutoMockContainer, and from there you can ask it for mocks of an (Interface, Class, or Abstract Class).</p><br /><br /><p>If you request an instance of a concrete class, or abstract class, the UnityAutoMockContainer will stuff mocks in for any constructor dependencies of your concrete class (if it can). You can then request from the container those same dependencies one at a time and either apply mocking setups or verifications.</p><br /><br /><blockquote><br />  <p><strong>NOTE:</strong> Anything the container creates will live as a singleton instance in the container. So any other requests from the container will always return the originally created instance. Therefore, each distinct scenario in a test suite should have their own instances of the container.</p><br /></blockquote><br /><br /><p>Below his an example of how you can leverage the container in some tests. Given this base fixture class…</p><br /><br /><pre class="brush: csharp;">public class FixtureBase<br />{<br />    private readonly UnityAutoMockContainer _autoMockContainer = new UnityAutoMockContainer();<br /><br />    protected UnityAutoMockContainer AutoMockContainer<br />    {<br />        get { return _autoMockContainer; }<br />    }<br /><br />    [TestFixtureSetUp]<br />    public void SetupContext_ALL()<br />    {<br />        Before_all_tests();<br />        Because();<br />    }<br /><br />    [TestFixtureTearDown]<br />    public void TearDownContext_ALL()<br />    {<br />        After_all_tests();<br />    }<br /><br />    protected virtual void Before_all_tests()<br />    {<br />    }<br /><br />    protected virtual void Because()<br />    {<br />    }<br /><br />    protected virtual void After_all_tests()<br />    {<br />    }<br />}</pre><br /><br /><p>If I were given the following system to test.</p><br /><br /><pre class="brush: csharp;">public interface IServiceA { void RunA(); }<br />public interface IServiceB { void RunB(); }<br /><br />public class TestComponent<br />{<br />    public TestComponent(IServiceA serviceA, IServiceB serviceB)<br />    {<br />        ServiceA = serviceA;<br />        ServiceB = serviceB;<br />    }<br /><br />    public IServiceA ServiceA { get; private set; }<br />    public IServiceB ServiceB { get; private set; }<br /><br />    public void RunAll()<br />    {<br />        if (!HowDidItGo())<br />            return;<br />        ServiceA.RunA();<br />        ServiceB.RunB();<br />    }<br /><br />    public virtual bool HowDidItGo()<br />    {<br />        // some really nasty untestable code<br />        return true;<br />    }<br />}</pre><br /><br /><p>The below example demonstrates simply verifying some behavior on the mocked dependencies of the system under test.</p><br /><br /><pre class="brush: csharp;">[TestFixture]<br />public class Example__how_to_pull_items_from_the_UnityAutoMockContainer_when_verifying_behavior_after_an_action_was_taken <br />    : FixtureBase<br />{<br />    private TestComponent _testComponent;<br /><br />    protected override void Before_all_tests()<br />    {<br />        base.Before_all_tests();<br />        _testComponent = AutoMockContainer.Resolve&lt;TestComponent&gt;();<br />    }<br /><br />    protected override void Because()<br />    {<br />        _testComponent.RunAll();<br />    }<br /><br />    [Test]<br />    public void Should_run_ServiceA_RunA()<br />    {<br />        AutoMockContainer<br />            .GetMock&lt;IServiceA&gt;()<br />            .Verify(v =&gt; v.RunA(), Times.Once());<br />    }<br /><br />    [Test]<br />    public void Should_run_ServiceB_RunB()<br />    {<br />        AutoMockContainer<br />            .GetMock&lt;IServiceB&gt;()<br />            .Verify(v =&gt; v.RunB(), Times.Once());<br />    }<br />}</pre><br /><br /><p>Next, you may have noticed that the system under test had a complicated internal method (that may not necessarily be testable). You can use the AutoMocker to create the system under test as a Mock itself, so we can override some of the behavior. Here’s how you could quickly do that. </p><br /><br /><blockquote><br />  <p><strong>Aside</strong>: I’m not saying this is a good practice or aids in good component design, just saying it’s possible</p><br /></blockquote><br /><br /><pre class="brush: csharp;">[TestFixture]<br />public class Example__how_to_use_the_UnityAutoMockContainer_to_override_a_method_on_the_SystemUnderTest_to_test_a_certain_behavior<br />    : FixtureBase<br />{<br /><br />    private TestComponent _testComponent;<br /><br />    protected override void Before_all_tests()<br />    {<br />        base.Before_all_tests();<br />        var mockTestComponent = AutoMockContainer.GetMock&lt;TestComponent&gt;();<br /><br />        mockTestComponent<br />            .Setup(s =&gt; s.HowDidItGo())<br />            .Returns(false);<br /><br />        _testComponent = mockTestComponent.Object;<br />    }<br /><br />    protected override void Because()<br />    {<br />        _testComponent.RunAll();<br />    }<br /><br />    [Test]<br />    public void Should_run_ServiceA_RunA()<br />    {<br />        AutoMockContainer<br />            .GetMock&lt;IServiceA&gt;()<br />            .Verify(v =&gt; v.RunA(), Times.Never());<br />    }<br /><br />    [Test]<br />    public void Should_run_ServiceB_RunB()<br />    {<br />        AutoMockContainer<br />            .GetMock&lt;IServiceB&gt;()<br />            .Verify(v =&gt; v.RunB(), Times.Never());<br />    }<br />}</pre><br /><br /><p>&#160;</p><br /><br /><p>It’s amazing how much redundant test setup code this little helper has saved me in my tests. I hope others can find some use with this as well.</p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/12/powershell-load-assembly-without/">Powershell: Load Assembly Without Locking File.</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-12-22T21:40:00-08:00" pubdate data-updated="true">Dec 22<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>This post had some updates based on comments so I’m just updating the one over at <a href="http://elegantcode.com/">ElegantCode</a>.</p>  <p><a href="http://elegantcode.com/2009/12/22/powershell-load-assembly-without-locking-file/">http://elegantcode.com/2009/12/22/powershell-load-assembly-without-locking-file/</a></p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/12/statlight-goes-open-source/">StatLight – Goes Open Source</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-12-10T19:27:00-08:00" pubdate data-updated="true">Dec 10<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>Although I made a very minor attempt at making <a href="http://statlight.net" target="_blank">StatLight</a> a “for-sale” product, I knew when I started that open-source was most likely going to be my long term path for <a href="http://statlight.net" target="_blank">StatLight</a>.</p>  <h5>What is it? (Silverlight Testing Automation Tool)</h5>  <p>StatLight is a tool developed for automating the setup, running, and gathering results of Silverlight unit tests. StatLight helps to speed up the feedback cycles while practicing<a href="http://en.wikipedia.org/wiki/Test-driven_development"> TDD</a>/<a href="http://en.wikipedia.org/wiki/Behavior_Driven_Development">BDD</a>/(insert your test style here) during Silverlight development.</p>  <h5>Where can I get StatLight?</h5>  <p><a href="http://StatLight.CodePlex.com">http://StatLight.CodePlex.com</a></p>  <p>&#160;</p>  <h4>Happy Coding !!!</h4>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/12/go-to-definition-tip-with-c-var-keyword/">Go to Definition Tip With the C# ‘var’ Keyword</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-12-01T22:09:00-08:00" pubdate data-updated="true">Dec 1<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>This may be totally obvious to the masses out there, and it isn’t much of a tip, other than to say <strong>it works</strong>…</p>  <p></p>  <h5>Did You Know?</h5>  <p><strong>F12 (Go To Definition) – works on the C# </strong><a href="http://msdn.microsoft.com/en-us/library/bb383973.aspx"><strong><u>var</u></strong></a> keyword<strong></strong>?</p>  <p>(That’s all there is to this post – the rest is just rambling)</p>  <p>I hit it on accident the other day (yes I know, <strong>F12</strong> isn’t exactly in the usual path of accidental keystrokes, trust me it was on accident). It brought Visual Studio to a screeching halt. That is, while VS was trying to load the <a href="http://msdn.microsoft.com/en-us/library/exy1facf(VS.80).aspx">object browser</a>, and satellites were linking up in outer space trying get some message sent through the <a href="http://en.wikipedia.org/wiki/Pony_Express">Pony Express</a> about a <a href="http://www.urbandictionary.com/define.php?term=tweetup&amp;defid=3639937">tweetup</a> with the <a href="http://weblogs.asp.net/scottgu/archive/2009/10/29/add-reference-dialog-improvements-vs-2010-and-net-4-0-series.aspx">Add Reference Dialog</a>. (Point being – loading the object browser is REALLY SLOW)</p>  <p>It dawned on me that the <strong>F12</strong> (Go To Definition) keyboard shortcut works on the <a href="http://msdn.microsoft.com/en-us/library/bb383973.aspx">var</a> keyword.</p>  <p>Usually I just use the tool tip window when I don’t have time to decipher why the variable’s naming isn’t clear. (<a href="http://devlicio.us/blogs/hadi_hariri/archive/2009/11/20/var-improves-readability.aspx?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed:+Devlicious+(Devlicio.us)&amp;utm_content=Google+Reader">good post on the subject</a>)</p>  <p><a href="http://lh3.ggpht.com/_L6Vw0x_R3iw/SxYEpdzTPPI/AAAAAAAAAM4/V5DBhnTm7O4/s1600-h/image3.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="image" border="0" alt="image" src="http://lh3.ggpht.com/_L6Vw0x_R3iw/SxYEpxUBU2I/AAAAAAAAAM8/QMYR-Veivq8/image_thumb1.png?imgmax=800" width="247" height="67" /></a>&#160;</p>  <p>FYI: for those R# fans, who noticed after installing it, you lost the code metadata window in C# when F12ing it (Go To Definition). They’ve fixed it in the upcoming version <a href="http://www.jetbrains.net/jira/browse/RSRP-35547">http://www.jetbrains.net/jira/browse/RSRP-35547</a>. So my satellites/pony express/tweetup/add ref dialog comment above won’t be an issue anymore. <strong>Yippee!</strong></p>  </div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/9/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/7/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/03/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/03/rake-psake-grunt-gulp-jake-make-cake/">Rake, Psake, Grunt, Gulp, Jake, Make, Cake, Brunch, Ant, Bash, Maven, or Fabric. As Long as You putOnAHelmet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/02/segregate-your-code-commits-into-tiny/">Segregate Your Code Commits Into Tiny Topical Changes.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/12/format-your-net-exceptions-to-see/">Format Your .Net Exceptions to See the StackTrace.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/12/leave-yourself-breadcrumb-for-tomorrow/">Leave Yourself a Breadcrumb for Tomorrow.</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/staxmanade">@staxmanade</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'staxmanade',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+<section class="twitter">
+	<a class="twitter-timeline" href="https://twitter.com/staxmanade" data-widget-id="451218682652286976">Tweets by @staxmanade</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Jason Jarrett -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'staxmanadeblog';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
