@@ -5,7 +5,9 @@ date: 2014-04-12 20:19:53 -0700
 comments: true
 categories: 
   - Octopress
-published: false
+  - BlogSpot
+  - ElegantCode
+published: true
 series_about: "Migrating from BlogSpot to Octopress"
 series_title: "Introduction"
 series: migrate-blogspot-to-octopress

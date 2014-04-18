@@ -2,12 +2,13 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://staxmanade.github.io
+url: http://staxmanade.com
 title: Developing on Staxmanade
 subtitle: 
 author: Jason Jarrett
 simple_search: https://www.google.com/search
 description:
+
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
