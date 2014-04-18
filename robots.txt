@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://staxmanade.github.io/sitemap.xml 
+Sitemap: http://staxmanade.com/sitemap.xml 

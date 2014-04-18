@@ -9,7 +9,7 @@
   <meta name="author" content="Jason Jarrett">
 
   
-  <meta name="description" content="&#160; UPDATE: Microsoft’s acknowledged the bug… We had a scenario (several weeks back) where a co-worker was connecting/changing connection between &hellip;">
+  <meta name="description" content=" ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://staxmanade.github.io/blog/page/11">
+  <link rel="canonical" href="http://staxmanade.com/blog/page/11">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Developing on Staxmanade" type="application/atom+xml">
@@ -60,7 +60,7 @@
   
 <form action="https://www.google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:staxmanade.github.io" />
+    <input type="hidden" name="q" value="site:staxmanade.com" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -76,6 +76,43 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/04/to-be-checked-in-or-not/">To Be Checked in or Not!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-24T13:05:00-07:00" pubdate data-updated="true">Apr 24<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p><a href="http://lh3.ggpht.com/_L6Vw0x_R3iw/SfIbnCZ8_eI/AAAAAAAAAHY/Vq8B-9nF0eQ/s1600-h/image%5B8%5D.png"><img style="border-bottom: 0px; border-left: 0px; display: inline; border-top: 0px; border-right: 0px" title="image" border="0" alt="image" src="http://lh6.ggpht.com/_L6Vw0x_R3iw/SfIbnVdevlI/AAAAAAAAAHc/YYPOugrcFPA/image_thumb%5B4%5D.png?imgmax=800" width="604" height="289" /></a></p>  </div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -507,61 +544,6 @@ Hey man,<br /><br />Why not add this to xUnit Contrib?<br /><br />Or have I just
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2009/02/fluent-specification-extensions/">Fluent Specification Extensions</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-02-04T16:14:00-08:00" pubdate data-updated="true">Feb 4<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p><strong>FYI: If you&#8217;re familiar with extension methods, and how to use them in testing sceneries&#8230;the interesting part of this post is at the bottom starting at: &#8220;Ok, on to the point&#8230;&#8221;</strong></p><p>The C# extension methods give some amazing power when it comes to extending functionality of objects (we don&#8217;t own) and I&#8217;ve spotted a pattern on several blogs and example unit testing snippets, especially in the Context Specification style testing areas that I find interesting.   <br /><br />The concept is to basically use the C# extension methods within a unit testing environment to give the system under test (SUT) more readability/understandability within the test code itself.   <br /><br />Here&#8217;s an example of how you might normally write a unit test given the following SUT. </p>  <pre><span style="color:#0000ff;">public</span> <span style="color:#0000ff;">class</span> SystemUnderTest<br />{<br />  <span style="color:#0000ff;">public</span> SystemUnderTest() { PropertyUnderTest = "<span style="color:#8b0000;">Hello World!</span>"; }<br />  <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">string</span> SomeStringProperty { <span style="color:#0000ff;">get</span>; <span style="color:#0000ff;">set</span>; }<br />  <span style="color:#0000ff;">public</span> <span style="color:#0000ff;">bool</span> SomeBoolProperty { <span style="color:#0000ff;">get</span>; <span style="color:#0000ff;">set</span>; }<br />}</pre><p>You might write some unit tests that might look like&#8230;</p><pre>var sut = <span style="color:#0000ff;">new</span> SystemUnderTest();<br /><br />Assert.IsTrue(sut.SomeBoolProperty);<br />Assert.AreEqual(sut.SomeStringProperty, "<span style="color:#8b0000;">Hello World!</span>");</pre><p>Now, the assertions above are small enough it&#8217;s pretty easy to tell what&#8217;s going on, however when you think about what your looking at, it actually present the best readability.</p><p>Let&#8217;s take the string&#8217;s AreEqual assertion for example&#8230;  You first read the &#8220;AreEqual&#8221;, so now you have to allocate some (undefined as of yet) space in your head to store some data points that need to be evaluated all at once. (maybe I&#8217;m getting lazy as I get old, but the less I have to think when reading tests the more time I can spend understanding the domain being tested&#8230;)</p><p>Again, the example is over simplified, but I think you get the point.</p><h4>What if you could make the test syntax read and flow in a very readable and understandable manner?</h4><p>That&#8217;s what the specification extensions give you. Given the two tests above and an a couple helper extension methods living in the testing library I could write something like.</p><pre>var sut = <span style="color:#0000ff;">new</span> SystemUnderTest();<br />sut.SomeBoolProperty.ShouldBeTrue();<br />sut.SomeBoolProperty.ShouldEqual("<span style="color:#8b0000;">Hello World!</span>");</pre><p>It may just be me, but that just feels better, is more understandable, and the great thing is I didn&#8217;t have to impact my domain objects to support this style of test&#8230;</p><p>Another great benefit is you don&#8217;t have to type &#8220;Assert.xxxx(YYzzz)&#8221; each time you want to create an assertion. You can just type sut.SomeThing.{this where you get help from intellasense} giving you some great context based assertion options.</p><p>I googled for a library that had a pre-built set of extension assertions and ended up finding the <a href="http://code.google.com/p/specunit-net/source/browse/">http://code.google.com/p/specunit-net/source/browse/</a> by Scott Bellware. If you dig into the source of the project you can find a helper class called <a href="http://code.google.com/p/specunit-net/source/browse/trunk/src/SpecUnit/SpecificationExtensions.cs" target="_blank">SpecificationExtensions.cs</a> which basically gives you all the &#8220;Should..{your assertion here}&#8221; extension methods.</p><h4>Ok, on to the point real point (sorry it&#8217;s taken so long).</h4><p>After downloading and playing with the extension specifications from Spec Unit, I thought what if we made that more fluent?</p><p>So I gave it a quick spike and instead of writing some tests that look like&#8230;</p><pre>sut.SomeStringProperty.ShouldNotBeNull();<br />sut.SomeStringProperty.ShouldBeOfType(<span style="color:#0000ff;">typeof</span>(<span style="color:#0000ff;">string</span>));<br />sut.SomeStringProperty.ShouldEqual("<span style="color:#8b0000;">Hello World!</span>"); </pre><p>You could have less wordy code and still retain all the meaning and readability with a set of fluent specification extensions.</p><pre>sut.SomeStringProperty<br />.ShouldNotBeNull()<br />.ShouldBeOfType(<span style="color:#0000ff;">typeof</span>(<span style="color:#0000ff;">string</span>))<br />.ShouldEqual("<span style="color:#8b0000;">Hello World!</span>");</pre><p>I haven&#8217;t figured out what sorts of bad things this style of assertion could bring&#8230; but we&#8217;ll experiment for a while&#8230;</p><p>Here&#8217;s an example console app with the extensions included.</p><p><strong>DISCLAIMER</strong>: I haven&#8217;t tested all the extensions so if you notice any issues please feel free to let me know&#8230;<br /><br /><iframe style="border-right: #dde5e9 1px solid; padding-right: 0px; border-top: #dde5e9 1px solid; padding-left: 0px; padding-bottom: 0px; margin: 3px; border-left: #dde5e9 1px solid; width: 240px; padding-top: 0px; border-bottom: #dde5e9 1px solid; height: 66px; background-color: #ffffff" marginwidth="0" marginheight="0" src="http://cid-c0f357e4555270e7.skydrive.live.com/embedrowdetail.aspx/Public/FluentSpecificationExtensions.zip" frameborder="0" scrolling="no"></iframe></p></div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Jazz</div>
-<div class='content'>
-I just added this helpful extension method to my code. Thought of sharing it.<br /><br />public static IEnumerable ShouldContain(this IEnumerable collection, Func expectedCriteria)<br />        {<br />            collection.Any(expectedCriteria).ShouldBeTrue();<br />            return collection;<br />        }</div>
-</div>
-<div class='comment'>
-<div class='author'>tims</div>
-<div class='content'>
-You might find this useful:<br /><br />http://code.google.com/p/shouldit/<br /><br />ShouldIt is an open source library of fluent specification extensions that can be used with any unit testing framework.</div>
-</div>
-<div class='comment'>
-<div class='author'>DB</div>
-<div class='content'>
-Whats up Stax! Man, you are always deep into stuff I can&#8217;t understand!</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/12/">&larr; Older</a>
@@ -575,8 +557,33 @@ Whats up Stax! Man, you are always deep into stuff I can&#8217;t understand!</di
 <aside class="sidebar">
   
     <section>
+	<!-- Begin MailChimp Signup Form -->
+	<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+		#mc_embed_signup input.button {
+			width: inherit;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	</style>
+	<div id="mc_embed_signup">
+		<form action="http://staxmanade.us8.list-manage1.com/subscribe/post?u=9a6f3f89fc58e1bbbddf5c3f8&amp;id=9e5406be65" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+			<h1>Subscribe</h1>
+			<p>Enter your email to recive recent blog posts and other news</p>
+			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+		    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+		    <div style="position: absolute; left: -5000px;"><input type="text" name="b_9a6f3f89fc58e1bbbddf5c3f8_9e5406be65" value=""></div>
+			<div class=""><input type="submit" value="Subscribe to blog" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+		</form>
+	</div>
+	<!--End mc_embed_signup-->
+</section><section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/04/migrating-blogspot-to-octopress-part-1-introduction/">Migrating From BlogSpot to Octopress - Part 1 - Introduction</a>
+      </li>
     
       <li class="post">
         <a href="/2014/03/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
@@ -592,10 +599,6 @@ Whats up Stax! Man, you are always deep into stuff I can&#8217;t understand!</di
     
       <li class="post">
         <a href="/2013/12/format-your-net-exceptions-to-see/">Format Your .Net Exceptions to See the StackTrace.</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/12/leave-yourself-breadcrumb-for-tomorrow/">Leave Yourself a Breadcrumb for Tomorrow.</a>
       </li>
     
   </ul>
@@ -629,16 +632,6 @@ Whats up Stax! Man, you are always deep into stuff I can&#8217;t understand!</di
   </script>
   <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
-
-
-
-
-
-<section class="twitter">
-	<a class="twitter-timeline" href="https://twitter.com/staxmanade" data-widget-id="451218682652286976">Tweets by @staxmanade</a>
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</section>
-
 
 
   

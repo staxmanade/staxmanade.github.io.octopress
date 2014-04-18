@@ -9,7 +9,7 @@
   <meta name="author" content="Jason Jarrett">
 
   
-  <meta name="description" content="If you are coming to this series of posts for the first time you might check out my introductory post for a little context. NaturalSpec is a BDD &hellip;">
+  <meta name="description" content="If you are coming to this series of posts for the first time you might check out my introductory post for a little context. FakeO is a fake object &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://staxmanade.github.io/blog/page/4">
+  <link rel="canonical" href="http://staxmanade.com/blog/page/4">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Developing on Staxmanade" type="application/atom+xml">
@@ -60,7 +60,7 @@
   
 <form action="https://www.google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:staxmanade.github.io" />
+    <input type="hidden" name="q" value="site:staxmanade.com" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -76,6 +76,43 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/02/nuget-project-uncovered-fakeo/">NuGet Project Uncovered: FakeO</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-14T20:46:00-08:00" pubdate data-updated="true">Feb 14<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<blockquote>   <p>If you are coming to this series of posts for the first time you might check out <a href="http://elegantcode.com/2012/01/22/nuget-project-uncovered-an-introduction-to-the-series/" target="_blank">my introductory post</a> for a little context.</p> </blockquote>  <p><a href="http://nuget.org/packages/FakeO" target="_blank">FakeO</a> is a fake object generation library. It doesn’t seem to play nicely with objects that require parameters in the constructor. However if you have lots of classes that have a default constructor and plain old get/set properties this project might be very useful.</p>  <p>You can even specify not just random text or numbers to generate, but some specific context driven data.</p>  <p>For example:</p>  <ul>   <li>Random company name </li>    <li>Lorem Ipsum to various lengths. </li>    <li>Phone numbers </li>    <li>Random strings based on a regex. </li>    <li>etc…      <br /></li> </ul>  <blockquote>   <pre>// example FakeO call<br />var comp = FakeO.Create.Fake&lt;Company&gt;(<br />                c =&gt; c.Name = FakeO.Company.Name(),<br />                c =&gt; c.Phone = FakeO.Phone.Number(),<br />                c =&gt; c.EmployeeCount = FakeO.Number.Next(100,200)); // random number from 100 to 200</pre></blockquote>  </div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -410,51 +447,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/02/nuget-project-uncovered-intx/">NuGet Project Uncovered: IntX</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-03T20:28:00-08:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<blockquote>   <p>If you are coming to this series of posts for the first time you might check out <a href="http://elegantcode.com/2012/01/22/nuget-project-uncovered-an-introduction-to-the-series/" target="_blank">my introductory post</a> for a little context.</p> </blockquote>  <p>Have you ever wanted to generate a number that could potentially have millions of digits and do arbitrary mathematical operations against it? Ya, me neither. But if I did, I would take a look at this project.</p>  <p><a href="http://nuget.org/packages/IntX" target="_blank">IntX</a> is </p>  <blockquote>   <p>an arbitrary precision integers class written in pure C# with fast - about O(N * log N) - multiplication/division algorithms implementation. Runs on .NET 2.0+.</p> </blockquote>  <p>The <a href="http://intx.codeplex.com/" target="_blank">intx.codeplex</a> site has quite a bit of info about the project (<a href="http://en.wikipedia.org/wiki/Wikipedia:Too_long;_didn%27t_read" target="_blank">TL;DR</a>). If you’d like to learn more I’d suggest checking it out.</p></div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Generic Cialis</div>
-<div class='content'>
-Honey is sweet, but the bee stings</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -468,8 +460,33 @@ Honey is sweet, but the bee stings</div>
 <aside class="sidebar">
   
     <section>
+	<!-- Begin MailChimp Signup Form -->
+	<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+		#mc_embed_signup input.button {
+			width: inherit;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	</style>
+	<div id="mc_embed_signup">
+		<form action="http://staxmanade.us8.list-manage1.com/subscribe/post?u=9a6f3f89fc58e1bbbddf5c3f8&amp;id=9e5406be65" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+			<h1>Subscribe</h1>
+			<p>Enter your email to recive recent blog posts and other news</p>
+			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+		    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+		    <div style="position: absolute; left: -5000px;"><input type="text" name="b_9a6f3f89fc58e1bbbddf5c3f8_9e5406be65" value=""></div>
+			<div class=""><input type="submit" value="Subscribe to blog" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+		</form>
+	</div>
+	<!--End mc_embed_signup-->
+</section><section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/04/migrating-blogspot-to-octopress-part-1-introduction/">Migrating From BlogSpot to Octopress - Part 1 - Introduction</a>
+      </li>
     
       <li class="post">
         <a href="/2014/03/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
@@ -485,10 +502,6 @@ Honey is sweet, but the bee stings</div>
     
       <li class="post">
         <a href="/2013/12/format-your-net-exceptions-to-see/">Format Your .Net Exceptions to See the StackTrace.</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/12/leave-yourself-breadcrumb-for-tomorrow/">Leave Yourself a Breadcrumb for Tomorrow.</a>
       </li>
     
   </ul>
@@ -522,16 +535,6 @@ Honey is sweet, but the bee stings</div>
   </script>
   <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
-
-
-
-
-
-<section class="twitter">
-	<a class="twitter-timeline" href="https://twitter.com/staxmanade" data-widget-id="451218682652286976">Tweets by @staxmanade</a>
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</section>
-
 
 
   
