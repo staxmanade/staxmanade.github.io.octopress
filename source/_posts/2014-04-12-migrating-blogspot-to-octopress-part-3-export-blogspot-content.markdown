@@ -19,6 +19,7 @@ Thanks to Google for allowing us to [export our own content](https://support.goo
 
 1. Log in to your [BlogSpot.com(http://BlogSpot.com) admin portal
 2. Go to the `Settings` tab
+3. Select the `Other` option under Settings
 3. Under Blog tools select `Export blog`
 4. Save the file somewhere safe so we can refer to it later
 
