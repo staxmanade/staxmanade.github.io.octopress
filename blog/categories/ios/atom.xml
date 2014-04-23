@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: iOS | Developing on Staxmanade]]></title>
+  <link href="http://staxmanade.com/blog/categories/ios/atom.xml" rel="self"/>
+  <link href="http://staxmanade.com/"/>
+  <updated>2014-04-23T11:52:17-07:00</updated>
+  <id>http://staxmanade.com/</id>
+  <author>
+    <name><![CDATA[Jason Jarrett]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Infinite Scrolling UICollectionView With Asyncronously Loading]]></title>
+    <link href="http://staxmanade.com/2014/03/infinite-scrolling-uicollectionview/"/>
+    <updated>2014-03-15T12:17:00-07:00</updated>
+    <id>http://staxmanade.com/2014/03/infinite-scrolling-uicollectionview</id>
+    <content type="html"><![CDATA[<div class='post'>
+<p>The other day I set out to create an iOS UICollectionView that allowed a user to scroll vertically through an infinite-ish list of items where the data came from a paginated back-end web service. Most of the examples out there deal with synchronous in-memory. I needed an asynchronous paginated example.</p> <p>I&#8217;m new enough to iOS development that solutions don&#8217;t yet roll off the wire of my keyboard, so I still google for how others attack a problem and adapt their strategy to fit my needs.</p> <p>It seemed like it took me all day to track down the pieces I needed to put together a solution. But I found enough to put together a prototype.</p> <p>If you need something like this, I&#8217;ve pushed my prototype up to <a href="https://github.com/staxmanade/PaginatedCollectionView">GitHub</a> and hopefully it&#8217;ll give you enough hints to get started on your own implementation.</p> <p>I&#8217;m open to feedback. Post any suggestions/alternative ideas to the github repo.</p> <h1>Where do I get it?</h1> <h2><a href="https://github.com/staxmanade/PaginatedCollectionView">HERE</a></h2> <p>Hope you find this useful.</p></div>
+
+]]></content>
+  </entry>
+  
+</feed>
