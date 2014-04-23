@@ -531,16 +531,22 @@
         <lastmod>2014-04-20T13:56:56-07:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-2-setup-octopress/
+        </loc>
+        <lastmod>2014-04-23T11:53:59-07:00</lastmod>
+    </url>
+    <url>
         <loc>http://staxmanade.com/about/</loc>
         <lastmod>2014-04-16T22:26:46-07:00</lastmod>
     </url>
     <url>
         <loc>http://staxmanade.com/blog/archives/</loc>
-        <lastmod>2014-04-20T13:56:56-07:00</lastmod>
+        <lastmod>2014-04-23T11:53:59-07:00</lastmod>
     </url>
     <url>
         <loc>http://staxmanade.com/</loc>
-        <lastmod>2014-04-20T13:56:56-07:00</lastmod>
+        <lastmod>2014-04-23T11:53:59-07:00</lastmod>
     </url>
     <url>
         <loc>http://staxmanade.com/robots.txt</loc>

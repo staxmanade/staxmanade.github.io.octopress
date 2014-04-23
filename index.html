@@ -9,7 +9,7 @@
   <meta name="author" content="Jason Jarrett">
 
   
-  <meta name="description" content="After hosting my blog on BlogSpot.com for over 5 years, it was time to move. As someone with the development background I have and constantly growing &hellip;">
+  <meta name="description" content="This article is Part 2 of 2 in a series about Migrating from BlogSpot to Octopress. Part 1 - Introduction Part 2 - (current) - Setup Octopress &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +82,358 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/2014/04/migrating-blogspot-to-octopress-part-2-setup-octopress/">Migrating From BlogSpot to Octopress - Part 2 - Setup Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-12T20:19:53-07:00" pubdate data-updated="true">Apr 12<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+
+<div class="seriesNote">
+    <p>This article is <strong>Part 2</strong> of <strong>2</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
+    <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        <li> Part  1 - 
+        
+            <a href="/2014/04/migrating-blogspot-to-octopress-part-1-introduction/">Introduction</a>
+        
+        </li>
+    
+    
+    
+        
+        <li> Part  2 - 
+        
+            (current) - Setup Octopress
+        
+        </li>
+    
+    
+    </ul>
+</div>
+
+
+<p>Luckily for all of us, this post will be short as the <a href="http://octopress.org/docs/setup/">Octopress Setup</a> guide is a great place to start. Only additions I have to add are that I&rsquo;ve set this up on both a Mac and a Windows 8 machine.</p>
+
+<p>I had to execute the <code>rake setup_github_pages[repo]</code> on both machines. I should probably <a href="http://www.hanselman.com/blog/PleaseLearnToThinkAboutAbstractions.aspx">look under the abstraction</a> and understand a little deeper &ndash; but I&rsquo;ll have to save that for later. For now I have work to do&hellip;</p>
+
+<h3>On my Mac:</h3>
+
+<ul>
+<li>Things worked out quite smoothly on the Mac.</li>
+<li>This is where I ran my initial import of the blog (see later posts in the series).</li>
+</ul>
+
+
+<h3>On my Windows 8 machine:</h3>
+
+<ul>
+<li>This environment seemed harder to get going
+
+<ul>
+<li>The hardest part on Windows 8 was getting the right combination of ruby, ruby dev kit, and various other dependencies installed. The dependencies for Octopress installation are compatible with later versions of Ruby but the gems needed for blog import are only supported in Ruby 1.9.3 at the time of this writing. Since I don&rsquo;t use Ruby on Windows for anything else, I eventually ended up uninstalling all versions I&rsquo;d previously had (including cleaning up any environment path variables). Re-installing just what I needed and eventually got it working. Another route is to use <a href="https://github.com/scottmuc/yari">Scott Muc&rsquo;s yari</a> which allows you to toggle the version of Ruby that you&rsquo;re using.</li>
+</ul>
+</li>
+<li><a href="http://blog.zerosharp.com/setting-up-octopress-on-windows/">Thanks to this post</a> to get started on the windows. Some steps I excluded since I&rsquo;d alredy setup the blog initially on my Mac.</li>
+</ul>
+
+
+<p>Now I can use the power of git to manage my website and blog and I can leverage whatever development tools I would like depending on the platform. If you are new to Octopress it is helpful to study the documentation and structure of the files within your cloned repository. The first thing to note is that you have two branches in the repository: the source branch contains the Ruby scripts and utilities you will use to generate your blog content. The master branch is where your published content will live. The second thing to note is that while you can do the git integrations yourself for deploying the blog, it is best to stick to the RAKE task for deploying your content. This will automate copying your content to the _deploy subdirectory and pushing the update to the master branch.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/2014/04/migrating-blogspot-to-octopress-part-1-introduction/">Migrating From BlogSpot to Octopress - Part 1 - Introduction</a></h1>
     
     
@@ -116,7 +468,7 @@
 <p>If you currently have a blog on BlogSpot/Blogger and are interested in migrating to Octopress or any other blog, the following series of posts may be of use.</p>
 
 <div class="seriesNote">
-    <p>This article is <strong>Part 1</strong> of <strong>1</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
+    <p>This article is <strong>Part 1</strong> of <strong>2</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
     <ul>
     
     
@@ -387,6 +739,15 @@
         <li> Part  1 - 
         
             (current) - Introduction
+        
+        </li>
+    
+    
+    
+        
+        <li> Part  2 - 
+        
+            <a href="/2014/04/migrating-blogspot-to-octopress-part-2-setup-octopress/">Setup Octopress</a>
         
         </li>
     
@@ -712,43 +1073,6 @@ I&#39;ve tried to work this way for a long time, but wasn&#39;t ever able to art
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/06/authentication-error-connecting-to-git/">Authentication Error Connecting to Git on TFS</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-20T10:46:00-07:00" pubdate data-updated="true">Jun 20<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p>I’m throwing this out there since I couldn’t find much on this specific problem. #payingItForward</p>  <h4>Problem</h4>  <p>I struggled getting the git command line to authenticate with Git Team Foundation Service online.</p>  <p>My current environment is Windows 8, msysgit, with the git-credential-winstore tool installed. (Love that credential tool)</p>  <p>When I first tried to (push, fetch, or pull) from a newly created TFS Git repository I received git-credential-winstore authentication dialog, entered my credentials and received the following error,</p>  <blockquote>   <p>Failed to erase credential: Element not found      <br />fatal: Authentication failed</p> </blockquote>  <p>After googling that error I found this link <a href="http://blog.jennysjottings.co.uk/2013/01/20/github-glitch/">http://blog.jennysjottings.co.uk/2013/01/20/github-glitch/</a> who’s approach did not work in my case.</p>  <h4>Solution: Short Version</h4>  <ol>   <li>Log into your TFS account (online)</li>    <li>go to your account settings then credentials </li>    <li>setup the alternate login</li> </ol>  <h4>Solution: Long version</h4>  <ol>   <li>First go to the following link:&#160; <a href="http://tfs.visualstudio.com/en-us/learn/use-git-and-xcode-with-tfs.aspx" target="_blank">Use Git&#160; and XCode with TFS</a> </li>    <li>scroll down to the section titled:      <h4>Enable basic authentication for your account</h4>   </li>    <li>Follow those directions</li> </ol>  <h5>Hope this helps.</h5>  <p>Happy Git-ing!</p>  </div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -785,6 +1109,10 @@ I&#39;ve tried to work this way for a long time, but wasn&#39;t ever able to art
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/04/migrating-blogspot-to-octopress-part-2-setup-octopress/">Migrating From BlogSpot to Octopress - Part 2 - Setup Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/04/migrating-blogspot-to-octopress-part-1-introduction/">Migrating From BlogSpot to Octopress - Part 1 - Introduction</a>
       </li>
     
@@ -798,10 +1126,6 @@ I&#39;ve tried to work this way for a long time, but wasn&#39;t ever able to art
     
       <li class="post">
         <a href="/2014/02/segregate-your-code-commits-into-tiny/">Segregate Your Code Commits Into Tiny Topical Changes.</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/12/format-your-net-exceptions-to-see/">Format Your .Net Exceptions to See the StackTrace.</a>
       </li>
     
   </ul>
