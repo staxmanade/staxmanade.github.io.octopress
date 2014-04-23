@@ -25,7 +25,7 @@ I had to execute the `rake setup_github_pages[repo]` on both machines. I should 
 ### On my Windows 8 machine:
 
 - This environment seemed harder to get going
-  - The hardest part on Windows 8 was getting the right combination of ruby, ruby dev kit, and various other dependencies installed. The dependencies for Octopress installation are compatible with later versions of Ruby but the gems needed for blog import are only supported in Ruby 1.9.3 at the time of this writing. Since I don't use Ruby on Windows for anything else, I eventually ended up uninstalling all versions I'd previously had (including cleaning up any environment path variables). Re-installing just what I needed and eventually got it working. Another route is to use [Scott Muc's yari](https://github.com/scottmuc/yari) which allows you to toggle the version of Ruby that you're using.
+- The hardest part on Windows 8 was getting the right combination of ruby, ruby dev kit, and various other dependencies installed. The dependencies for Octopress installation are compatible with later versions of Ruby but the gems needed for blog import are only supported in Ruby 1.9.3 at the time of this writing. Since I don't use Ruby on Windows for anything else, I eventually ended up uninstalling all versions I'd previously had (including cleaning up any environment path variables). Re-installing just what I needed and eventually got it working. Another route is to use [Scott Muc's yari](https://github.com/scottmuc/yari) which allows you to toggle the version of Ruby that you're using.
 - [Thanks to this post](http://blog.zerosharp.com/setting-up-octopress-on-windows/) to get started on the windows. Some steps I excluded since I'd alredy setup the blog initially on my Mac.
 
 
