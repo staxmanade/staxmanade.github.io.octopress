@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Developing on Staxmanade]]></title>
   <link href="http://staxmanade.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://staxmanade.com/"/>
-  <updated>2014-04-23T11:54:57-07:00</updated>
+  <updated>2014-04-23T12:46:57-07:00</updated>
   <id>http://staxmanade.com/</id>
   <author>
     <name><![CDATA[Jason Jarrett]]></name>
@@ -850,12 +850,8 @@
 <h3>On my Windows 8 machine:</h3>
 
 <ul>
-<li>This environment seemed harder to get going
-
-<ul>
+<li>This environment seemed harder to get going</li>
 <li>The hardest part on Windows 8 was getting the right combination of ruby, ruby dev kit, and various other dependencies installed. The dependencies for Octopress installation are compatible with later versions of Ruby but the gems needed for blog import are only supported in Ruby 1.9.3 at the time of this writing. Since I don&rsquo;t use Ruby on Windows for anything else, I eventually ended up uninstalling all versions I&rsquo;d previously had (including cleaning up any environment path variables). Re-installing just what I needed and eventually got it working. Another route is to use <a href="https://github.com/scottmuc/yari">Scott Muc&rsquo;s yari</a> which allows you to toggle the version of Ruby that you&rsquo;re using.</li>
-</ul>
-</li>
 <li><a href="http://blog.zerosharp.com/setting-up-octopress-on-windows/">Thanks to this post</a> to get started on the windows. Some steps I excluded since I&rsquo;d alredy setup the blog initially on my Mac.</li>
 </ul>
 
