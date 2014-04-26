@@ -4,7 +4,7 @@
   <title><![CDATA[Developing on Staxmanade]]></title>
   <link href="http://staxmanade.com/atom.xml" rel="self"/>
   <link href="http://staxmanade.com/"/>
-  <updated>2014-04-23T12:46:57-07:00</updated>
+  <updated>2014-04-26T16:20:37-07:00</updated>
   <id>http://staxmanade.com/</id>
   <author>
     <name><![CDATA[Jason Jarrett]]></name>
@@ -14,6 +14,381 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Migrating From BlogSpot to Octopress - Part 3 - Export BlogSpot Content]]></title>
+    <link href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-3-export-blogspot-content/"/>
+    <updated>2014-04-12T20:19:53-07:00</updated>
+    <id>http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-3-export-blogspot-content</id>
+    <content type="html"><![CDATA[
+
+<div class="seriesNote">
+    <p>This article is <strong>Part 3</strong> of <strong>3</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
+    <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        <li> Part  1 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-1-introduction/">Introduction</a>
+        
+        </li>
+    
+    
+    
+        
+        <li> Part  2 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-2-setup-octopress/">Setup Octopress</a>
+        
+        </li>
+    
+    
+    
+        
+        <li> Part  3 - 
+        
+            (current) - Export BlogSpot Content
+        
+        </li>
+    
+    
+    </ul>
+</div>
+
+
+<p>Thanks to Google for allowing us to <a href="https://support.google.com/blogger/answer/97416?hl=en">export our own content</a> and providing an easy way to get it all in one download. If we had to go manually read each item in an atom feed or web scrape the content off of a web page, this small series would be more like a novel&hellip;</p>
+
+<h1>Steps to export content.</h1>
+
+<ol>
+<li>Log in to your [BlogSpot.com(<a href="http://BlogSpot.com">http://BlogSpot.com</a>) admin portal</li>
+<li>Go to the <code>Settings</code> tab</li>
+<li>Select the <code>Other</code> option under Settings</li>
+<li>Under Blog tools select <code>Export blog</code></li>
+<li>Save the file somewhere safe so we can refer to it later</li>
+</ol>
+
+
+<p><img src="http://staxmanade.com/images/posts/blogger_settings.png" alt="Blogger Settings" /></p>
+
+<h2>What&rsquo;s in this export file?</h2>
+
+<p>This file contains the raw content and metadata around each of your blog posts. You won&rsquo;t get any of your images, but all of your original blog images are probably hosted on external sites. This is next on my list of things to add to the port-list (and will possibly extend this series even more). I would like to download each of my images locally, save them to my Octopress <a href="http://github.com/staxmanade/staxmanade.github.io">git repo</a> and update my posts to link to the local versions of the images (but that&rsquo;s lower on the priority).</p>
+
+<p>Here is a snippet of a single entry from the exported file. In later posts we&rsquo;ll delv deeper into this to extract metadata an setup redirection from BlogSpot to our new blog.</p>
+
+<h2>Sample Entry from Blogspot Export File</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'>  <span class="nt">&lt;entry&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;id&gt;</span>tag:blogger.com,1999:blog-4726251688144615011.post-7515836382847059837<span class="nt">&lt;/id&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;published&gt;</span>2013-12-18T19:50:00.001-08:00<span class="nt">&lt;/published&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;updated&gt;</span>2013-12-18T19:50:18.725-08:00<span class="nt">&lt;/updated&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;category</span> <span class="na">scheme=</span><span class="s">&#39;http://schemas.google.com/g/2005#kind&#39;</span> <span class="na">term=</span><span class="s">&#39;http://schemas.google.com/blogger/2008/kind#post&#39;</span><span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;title</span> <span class="na">type=</span><span class="s">&#39;text&#39;</span><span class="nt">&gt;</span>Format your .Net exceptions to see the StackTrace.<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;content</span> <span class="na">type=</span><span class="s">&#39;html&#39;</span><span class="nt">&gt;</span><span class="ni">&amp;lt;</span>h4<span class="ni">&amp;gt;</span>TL;DR<span class="ni">&amp;lt;</span>/h4<span class="ni">&amp;gt;</span>  <span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>Check out a dinky little <span class="ni">&amp;lt;</span>a href=&quot;http://staxmanade.github.io/ExceptionMessageBeautifier&quot; target=&quot;_blank&quot;<span class="ni">&amp;gt;</span>Exception Message Beautifier<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> site I threw together so you can quickly format .net exception messages and easily see the StackTrace.<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>  <span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;&amp;amp;</span>#160;<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>  <span class="ni">&amp;lt;</span>h4<span class="ni">&amp;gt;</span>Go to the site: <span class="ni">&amp;lt;</span>a href=&quot;http://staxmanade.github.io/ExceptionMessageBeautifier&quot; target=&quot;_blank&quot;<span class="ni">&amp;gt;&amp;lt;</span>font size=&quot;4&quot;<span class="ni">&amp;gt;</span>CLICK HERE<span class="ni">&amp;lt;</span>/font<span class="ni">&amp;gt;&amp;lt;</span>/a<span class="ni">&amp;gt;&amp;lt;</span>/h4<span class="ni">&amp;gt;</span>  <span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;&amp;amp;</span>#160;<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>  <span class="ni">&amp;lt;</span>h4<span class="ni">&amp;gt;</span>Background<span class="ni">&amp;lt;</span>/h4<span class="ni">&amp;gt;</span>  <span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>Over the years, I’ve worked on projects where application exceptions were saved to a SQL database. When querying the logs in Visual Studio or in Sql Management Studio’s table view, I would get a result-set that would not let me copy/paste and review the StackTrace easily. The tool always seemed to leave out the new line characters just like below.<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>  <span class="ni">&amp;lt;</span>blockquote<span class="ni">&amp;gt;</span>   <span class="ni">&amp;lt;</span>pre<span class="ni">&amp;gt;</span>System.Exception: Hello Exception!   at TestExceptionGenerator.Spike.GetException() in c:\Code\personal\DotNetExceptionMessageFormatter\TestExceptionGenerator\Spike.cs:line 22   at TestExceptionGenerator.Spike.b__0() in c:\Code\personal\DotNetExceptionMessageFormatter\TestExceptionGenerator\Spike.cs:line 13   at TestExceptionGenerator.Extensions.GetExceptionString(Action action) in c:\Code\personal\DotNetExceptionMessageFormatter\TestExceptionGenerator\Spike.cs:line 34<span class="ni">&amp;lt;</span>/pre<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>/blockquote<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>p<span class="ni">&amp;gt;&amp;amp;</span>#160;<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>p<span class="ni">&amp;gt;</span>Now, I know there are ways to get around this, like exporting to CSV, or setting up the query results to return in text view instead of table view. However, when you’re in the heat of tracking down a bug and don’t feel like you have time to find the settings dialog or open up you’re a text editor like <span class="ni">&amp;lt;</span>a href=&quot;http://notepad-plus-plus.org/&quot; target=&quot;_blank&quot;<span class="ni">&amp;gt;</span>NotePad++<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> and enter a search/replace as I show below over and over with each exception message you review.<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>p<span class="ni">&amp;gt;&amp;lt;</span>a href=&quot;http://lh6.ggpht.com/-FGWJCcb9iUo/UrJs8rxtvqI/AAAAAAAAAik/uWK5NHFfU18/s1600-h/image15.png&quot;<span class="ni">&amp;gt;&amp;lt;</span>img title=&quot;image&quot; style=&quot;border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; border-top-width: 0px; margin-right: auto&quot; border=&quot;0&quot; alt=&quot;image&quot; src=&quot;http://lh5.ggpht.com/-Eo5EyWOkIm0/UrJs9Dr20HI/AAAAAAAAAio/9-9wJIb1K1c/image_thumb9.png?imgmax=800&quot; width=&quot;443&quot; height=&quot;286&quot; /<span class="ni">&amp;gt;&amp;lt;</span>/a<span class="ni">&amp;gt;&amp;lt;</span>/p<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>p<span class="ni">&amp;gt;</span>Just so I could see an exception that looked more like:<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>blockquote<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;</span>  <span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>System.Exception: Hello Exception! <span class="ni">&amp;lt;</span>br /<span class="ni">&amp;gt;</span>    <span class="ni">&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;amp;</span>#160;<span class="ni">&amp;amp;</span>#160; at TestExceptionGenerator.Spike.GetException() in …<span class="ni">&amp;amp;</span>lt;cut off for brevity<span class="ni">&amp;amp;</span>gt; <span class="ni">&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;</span>    <span class="ni">&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;amp;</span>#160;<span class="ni">&amp;amp;</span>#160; at TestExceptionGenerator.Spike.b__0() in …<span class="ni">&amp;amp;</span>lt;cut off for brevity<span class="ni">&amp;amp;</span>gt; <span class="ni">&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;</span>    <span class="ni">&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;amp;</span>#160;<span class="ni">&amp;amp;</span>#160; at TestExceptionGenerator.Extensions.GetExceptionString(Action action) in …<span class="ni">&amp;amp;</span>#160;<span class="ni">&amp;amp;</span>#160; <span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>/blockquote<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>p<span class="ni">&amp;gt;</span>I finally buckled down and threw together a tool for this. <span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>h3<span class="ni">&amp;gt;</span>You can check go check out <span class="ni">&amp;lt;</span>a href=&quot;http://staxmanade.github.io/ExceptionMessageBeautifier&quot; target=&quot;_blank&quot;<span class="ni">&amp;gt;</span>Exception Message Beautifier<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> where you can see the sample below.<span class="ni">&amp;lt;</span>/h3<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>p<span class="ni">&amp;gt;&amp;amp;</span>#160;<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>p<span class="ni">&amp;gt;&amp;lt;</span>a href=&quot;http://lh3.ggpht.com/-Ts_VJAZqmu4/UrJs9i36LfI/AAAAAAAAAiw/j4jZDVL2Z-Y/s1600-h/image3.png&quot;<span class="ni">&amp;gt;&amp;lt;</span>img title=&quot;image&quot; style=&quot;border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; float: none; padding-top: 0px; padding-left: 0px; margin-left: auto; display: block; padding-right: 0px; border-top-width: 0px; margin-right: auto&quot; border=&quot;0&quot; alt=&quot;image&quot; src=&quot;http://lh6.ggpht.com/-YwT0ZJIBFSA/UrJs93yI9aI/AAAAAAAAAi4/eg2rZr285QE/image_thumb1.png?imgmax=800&quot; width=&quot;689&quot; height=&quot;354&quot; /<span class="ni">&amp;gt;&amp;lt;</span>/a<span class="ni">&amp;gt;&amp;lt;</span>/p<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>p<span class="ni">&amp;gt;&amp;amp;</span>#160;<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>h4<span class="ni">&amp;gt;</span>I’d like to thank.<span class="ni">&amp;lt;</span>/h4<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>p<span class="ni">&amp;gt;</span>Below are a list of tools/resources I leveraged to put the site together relatively quickly over the weekend.<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>ul<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;</span>  <span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>a href=&quot;http://codepen.io/&quot; target=&quot;_blank&quot;<span class="ni">&amp;gt;</span>CodePen.io<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> where I first prototyped/built my site before porting it into the GitHub pages. <span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;</span>  <span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>a href=&quot;https://github.com&quot; target=&quot;_blank&quot;<span class="ni">&amp;gt;</span>GitHub<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> for providing us with <span class="ni">&amp;lt;</span>a href=&quot;http://pages.github.com/&quot; target=&quot;_blank&quot;<span class="ni">&amp;gt;</span>GitHub Pages<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span>. Made this site a piece of cake to setup. <span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;</span>  <span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>a href=&quot;http://github.com/approvals/Approvals.NodeJS&quot; target=&quot;_blank&quot;<span class="ni">&amp;gt;</span>Approvals.NodeJS<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> – easily test/verify output. (<span class="ni">&amp;lt;</span>em<span class="ni">&amp;gt;</span>Disclaimer – I created this nodejs port of <span class="ni">&amp;lt;</span>a href=&quot;http://approvaltests.sourceforge.net/&quot; target=&quot;_blank&quot;<span class="ni">&amp;gt;</span>Approvals<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> for fun a while back and didn’t get around to throwing some polish on the library till now, where I was able to <span class="ni">&amp;lt;</span>a href=&quot;http://en.wikipedia.org/wiki/Eating_your_own_dog_food&quot; target=&quot;_blank&quot;<span class="ni">&amp;gt;</span>dog-food<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> it<span class="ni">&amp;lt;</span>/em<span class="ni">&amp;gt;</span>) <span class="ni">&amp;lt;</span>img class=&quot;wlEmoticon wlEmoticon-smile&quot; style=&quot;border-top-style: none; border-bottom-style: none; border-right-style: none; border-left-style: none&quot; alt=&quot;Smile&quot; src=&quot;http://lh4.ggpht.com/-bZZmkqr5Fqc/UrJs-TZgV2I/AAAAAAAAAjA/22oydAVrbSM/wlEmoticon-smile2.png?imgmax=800&quot; /<span class="ni">&amp;gt;</span> <span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;</span>  <span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>a href=&quot;http://angularjs.org/&quot; target=&quot;_blank&quot;<span class="ni">&amp;gt;</span>AngularJS<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> (a bit overkill for this site, OK TOTAL OVERKILL, but was simple, easy, makes my JS very little, and will allow for easy growth down the road if it needs to.) <span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;</span>  <span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>a href=&quot;https://developers.google.com/speed/libraries/devguide&quot; target=&quot;_blank&quot;<span class="ni">&amp;gt;</span>Google CDN<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> for hosting AngularJS <span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;</span>  <span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>a href=&quot;http://google.com/analytics/&quot; target=&quot;_blank&quot;<span class="ni">&amp;gt;</span>Google Analytics<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> (so I can see if anyone cares) <span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>/ul<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>ul<span class="ni">&amp;gt;</span>If you take a look, find a bug. Submit a GitHub issue and/or a pull request. Or if you find it useful, feel free to let me know.<span class="ni">&amp;lt;</span>/ul<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>br /<span class="ni">&amp;gt;&amp;lt;</span>ul<span class="ni">&amp;gt;</span>Enjoy!<span class="ni">&amp;lt;</span>/ul<span class="ni">&amp;gt;</span>  <span class="nt">&lt;/content&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&#39;replies&#39;</span> <span class="na">type=</span><span class="s">&#39;application/atom+xml&#39;</span> <span class="na">href=</span><span class="s">&#39;http://staxmanade.blogspot.com/feeds/7515836382847059837/comments/default&#39;</span> <span class="na">title=</span><span class="s">&#39;Post Comments&#39;</span><span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&#39;replies&#39;</span> <span class="na">type=</span><span class="s">&#39;text/html&#39;</span> <span class="na">href=</span><span class="s">&#39;https://www.blogger.com/comment.g?blogID=4726251688144615011&amp;amp;postID=7515836382847059837&#39;</span> <span class="na">title=</span><span class="s">&#39;0 Comments&#39;</span><span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&#39;edit&#39;</span> <span class="na">type=</span><span class="s">&#39;application/atom+xml&#39;</span> <span class="na">href=</span><span class="s">&#39;https://www.blogger.com/feeds/4726251688144615011/posts/default/7515836382847059837&#39;</span><span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&#39;self&#39;</span> <span class="na">type=</span><span class="s">&#39;application/atom+xml&#39;</span> <span class="na">href=</span><span class="s">&#39;https://www.blogger.com/feeds/4726251688144615011/posts/default/7515836382847059837&#39;</span><span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&#39;alternate&#39;</span> <span class="na">type=</span><span class="s">&#39;text/html&#39;</span> <span class="na">href=</span><span class="s">&#39;http://staxmanade.blogspot.com/2013/12/format-your-net-exceptions-to-see.html&#39;</span> <span class="na">title=</span><span class="s">&#39;Format your .Net exceptions to see the StackTrace.&#39;</span><span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;author&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;name&gt;</span>Jason Jarrett<span class="nt">&lt;/name&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;uri&gt;</span>https://plus.google.com/112910204617314300568<span class="nt">&lt;/uri&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;email&gt;</span>noreply@blogger.com<span class="nt">&lt;/email&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;gd:image</span> <span class="na">rel=</span><span class="s">&#39;http://schemas.google.com/g/2005#thumbnail&#39;</span> <span class="na">width=</span><span class="s">&#39;32&#39;</span> <span class="na">height=</span><span class="s">&#39;32&#39;</span> <span class="na">src=</span><span class="s">&#39;//lh6.googleusercontent.com/-Lz16PAsLf5Q/AAAAAAAAAAI/AAAAAAAAAg8/FYSu9U-1tCw/s512-c/photo.jpg&#39;</span><span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/author&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;media:thumbnail</span> <span class="na">xmlns:media=</span><span class="s">&#39;http://search.yahoo.com/mrss/&#39;</span> <span class="na">url=</span><span class="s">&#39;http://lh5.ggpht.com/-Eo5EyWOkIm0/UrJs9Dr20HI/AAAAAAAAAio/9-9wJIb1K1c/s72-c/image_thumb9.png?imgmax=800&#39;</span> <span class="na">height=</span><span class="s">&#39;72&#39;</span> <span class="na">width=</span><span class="s">&#39;72&#39;</span><span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;thr:total&gt;</span>0<span class="nt">&lt;/thr:total&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/entry&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Migrating From BlogSpot to Octopress - Part 2 - Setup Octopress]]></title>
     <link href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-2-setup-octopress/"/>
     <updated>2014-04-12T20:19:53-07:00</updated>
@@ -21,7 +396,7 @@
     <content type="html"><![CDATA[
 
 <div class="seriesNote">
-    <p>This article is <strong>Part 2</strong> of <strong>2</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
+    <p>This article is <strong>Part 2</strong> of <strong>3</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
     <ul>
     
     
@@ -305,6 +680,15 @@
         </li>
     
     
+    
+        
+        <li> Part  3 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-3-export-blogspot-content/">Export BlogSpot Content</a>
+        
+        </li>
+    
+    
     </ul>
 </div>
 
@@ -350,7 +734,7 @@
 <p>If you currently have a blog on BlogSpot/Blogger and are interested in migrating to Octopress or any other blog, the following series of posts may be of use.</p>
 
 <div class="seriesNote">
-    <p>This article is <strong>Part 1</strong> of <strong>2</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
+    <p>This article is <strong>Part 1</strong> of <strong>3</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
     <ul>
     
     
@@ -634,6 +1018,15 @@
         </li>
     
     
+    
+        
+        <li> Part  3 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-3-export-blogspot-content/">Export BlogSpot Content</a>
+        
+        </li>
+    
+    
     </ul>
 </div>
 
@@ -822,16 +1215,6 @@ Last weekend I participated in a <a href="http://renohackathon.com/" target="_bl
     <id>http://staxmanade.com/2013/01/testacular-cannot-find-chrome-on-windows</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>I recently started playing with <a href="http://angularjs.org/">AngularJS</a>. After downloading the <a href="https://github.com/angular/angular-seed">seed project</a> and trying to run the tests with <a href="http://vojtajina.github.com/testacular/">Testacular</a>, I bumped into small issue that was not immediately obvious to resolve.</p>  <p>When I ran the “./scripts/test.bat” I would get the following error(s) in my console:</p>  <blockquote>   <p>info: Testacular server started at <a href="http://localhost:9876/">http://localhost:9876/</a>       <br />info (launcher): Starting browser Chrome       <br />error (launcher): Cannot start Chrome       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; CreateProcessW: The system cannot find the path specified.</p>    <p>info (launcher): Trying to start Chrome again.      <br />error (launcher): Cannot start Chrome       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; CreateProcessW: The system cannot find the path specified.</p>    <p>info (launcher): Trying to start Chrome again.      <br />error (launcher): Cannot start Chrome       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; CreateProcessW: The system cannot find the path specified.</p> </blockquote>  <p>Tracked down link on a Google thread: <a title="https://groups.google.com/forum/?fromgroups=#!msg/angular/1li0HKtW56U/lKyT_VId0b0J" href="https://groups.google.com/forum/?fromgroups=#!msg/angular/1li0HKtW56U/lKyT_VId0b0J">https://groups.google.com/forum/?fromgroups=#!msg/angular/1li0HKtW56U/lKyT_VId0b0J</a></p>  <p>It appears that Testacular looks for the chrome browser in a CHROME_BIN environment variable.</p>  <p>To resolve the issue I ran the following PowerShell script and I was able to run the tests.</p>  <blockquote>   <p>[System.Environment]::SetEnvironmentVariable(&quot;CHROME_BIN&quot;, &quot;C:\Program Files (x86)\Google\Chrome\Application\chrome.exe&quot;)</p> </blockquote>  <p><em>Your path to chrome may vary!</em></p>  <p>&#160;</p>  <p>Happy Testing!</p>  </div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Easily Set Visual Studio Keyboard Bindings With the Nuget Package Manager Console]]></title>
-    <link href="http://staxmanade.com/2012/12/easily-set-visual-studio-keyboard/"/>
-    <updated>2012-12-06T08:41:00-08:00</updated>
-    <id>http://staxmanade.com/2012/12/easily-set-visual-studio-keyboard</id>
-    <content type="html"><![CDATA[<div class='post'>
-<p>After a fresh install of Visual Studio, I often re-configure some options and setup keyboard bindings. This tends to be a bit of a pain as each and every time I have to remember what setting is in what U.I. configuration pane and how do I find/configure that again? I also will often forget about certain settings until the point I need them and it really breaks my coding rhythm down to go hunt for and reconfigure these options.</p>  <p>I recently found a simple solution to get my VS just the way I want it.</p>  <blockquote>   <p>P.S. Some of you may want to tell me all about the VS import/export settings, and you may be right, but I just haven’t spent the time to use/understand/easily find a way to integrate it into my ‘flow’.</p> </blockquote>  <p>So I present to you “MY happy path” to Visual Studio Environment configuration.</p>  <h4>1. Install the NuGet Package Manager Extension</h4>  <p>You’re going to probably install this extension anyway, so go-ahead and <a href="http://docs.nuget.org/docs/start-here/installing-nuget">install it now</a> if you don’t already have it… We need this so you can get access to the NuGet Package Manager Console</p>  <p><a href="http://lh3.ggpht.com/-leOq9kWDh78/UMDKoOAS6vI/AAAAAAAAAb8/xUeM3ZRRhfo/s1600-h/image3.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image" src="http://lh4.ggpht.com/-vDO9vE_i-y4/UMDKohZ5WdI/AAAAAAAAAcE/6kWeoto-_ao/image_thumb1.png?imgmax=800" width="745" height="209" /></a></p>  <h4>2. Execute Function Set-VisualStudioEnvironmentConfiguration</h4>  <p>Wait! What is “<a href="https://github.com/staxmanade/DevMachineSetup/blob/master/GlobalScripts/Set-VisualStudioEnvironmentConfiguration.ps1">Set-VisualStudioEnvironmentConfiguration</a>”?</p>  <p>This is a little function that I have in <a href="https://github.com/staxmanade/DevMachineSetup">My PowerShell $Profile</a> which gets setup on all development environment.</p>  <h4>So what’s in this PowerShell script?</h4>  <p>As of writing this, I only have two specific setup commands, but thought I’d share as an example of what you can do:</p>  <ol>   <li>Set a keyboard binding to a specific command.      <pre># Map Ctrl+W to close a tab<br />$DTE.Commands.Item(&quot;File.Close&quot;).Bindings = &quot;Global::Ctrl+W&quot;;</pre><br />  </li><br /><br />  <li>ShowLineNumbers for all language files. <br />    <pre># Turn on line numbers for ALL language types<br />($DTE.Properties(&quot;TextEditor&quot;, &quot;AllLanguages&quot;) | where {$_.Name -eq &quot;ShowLineNumbers&quot; } ).Value = $true</pre><br />  </li><br /><br />  <li>Turn on whitespace? <br />    <pre># This doesn't work and I wish it did... <br />$DTE.ExecuteCommand(&quot;Edit.ViewWhiteSpace&quot;)<br /># Fails with: &quot;Command &quot;Edit.ViewWhiteSpace&quot; is not available.&quot;<br /># <strong>Maybe one of you can help me out?</strong></pre><br /><br />    <h4><br />      <ol>How can I find and setup the settings I like?</ol><br />    </h4><br />I’m no VS expert and only know as much about the $DTE object as what I’ve written about here, but I’ll give you some tips and you can go from there… </li><br /></ol><br /><br /><ul><br />  <li>Google/Bing are your friends. Type “DTE Visual Studio {TheThingYouWantToAccomplish}” </li><br /><br />  <li>After your search, most examples you find will be VB macros and as it turns out VB (in this case) translates nicely to PowerShell (EX:&#160; <br /><font size="3" face="Cordia New">&#160; VB Macro:&#160; DTE.Commands.Item(&quot;File.Close&quot;).Bindings = &quot;Global::Ctrl+W&quot; <br />      <br />PowerShell: <strong>$</strong>DTE.Commands.Item(&quot;File.Close&quot;).Bindings = &quot;Global::Ctrl+W&quot; <br /><br />      <br /></font>See the difference? (yep just the ‘$’ at the beginning of the PowerShell one) Nifty eh? </li><br /><br />  <li>Don’t be afraid to use PowerShell to search/filter things in the $DTE. Try this: <br />    <br /><font size="3" face="Cordia New">PM&gt;&#160; $DTE.Commands | <strong>where { $_.Name –match ‘Close’</strong> } | select { $_.Name } <br /><br />      <br /></font></li><br /></ul><br /><br /><ul>Happy VS Environment setting-uppers!</ul>  </div>
 ]]></content>
   </entry>
   

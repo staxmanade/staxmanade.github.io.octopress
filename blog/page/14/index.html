@@ -9,7 +9,7 @@
   <meta name="author" content="Jason Jarrett">
 
   
-  <meta name="description" content="If you have a class that needs to expose some value (either by a Property, or a &#8220;getter&#8221; function) and there is a chance that getting &hellip;">
+  <meta name="description" content="I had some time to play around with and learn WPF within Silverlight. It&#8217;s a modest start, but I just had to blog about it&#8230;We&#8217;ve &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/08/unitdrivens-ui-gets-minor-makeover/">UnitDriven&#8217;s UI Gets a Minor Makeover</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-30T22:57:00-07:00" pubdate data-updated="true">Aug 30<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I had some time to play around with and learn WPF within Silverlight. It&#8217;s a modest start, but I just had to blog about it&#8230;<br /><br />We&#8217;ve started a project at my current job using Silverlight. Researching different framework options I ran across the <a href="http://codeplex.com/UnitDriven">UnitDriven</a> project on codeplex. After downloading and checking out the silverlight testing UI&#8230;<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/_L6Vw0x_R3iw/SLo1BRz-hyI/AAAAAAAAAAQ/u2fJw1V0ivw/s1600-h/Csla.net.Original.jpg"><img style="margin: 0pt 10px 10px 0pt; float: left; cursor: pointer;" src="http://4.bp.blogspot.com/_L6Vw0x_R3iw/SLo1BRz-hyI/AAAAAAAAAAQ/u2fJw1V0ivw/s320/Csla.net.Original.jpg" alt="" id="BLOGGER_PHOTO_ID_5240559412476544802" border="0" /></a><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />I decided this was a place I could take a stab at learning some silverlight UI. ok&#8230; So it&#8217;s getting late and it&#8217;s certainly not perfect, but here&#8217;s where I am now.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_L6Vw0x_R3iw/SLo1XFQ2E0I/AAAAAAAAAAY/7_HbNVjZ9Ss/s1600-h/Csla.net.NewSkin.jpg"><img style="margin: 0pt 10px 10px 0pt; float: left; cursor: pointer;" src="http://3.bp.blogspot.com/_L6Vw0x_R3iw/SLo1XFQ2E0I/AAAAAAAAAAY/7_HbNVjZ9Ss/s320/Csla.net.NewSkin.jpg" alt="" id="BLOGGER_PHOTO_ID_5240559787065086786" border="0" /></a><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />The only really tricky piece was&#8230; The original UI used nested ListBox controls which threw me down a path of thinking the program was broken&#8230; basically with a ListBox inside of a ListBox you have to select the first item, then the sub item, and in this application, only then, can you select the &#8220;Run&#8221; button to execute the unit test&#8230; I spent time looking through code trying to figure out if there was a bug in the testing contexts.<br /><br />The solution to this was to convert the ListBox to an ItemsControl. Which allowed me to select multiple buttons without having to first select the ListBox sub item&#8230;<br /><br />I then had to wrap everything inside of a ScrollViewer because the ItemsControl doesn&#8217;t create one automatically like the ListBox does.<br />[EDIT]<br />Unfortunately wrapping everything in the ScrollViewer removed a feature the older version had, namely, at the top of the control is a display of the # succeeded/# Total. Wrapping everything in the ScrollViewer removed the ability to scroll through tests while that value was being updated during tests&#8230;<br /><br />So I updated the main grid in the XAML, and shifted a few things around to allow this old feature to be seen in the new UI.<br />[/EDIT]<br /><br />after that was done, it was basically playing around with different styling elements to end up with the UI above.<br /><br />It was a good simple exploratoin into some of the Silverlight&#8217;s WPF capabilities.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Nermin</div>
+<div class='content'>
+Your work on this patch is trully appreciated.  That listbox issue was trully annoying one.</div>
+</div>
+<div class='comment'>
+<div class='author'>Justin Chase</div>
+<div class='content'>
+Thanks for the patch, I applied it today.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -237,6 +287,10 @@ Lambda, not lamda. ;)</div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/04/migrating-blogspot-to-octopress-part-3-export-blogspot-content/">Migrating From BlogSpot to Octopress - Part 3 - Export BlogSpot Content</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/04/migrating-blogspot-to-octopress-part-2-setup-octopress/">Migrating From BlogSpot to Octopress - Part 2 - Setup Octopress</a>
       </li>
     
@@ -250,10 +304,6 @@ Lambda, not lamda. ;)</div>
     
       <li class="post">
         <a href="/2014/03/rake-psake-grunt-gulp-jake-make-cake/">Rake, Psake, Grunt, Gulp, Jake, Make, Cake, Brunch, Ant, Bash, Maven, or Fabric. As Long as You putOnAHelmet</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/02/segregate-your-code-commits-into-tiny/">Segregate Your Code Commits Into Tiny Topical Changes.</a>
       </li>
     
   </ul>

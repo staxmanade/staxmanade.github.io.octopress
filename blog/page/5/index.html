@@ -9,7 +9,7 @@
   <meta name="author" content="Jason Jarrett">
 
   
-  <meta name="description" content="If you are coming to this series of posts for the first time you might check out my introductory post for a little context. DynamicXaml takes a &hellip;">
+  <meta name="description" content="If you are coming to this series of posts for the first time you might check out my introductory post for a little context. Deleporter is a project &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,43 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/02/nuget-project-uncovered-deleporter/">NuGet Project Uncovered: Deleporter</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-06T20:32:00-08:00" pubdate data-updated="true">Feb 6<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<blockquote>   <p>If you are coming to this series of posts for the first time you might check out <a href="http://elegantcode.com/2012/01/22/nuget-project-uncovered-an-introduction-to-the-series/" target="_blank">my introductory post</a> for a little context.</p> </blockquote>  <p><a href="http://nuget.org/packages/Deleporter" target="_blank">Deleporter</a> is a project I used over a year ago. It allows you to setup a delegate and execute it in a different process.</p>  <p><strong>For Example</strong>: You spin up a unit/integration test project. Over in IIS you have a web site running. Now how do you do things like mock out crazy dependencies, adjust the time in your favorite <a href="http://blog.coreycoogan.com/2009/06/07/mocking-datetime-now/" target="_blank">SystemTime</a> implementation or just tweak the configuration on the fly?</p>  <p>You can leverage Deleporter to execute code over on the web server controlled by your test project.</p>  <p>I’d recommend your go read the introductory blog post</p>  <blockquote>   <p><a href="http://blog.stevensanderson.com/2010/03/09/deleporter-cross-process-code-injection-for-aspnet/" target="_blank">Deleporter: Cross-Process Code Injection for ASP.NET</a></p></blockquote>  </div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -418,43 +455,6 @@ Honey is sweet, but the bee stings</div>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/01/nuget-project-uncovered-anna/">NuGet Project Uncovered: Anna</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-26T16:21:00-08:00" pubdate data-updated="true">Jan 26<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<blockquote>   <p>If you are coming to this series of posts for the first time you might check out <a href="http://elegantcode.com/2012/01/22/nuget-project-uncovered-an-introduction-to-the-series/" target="_blank">my introductory post</a> for a little context.</p> </blockquote>  <p><a href="https://github.com/jfromaniello/Anna" target="_blank">Anna</a> is an event-driven HTTP server library leveraging the <a href="http://msdn.microsoft.com/en-us/data/gg577609" target="_blank">ReactiveExtensions (RX)</a>. </p>  <p>The below sample copied / shortened from the <a href="https://github.com/jfromaniello/Anna" target="_blank">GitHub site</a>.</p>  <blockquote>   <pre>using (var server = new HttpServer(&quot;http://*:1234/&quot;))<br />{<br />    // simple basic usage, all subscriptions will run in a single event-loop<br />    server.GET(&quot;/hello/{Name}&quot;)<br />          .Subscribe(ctx =&gt; ctx.Respond(&quot;Hello, &quot; + ctx.Request.UriArguments.Name + &quot;!&quot;));<br />}</pre></blockquote>  </div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/6/">&larr; Older</a>
@@ -493,6 +493,10 @@ Honey is sweet, but the bee stings</div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/04/migrating-blogspot-to-octopress-part-3-export-blogspot-content/">Migrating From BlogSpot to Octopress - Part 3 - Export BlogSpot Content</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/04/migrating-blogspot-to-octopress-part-2-setup-octopress/">Migrating From BlogSpot to Octopress - Part 2 - Setup Octopress</a>
       </li>
     
@@ -506,10 +510,6 @@ Honey is sweet, but the bee stings</div>
     
       <li class="post">
         <a href="/2014/03/rake-psake-grunt-gulp-jake-make-cake/">Rake, Psake, Grunt, Gulp, Jake, Make, Cake, Brunch, Ant, Bash, Maven, or Fabric. As Long as You putOnAHelmet</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/02/segregate-your-code-commits-into-tiny/">Segregate Your Code Commits Into Tiny Topical Changes.</a>
       </li>
     
   </ul>
