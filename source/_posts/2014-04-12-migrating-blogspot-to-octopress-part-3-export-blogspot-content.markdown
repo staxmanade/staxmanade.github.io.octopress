@@ -5,7 +5,7 @@ date: 2014-04-12 20:19:53 -0700
 comments: true
 categories: 
   - Octopress
-published: false
+published: true
 series_about: "Migrating from BlogSpot to Octopress"
 series_title: "Export BlogSpot Content"
 series: migrate-blogspot-to-octopress
