@@ -543,16 +543,22 @@
         <lastmod>2014-04-26T16:16:50-07:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-4-import-content-into-ctopress/
+        </loc>
+        <lastmod>2014-04-29T11:48:06-07:00</lastmod>
+    </url>
+    <url>
         <loc>http://staxmanade.com/about/</loc>
         <lastmod>2014-04-16T22:26:46-07:00</lastmod>
     </url>
     <url>
         <loc>http://staxmanade.com/blog/archives/</loc>
-        <lastmod>2014-04-26T16:16:50-07:00</lastmod>
+        <lastmod>2014-04-29T11:48:06-07:00</lastmod>
     </url>
     <url>
         <loc>http://staxmanade.com/</loc>
-        <lastmod>2014-04-26T16:16:50-07:00</lastmod>
+        <lastmod>2014-04-29T11:48:06-07:00</lastmod>
     </url>
     <url>
         <loc>http://staxmanade.com/robots.txt</loc>

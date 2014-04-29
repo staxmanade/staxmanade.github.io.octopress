@@ -9,7 +9,7 @@
   <meta name="author" content="Jason Jarrett">
 
   
-  <meta name="description" content="This past week I gave a talk on TypeScript which was fun and well received. If you have any interest in the slides they are hosted up on GitHub http &hellip;">
+  <meta name="description" content="If you’re unfamiliar with TypeScript, I’d highly recommend checking it out. It’s my new preferred way to write JavaScript based applications. If you &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,43 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/10/introducing-totypescriptd-automatic/">Introducing ToTypeScriptD – Automatic TypeScript Definition Files for C++/CX or .Net Assemblies.</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-31T22:06:00-07:00" pubdate data-updated="true">Oct 31<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>If you’re unfamiliar with <a href="http://typescriptlang.org" target="_blank">TypeScript</a>, I’d highly recommend checking it out. <strong>It’s my new preferred way to write JavaScript based applications.</strong></p>  <p>If you write an application in TypeScript and need to interact with an external set of either JavaScript or <a href="http://en.wikipedia.org/wiki/C%2B%2B/CX" target="_blank">C++/CX</a> dependencies then you will quickly find that you are going to be mucking with some TypeScript Definition files and the more you take a dependency on the WinRT runtime the more type definitions you probably need to manually create.</p>  <p>It’s true that the TypeScript team has created a set of TypeScript Definition files for WinRT and WinJS, but I <a href="https://typescript.codeplex.com/discussions/462409" target="_blank">couldn’t get any comment</a> as to how they were generated. And the more I looked into what was provided, the more I realized that there were inconsistencies and inaccuracies that were not good. Which led me to believe that they weren’t working on a super-secret tool to automatically generate these for us.</p>  <h3>What is <a href="https://github.com/ToTypeScriptD/ToTypeScriptD" target="_blank">ToTypeScriptD</a> ?</h3>  <p><a href="https://github.com/ToTypeScriptD/ToTypeScriptD" target="_blank">ToTypeScriptD</a> is a quick little attempt at automatically taking the type system provided to us by a C++/CX winmd or .Net assembly file and projecting that into a set of TypeScript Definition files. This tool can basically take anything that is <a href="http://www.ecma-international.org/publications/standards/Ecma-335.htm">Ecma 355</a> Common Language Infrastructure (CLI) and spit out a .d.ts file for you automatically.</p>  <h3>Why would I need this?</h3>  <p>In the <a href="https://github.com/ToTypeScriptD/ToTypeScriptD#can-you-tell-me-why-i-would-use-this" target="_blank">project readme</a> I describe two use-cases that I know of (so far).</p>  <ol>   <li>If you build a &#8216;Modern&#8217; (come on, we still call it Metro) Windows 8 app with <code>WinJS</code> and want to leverage <code>TypeScript</code>, wouldn&#8217;t it be nice to get a set of TypeScript Definition files that reflect the native API&#8217;s you&#8217;re calling in the platform without manually creating the definition files?       <br></li>    <li>Say your building an MVC/WebAPI server application. It would be useful if your C.I./Build system could generate a set of TypeScript interfaces that were based on the server objects used to render your JSON API. This can be useful for client side JavaScript/TypeScript libraries that need to consume these objects and also provide a simple way to document the format of the input and output API response objects. </li> </ol>  <h3>How do I get the project and start using it?</h3>  <blockquote>   <p>Before you install the tool and dive in head first, I would like warn you that I have only been working on this for about 2 weeks (in my off-hours) and there is going to be lots of room for improvement. But it’s currently generating a solid set of .d.ts files for .winmd files.</p> </blockquote>  <p>Head over to the <a href="https://github.com/ToTypeScriptD/ToTypeScriptD" target="_blank">project home page</a> and check out the <a href="https://github.com/ToTypeScriptD/ToTypeScriptD" target="_blank">Readme</a> for some quick-start information.</p>  <p>I’d would love to hear feedback. If anyone is interested in helping out, you can submit new issues or review the open issues list and start submitting pull requests.</p>  <p>Happy TypeScripting!</p>  </div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -410,43 +447,6 @@ Last weekend I participated in a <a href="http://renohackathon.com/" target="_bl
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/01/testacular-cannot-find-chrome-on-windows/">Testacular Cannot Find Chrome on Windows.</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-22T21:29:00-08:00" pubdate data-updated="true">Jan 22<span>nd</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p>I recently started playing with <a href="http://angularjs.org/">AngularJS</a>. After downloading the <a href="https://github.com/angular/angular-seed">seed project</a> and trying to run the tests with <a href="http://vojtajina.github.com/testacular/">Testacular</a>, I bumped into small issue that was not immediately obvious to resolve.</p>  <p>When I ran the “./scripts/test.bat” I would get the following error(s) in my console:</p>  <blockquote>   <p>info: Testacular server started at <a href="http://localhost:9876/">http://localhost:9876/</a>       <br />info (launcher): Starting browser Chrome       <br />error (launcher): Cannot start Chrome       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; CreateProcessW: The system cannot find the path specified.</p>    <p>info (launcher): Trying to start Chrome again.      <br />error (launcher): Cannot start Chrome       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; CreateProcessW: The system cannot find the path specified.</p>    <p>info (launcher): Trying to start Chrome again.      <br />error (launcher): Cannot start Chrome       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; CreateProcessW: The system cannot find the path specified.</p> </blockquote>  <p>Tracked down link on a Google thread: <a title="https://groups.google.com/forum/?fromgroups=#!msg/angular/1li0HKtW56U/lKyT_VId0b0J" href="https://groups.google.com/forum/?fromgroups=#!msg/angular/1li0HKtW56U/lKyT_VId0b0J">https://groups.google.com/forum/?fromgroups=#!msg/angular/1li0HKtW56U/lKyT_VId0b0J</a></p>  <p>It appears that Testacular looks for the chrome browser in a CHROME_BIN environment variable.</p>  <p>To resolve the issue I ran the following PowerShell script and I was able to run the tests.</p>  <blockquote>   <p>[System.Environment]::SetEnvironmentVariable(&quot;CHROME_BIN&quot;, &quot;C:\Program Files (x86)\Google\Chrome\Application\chrome.exe&quot;)</p> </blockquote>  <p><em>Your path to chrome may vary!</em></p>  <p>&#160;</p>  <p>Happy Testing!</p>  </div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -485,6 +485,10 @@ Last weekend I participated in a <a href="http://renohackathon.com/" target="_bl
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/04/migrating-blogspot-to-octopress-part-4-import-content-into-ctopress/">Migrating From BlogSpot to Octopress - Part 4 - Import Content Into Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/04/migrating-blogspot-to-octopress-part-3-export-blogspot-content/">Migrating From BlogSpot to Octopress - Part 3 - Export BlogSpot Content</a>
       </li>
     
@@ -498,10 +502,6 @@ Last weekend I participated in a <a href="http://renohackathon.com/" target="_bl
     
       <li class="post">
         <a href="/2014/03/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/03/rake-psake-grunt-gulp-jake-make-cake/">Rake, Psake, Grunt, Gulp, Jake, Make, Cake, Brunch, Ant, Bash, Maven, or Fabric. As Long as You putOnAHelmet</a>
       </li>
     
   </ul>

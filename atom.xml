@@ -4,7 +4,7 @@
   <title><![CDATA[Developing on Staxmanade]]></title>
   <link href="http://staxmanade.com/atom.xml" rel="self"/>
   <link href="http://staxmanade.com/"/>
-  <updated>2014-04-26T16:20:37-07:00</updated>
+  <updated>2014-04-29T11:48:46-07:00</updated>
   <id>http://staxmanade.com/</id>
   <author>
     <name><![CDATA[Jason Jarrett]]></name>
@@ -14,6 +14,366 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Migrating From BlogSpot to Octopress - Part 4 - Import Content Into Octopress]]></title>
+    <link href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-4-import-content-into-ctopress/"/>
+    <updated>2014-04-12T20:19:53-07:00</updated>
+    <id>http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-4-import-content-into-ctopress</id>
+    <content type="html"><![CDATA[
+
+<div class="seriesNote">
+    <p>This article is <strong>Part 4</strong> of <strong>4</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
+    <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        <li> Part  1 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-1-introduction/">Introduction</a>
+        
+        </li>
+    
+    
+    
+        
+        <li> Part  2 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-2-setup-octopress/">Setup Octopress</a>
+        
+        </li>
+    
+    
+    
+        
+        <li> Part  3 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-3-export-blogspot-content/">Export BlogSpot Content</a>
+        
+        </li>
+    
+    
+    
+        
+        <li> Part  4 - 
+        
+            (current) - Import Content into Octopress
+        
+        </li>
+    
+    
+    </ul>
+</div>
+
+
+<p>In the <a href="http://staxmanade.com/blog/2014/04/migrating-blogspot-to-octopress-part-2-setup-octopress">previous post</a> I discussed how to export your blog content from BlogSpot. Now that you have all of your content into a single <code>.xml</code> file, we need to translate that into the files and format that Octopress blog expects.</p>
+
+<h1>Translate export <code>xml</code> to Octopress posts</h1>
+
+<p>Thanks to a ruby script found in a <a href="https://gist.github.com/juniorz/1564581">gist</a>, it&rsquo;s fairly easy to get going provided you are able to leverage all the gem dependencies with your installation of ruby. On Windows this is tricky although fortunately there are tools like <a href="https://github.com/scottmuc/yari">yari</a> to help out.</p>
+
+<ol>
+<li>Download and save one of these <a href="https://gist.github.com/dnagir/1765496/forks">gists</a> somewhere and call it <code>BloggerImporter.rb</code></li>
+<li>Note: there are a number of forks of the script &ndash; if one doesn&rsquo;t work, browse other changes and see if something fits your needs.</li>
+<li><p>From the command line go to a temporary folder and execute</p>
+
+<p> <code>ruby {pathToImporterFile}/BloggerImporter.rb '{PathToBloggerExport}/blog-03-19-2014.xml'</code></p>
+
+<p> When I tried it on my windows machine I received the following error. Sorry Windows folks, I don&rsquo;t have answers for every scenario here &ndash; I just jumped over to my Mac and tried again. I remember first trying this like a year ago and ran down a similar rat-hole trying to get this dependency to work which is probably why I didn&rsquo;t port it back then. I&rsquo;m sure it&rsquo;s possible, but wasn&rsquo;t worth my time (since it works on my mac and was a one-time task).</p>
+
+<p> <code>ruby
+ C:/Ruby193/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require': cannot load such file -- nokogiri (LoadE
+ rror)
+         from C:/Ruby193/lib/ruby/site_ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+         from BloggerImporter.rb:2:in `&lt;main&gt;'
+</code></p>
+
+<p> (One possible issue noted by a colleague: the ruby script requires a gem, <a href="http://nokogiri.org/">Nokigiri</a>, which is not supported on Windows by Ruby 2 at the time of this writing. This can be circumvented by either reinstalling Ruby 1.9.3 or by leveraging a tool like yari which allows you to pick the version of Ruby you wish to leverage with a script &ndash; a helpful StackOverflow answer exists <a href="http://stackoverflow.com/a/17318410/64">here</a>.)</p></li>
+<li><p>You should now you have your content.</p>
+
+<p> After you&rsquo;ve run the <code>BloggerImporter.rb</code> command you should have at least two folders in your temporary folder.</p>
+
+<p> <code>
+ ~/code/temp&gt; ls
+ _drafts     _posts    BloggerImporter.rb
+</code></p>
+
+<p> I didn&rsquo;t end up caring about anything in my <code>_drafts</code> folder, but the <code>_posts</code> folder is full of gold. This contains all of your exported content now broken out into a separate file per post in the form of <code>{year}-{month}-{day}-{title}.html</code>.</p></li>
+<li><p>Copy this content into the Octopress blog folder under <code>source/_posts/</code></p></li>
+<li>At this point you&rsquo;ve successfully ported your content into your Octopress blog. Make sure you take tiny steps and <code>git commit...</code> the changes you care about along the way&hellip;</li>
+<li>Use <code>rake generate</code> and <code>rake preview</code> to see if it worked.</li>
+<li>If your preview looks right use <code>rake deploy</code> to put your changes on github.</li>
+</ol>
+
+
+<p>Hopefully it all worked out and you&rsquo;re looking at your new Octopress blog with your old content all there. If I recall when I went through this process, there was one HTML file that <code>Jekyll</code> had issues compiling. I probably just modified the post or deleted somethign that wasn&rsquo;t necessary (I can&rsquo;t recall anymore) but it was quick to work through.</p>
+
+<blockquote><p>side note: When I initially tried getting <a href="http://disqus.com">Disqus</a> to work after this and had trouble. <strong>Turned out this was because in the YAML metadata in each post <code>comments: false</code></strong> :)</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Migrating From BlogSpot to Octopress - Part 3 - Export BlogSpot Content]]></title>
     <link href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-3-export-blogspot-content/"/>
     <updated>2014-04-12T20:19:53-07:00</updated>
@@ -21,7 +381,7 @@
     <content type="html"><![CDATA[
 
 <div class="seriesNote">
-    <p>This article is <strong>Part 3</strong> of <strong>3</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
+    <p>This article is <strong>Part 3</strong> of <strong>4</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
     <ul>
     
     
@@ -314,6 +674,15 @@
         </li>
     
     
+    
+        
+        <li> Part  4 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-4-import-content-into-ctopress/">Import Content into Octopress</a>
+        
+        </li>
+    
+    
     </ul>
 </div>
 
@@ -396,7 +765,7 @@
     <content type="html"><![CDATA[
 
 <div class="seriesNote">
-    <p>This article is <strong>Part 2</strong> of <strong>3</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
+    <p>This article is <strong>Part 2</strong> of <strong>4</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
     <ul>
     
     
@@ -689,6 +1058,15 @@
         </li>
     
     
+    
+        
+        <li> Part  4 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-4-import-content-into-ctopress/">Import Content into Octopress</a>
+        
+        </li>
+    
+    
     </ul>
 </div>
 
@@ -734,7 +1112,7 @@
 <p>If you currently have a blog on BlogSpot/Blogger and are interested in migrating to Octopress or any other blog, the following series of posts may be of use.</p>
 
 <div class="seriesNote">
-    <p>This article is <strong>Part 1</strong> of <strong>3</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
+    <p>This article is <strong>Part 1</strong> of <strong>4</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
     <ul>
     
     
@@ -1027,6 +1405,15 @@
         </li>
     
     
+    
+        
+        <li> Part  4 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-4-import-content-into-ctopress/">Import Content into Octopress</a>
+        
+        </li>
+    
+    
     </ul>
 </div>
 
@@ -1205,16 +1592,6 @@ Last weekend I participated in a <a href="http://renohackathon.com/" target="_bl
     <id>http://staxmanade.com/2013/02/it-markdown-no-powershell-wait-its</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>I created an <a href="http://github.com/staxmanade/PowershellPresentation" target="_blank">introductory presentation on PowerShell</a> a while back and posted it <a href="http://github.com/staxmanade/" target="_blank">on my GitHub</a>. I first gave the presentation at the <a href="http://softwaredevelopersgroup.com/">NNSDG</a> and decided to also submit it as a talk to the <a href="http://boisecodecamp.com/">Boise Code Camp</a> this year. (Looks like I&#8217;ll be going – track me down <a href="https://twitter.com/staxmanade" target="_blank">@staxmanade</a> if you’d like to say hello)</p>  <p>I’ve become quite a fan of Markdown lately and thought, “what if this not only looked like PowerShell, but looked even better as Markdown…?”</p>  <p>&#160;</p>  <p>After experimenting a little, I found that it actually works quite well.</p>  <p>For example:</p>  <p><strong>PowerShell (Markdown)</strong></p>  <pre>## String Interpolation<br /><br />### Single quotes `don't` interpolate<br />    'Hello $groupName' <br />    <br />### Double quotes `DO` interpolate<br />    &quot;Hello $groupName&quot;<br />        <br />    <br />### Wrap `$(...)` around expression within an string<br />    &quot;groupName variable is of type: $($groupName.GetType().FullName)&quot;<br />    &quot;2 + 1564 = $(2 + 1564)&quot;<br />    &quot;Current DateTime is = $(get-date)&quot;<br />    &quot;Current DateTime is = $([System.DateTime]::Now)&quot;<br /><br />    <br />### Escape characters with the ` (back-tick)<br />    &quot;Escape a quotation `&quot;This is quoted`&quot;.&quot;</pre><br /><br /><p>&#160;</p><br /><br /><p><strong>Formatted Markdown</strong></p><br /><br /><p><a href="http://lh5.ggpht.com/-lUeiRSS4rBo/URs3LcasBbI/AAAAAAAAAcY/h2NTLneqWP8/s1600-h/image11.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image" src="http://lh5.ggpht.com/-iNFDygzQL0o/URs3L15uv8I/AAAAAAAAAcg/jbjRHwUTi8E/image_thumb4.png?imgmax=800" width="634" height="628" /></a></p><br /><br /><p>&#160;</p><br /><br /><p>One issue I have is the way GitHub/markdown formats extra whitespace (it doesn’t). So I’ve worked around that so that I can get the vertical whitespace that I need in the Markdown version by placing a link to a spacer image: </p><br /><br /><pre>![vertical space](<a href="http://is.gd/VertSpace">http://is.gd/VertSpace</a>)</pre><br /><br /><p>This isn’t ideal because my PowerShell is littered with this snippet, but something that can easily be search/replaced before using the raw version as a PowerShell script.</p><br /><br /><p>I also think that you could potentially do this with many different programming languages. (At least ones that don’t depend on whitespace and have a form of block comments)</p><br /><br /><p>Nifty eh?</p><br /><br /><p>Happy PowerDowning or MarkShelling!</p>  </div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Testacular Cannot Find Chrome on Windows.]]></title>
-    <link href="http://staxmanade.com/2013/01/testacular-cannot-find-chrome-on-windows/"/>
-    <updated>2013-01-22T21:29:00-08:00</updated>
-    <id>http://staxmanade.com/2013/01/testacular-cannot-find-chrome-on-windows</id>
-    <content type="html"><![CDATA[<div class='post'>
-<p>I recently started playing with <a href="http://angularjs.org/">AngularJS</a>. After downloading the <a href="https://github.com/angular/angular-seed">seed project</a> and trying to run the tests with <a href="http://vojtajina.github.com/testacular/">Testacular</a>, I bumped into small issue that was not immediately obvious to resolve.</p>  <p>When I ran the “./scripts/test.bat” I would get the following error(s) in my console:</p>  <blockquote>   <p>info: Testacular server started at <a href="http://localhost:9876/">http://localhost:9876/</a>       <br />info (launcher): Starting browser Chrome       <br />error (launcher): Cannot start Chrome       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; CreateProcessW: The system cannot find the path specified.</p>    <p>info (launcher): Trying to start Chrome again.      <br />error (launcher): Cannot start Chrome       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; CreateProcessW: The system cannot find the path specified.</p>    <p>info (launcher): Trying to start Chrome again.      <br />error (launcher): Cannot start Chrome       <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; CreateProcessW: The system cannot find the path specified.</p> </blockquote>  <p>Tracked down link on a Google thread: <a title="https://groups.google.com/forum/?fromgroups=#!msg/angular/1li0HKtW56U/lKyT_VId0b0J" href="https://groups.google.com/forum/?fromgroups=#!msg/angular/1li0HKtW56U/lKyT_VId0b0J">https://groups.google.com/forum/?fromgroups=#!msg/angular/1li0HKtW56U/lKyT_VId0b0J</a></p>  <p>It appears that Testacular looks for the chrome browser in a CHROME_BIN environment variable.</p>  <p>To resolve the issue I ran the following PowerShell script and I was able to run the tests.</p>  <blockquote>   <p>[System.Environment]::SetEnvironmentVariable(&quot;CHROME_BIN&quot;, &quot;C:\Program Files (x86)\Google\Chrome\Application\chrome.exe&quot;)</p> </blockquote>  <p><em>Your path to chrome may vary!</em></p>  <p>&#160;</p>  <p>Happy Testing!</p>  </div>
 ]]></content>
   </entry>
   

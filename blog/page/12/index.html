@@ -9,7 +9,7 @@
   <meta name="author" content="Jason Jarrett">
 
   
-  <meta name="description" content="If you read my previous posts about [Fluent] Specification Extensions then you know that I&#8217;m still in an experimental phase of this idea. &hellip;">
+  <meta name="description" content="If you&#8217;ve been doing any Silverlight development, I&#8217;m sure you&#8217;re aware of the Microsoft Silverlight Unit Test Framework. One &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2009/02/xunit-light-for-silverlight/">xUnit (Light) for Silverlight</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-08T23:09:00-08:00" pubdate data-updated="true">Feb 8<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>If you&#8217;ve been doing any Silverlight development, I&#8217;m sure you&#8217;re aware of the <a href="http://code.msdn.microsoft.com/silverlightut">Microsoft Silverlight Unit Test Framework</a>.</p>  <p>One extremely interesting aspect about this framework is how flexible it is for custom extension. If you didn&#8217;t already know, Jeff Wilcox put together a quick port of NUnit and created a project that would interface the nunit.framework.dll he ported with the Microsoft Silverlight Unit Test Framework. (<a href="http://www.jeff.wilcox.name/2009/01/nunit-and-silverlight/" target="_blank">post here</a>)</p>  <p><strong>Below I&#8217;ll explain a little about my port of the xUnit testing framework that is now hosted in the browser leveraging the </strong><a href="http://code.msdn.microsoft.com/silverlightut"><strong>Microsoft Silverlight Unit Test Framework</strong></a><strong>. </strong></p>  <p>As far as WHAT is implemented with the xUnit for Silverlight and what you may have to figure out on your own (as I&#8217;m not all that familiar with xUnit) if you use it for your own project&#8230;</p>  <ol>   <li>FactAttribute ( obviously ) </li>    <li>FactAttribute.Skip ( [Ignore] in most frameworks ) </li>    <li>FactAttribute.Name (is mapped to the &quot;Description&quot; in the ms test harness) </li> </ol>  <p>That&#8217;s pretty much it&#8230; It doesn&#8217;t do anything as far as test Setup/Teardown as Moq (the project I needed xUnit in Silverlight for) didn&#8217;t need it, and because I&#8217;m not familiar enough with xUnit to really make this thing fully compatible.</p>  <p>So, here is XunitLight for Silverlight&#8230;    <br /><iframe style="border-right: #dde5e9 1px solid; padding-right: 0px; border-top: #dde5e9 1px solid; padding-left: 0px; padding-bottom: 0px; margin: 3px; border-left: #dde5e9 1px solid; width: 240px; padding-top: 0px; border-bottom: #dde5e9 1px solid; height: 66px; background-color: #ffffff" marginwidth="0" marginheight="0" src="http://cid-c0f357e4555270e7.skydrive.live.com/embedrowdetail.aspx/Public/XunitLight.Silverlight.zip" frameborder="0" scrolling="no"></iframe></p>  <p><strong>UPDATE: (2/9/2009)</strong> If you&#8217;d like to provide any updates to this project. You can get the source from below and I&#8217;m happy to take a look at patches&#8230;    <br /><a href="http://svn.xp-dev.com/svn/staxmanade_projects/XunitLight.Silverlight/">http://svn.xp-dev.com/svn/staxmanade_projects/XunitLight.Silverlight/</a></p>  </div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Jason.Jarrett</div>
+<div class='content'>
+Hey Jonathan,<br /><br />Personally I&#8217;d like to see it built straight into xUnit, since it&#8217;s dependent on the xUnit source files. There&#8217;s a work-item to support silverlight on the xunit site, and a link to my blog, so hopefully someone over on xUnit team will get a kick and look a porting it for everyone&#8230;<br /><br />Also, I don&#8217;t use xUnit personally, and only wrote this quickly to get the tests to work while trying to port the Moq project.<br /><br />However if you or someone else gets it up and running w/ either xunit or xunit-contrib, I&#8217;ll surely remove my svn version.</div>
+</div>
+<div class='comment'>
+<div class='author'>Jonathan Harley</div>
+<div class='content'>
+Hey man,<br /><br />Why not add this to xUnit Contrib?<br /><br />Or have I just missed you doing that already?</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -560,43 +610,6 @@ Hi Jason,<BR/><BR/>Thanks for this post. I got to it from the i4o home page on C
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/12/leverage-live-mesh-to-sync-windows-live/">Leverage Live Mesh to Sync Windows Live Writer Blog Drafts Between and Multiple Computers.</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-12-18T20:33:00-08:00" pubdate data-updated="true">Dec 18<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p>I decided to start blogging a little more regularly and one of the first things I ran into when researching the easiest way to create/publish blogs was <a href="http://windowslivewriter.spaces.live.com/" target="_blank">Windows Live Writer</a>. </p>  <p>I&#8217;m sold&#8230; This program handles just about everything I could need for blogging (I&#8217;m new to it, so haven&#8217;t pushed it&#8217;s limitations to far).</p>  <p>One problem I had with Live Writer was it saved all my drafts/posts on the computer I was logged into at the time. This meant the drafts I write at home can&#8217;t be accessed at work and visa/versa&#8230;</p>  <p>To solve this I decided to wire them through the <a href="http://mesh.com" target="_blank">Microsoft Mesh</a>. If you haven&#8217;t setup your mesh yet, I would highly recommend it. Just go to <a href="http://mesh.com" target="_blank">Mesh.com</a>, sign up/or in with a Windows Live account, install the client application, and your <strong>meshified</strong>&#8230;</p>  <blockquote>   <p>With Live Mesh, you can synchronize files with all of your devices, so you always have the latest versions handy. Access your files from any device or from the web, easily share them with others, and get notified whenever someone changes a file.</p> </blockquote>  <p>This means I can synchronize folders between my connected computers.</p>  <h4>Below I&#8217;ll show the steps I used to setup my meshified weblog posts. </h4>  <ol>   <li>Find the location your Live Writer is storing your drafts/posts.      <br />      <br />For my Windows XP machine it was in&#8230;       <br /><em>C:\Documents and Settings\JasonJ\My Documents\My Weblog Posts\</em>       <br />      <br />For my work Vista pc the folder was in&#8230;       <br /><em>C:\Users\JasonJ\Documents\My Weblog Posts\ </em>      <br /></li>    <li>Next I created a folder in my mesh called &quot;BlogDrafts&quot;.      <br />      <br /><a href="http://lh3.ggpht.com/_L6Vw0x_R3iw/SUskAwaA5eI/AAAAAAAAADg/8Q7CFRAD8Eo/s1600-h/image3.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="251" alt="image" src="http://lh5.ggpht.com/_L6Vw0x_R3iw/SUskBgLf4RI/AAAAAAAAADk/PZqLvbz2NgQ/image_thumb1.png?imgmax=800" width="371" border="0" /></a> To do this you can right click in the mesh folder area and select &quot;Create folder in Live Mesh&quot;.<a href="http://lh4.ggpht.com/_L6Vw0x_R3iw/SUskCKk4VWI/AAAAAAAAADo/irg_OvuZjnU/s1600-h/image7.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="176" alt="image" src="http://lh3.ggpht.com/_L6Vw0x_R3iw/SUskCoUxmFI/AAAAAAAAADs/JZV3udqjb4A/image_thumb3.png?imgmax=800" width="347" border="0" /></a> </li>    <li>A window will popup asking for the name of the new folder and the location this folder will live on your hard drive.      <br />      <br /><a href="http://lh5.ggpht.com/_L6Vw0x_R3iw/SUskC_C6DeI/AAAAAAAAADw/s6bfcg4WOls/s1600-h/image14.png"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px" height="123" alt="image" src="http://lh6.ggpht.com/_L6Vw0x_R3iw/SUskDkjoclI/AAAAAAAAAD0/Ty6ZI-bJJAo/image_thumb8.png?imgmax=800" width="244" border="0" /></a>&#160; </li> </ol>  <p>I think that&#8217;s everything&#8230; follow similar steps to get your other computers synced up to the mesh and you should be relieved that you can work on any computer and on any post.</p>  </div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/13/">&larr; Older</a>
@@ -635,6 +648,10 @@ Hi Jason,<BR/><BR/>Thanks for this post. I got to it from the i4o home page on C
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/04/migrating-blogspot-to-octopress-part-4-import-content-into-ctopress/">Migrating From BlogSpot to Octopress - Part 4 - Import Content Into Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/04/migrating-blogspot-to-octopress-part-3-export-blogspot-content/">Migrating From BlogSpot to Octopress - Part 3 - Export BlogSpot Content</a>
       </li>
     
@@ -648,10 +665,6 @@ Hi Jason,<BR/><BR/>Thanks for this post. I got to it from the i4o home page on C
     
       <li class="post">
         <a href="/2014/03/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/03/rake-psake-grunt-gulp-jake-make-cake/">Rake, Psake, Grunt, Gulp, Jake, Make, Cake, Brunch, Ant, Bash, Maven, or Fabric. As Long as You putOnAHelmet</a>
       </li>
     
   </ul>
