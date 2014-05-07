@@ -9,7 +9,7 @@
   <meta name="author" content="Jason Jarrett">
 
   
-  <meta name="description" content="I decided to start blogging a little more regularly and one of the first things I ran into when researching the easiest way to create/publish blogs &hellip;">
+  <meta name="description" content="Recently I was added as a developer to the i4o codeplex project by Aaron and last night I made my first commit. There were a few pretty big changes &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,43 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/12/i4o-update/">I4o: Update (Index for Objects)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-20T11:10:00-08:00" pubdate data-updated="true">Dec 20<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>Recently I was added as a developer to the <a href="http://www.codeplex.com/i4o" target="_blank">i4o codeplex project</a> by <a href="http://blog.magenic.com/blogs/aarone/default.aspx" target="_blank">Aaron</a> and last night I made my first commit.</p>  <p>There were a few pretty big changes to the library. I&#8217;ll highlight some of them below, and in a couple future posts will describe in a little more detail how you can use these features.</p>  <h4>Removed the IndexableAttribute:</h4>  <p>This was removed for two reasons.</p>  <ul>   <li>It did not allow you index objects you didn&#8217;t own. </li> </ul>  <p>Say you want to index a collection of System.IO.FileInfo objects. Since that&#8217;s owned by the .Net framework, you can&#8217;t apply an attribute to the properties of the class you want to index.</p>  <p>The solution to that was to allow adding indexed properties dynamically, however you had to give it a string representing the property name, which leads into the second issue&#8230; </p>  <ul>   <li>Didn&#8217;t provide any compile time checking or refactor support for properties using the dynamic add/remove methods. </li> </ul>  <p>If you refactored a property and forgot to rename the string to match the refactor you would end up with a runtime error.</p>  <p>To resolve the two issues above I&#8217;ve introduced the <strong>IndexSpecification&lt;T&gt;</strong> (I&#8217;ll describe how to use it a later post)</p>  <h4>Performance tuning:</h4>  <p>Although we haven&#8217;t enhanced the Linq support for IndexableCollection (should come soon), I was able to eek some performance by doing some internal caching of property types and a few other tweaks resulting in the Index creation becoming about 30% faster&#8230;</p>  <h4>Fluent interface for managing the Indexes</h4>  <p>The last big change which fits in with the IndexSpecification&lt;T&gt; is the Fluent interface for dynamically adding/removing properties to be indexed. One short example could be:</p>  <p><a href="http://lh6.ggpht.com/_L6Vw0x_R3iw/SU1DKLdou8I/AAAAAAAAAD4/JBUBIgkDNNo/s1600-h/image3.png"><img style="border-width: 0px;" alt="image" src="http://lh5.ggpht.com/_L6Vw0x_R3iw/SU1DKcGWDjI/AAAAAAAAAD8/zU7TUvRY2T0/image_thumb1.png?imgmax=800" width="347" border="0" height="217" /></a></p></div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -523,56 +560,6 @@ There is a button on the top of the solution explorer for going offline/online. 
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2008/09/how-can-c-variable-have-sign-in-front/">How Can C# Variable Have an @ Sign in Front of It?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-09-13T21:26:00-07:00" pubdate data-updated="true">Sep 13<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-I remember a year ago I noticed in some code a coworker put together had a variable with an @ sign in front of it. At first I was baffled that it even compiled. I asked my c-worker about it and he said he had no clue as to why it was there and what it was for&#8230; so then I spent some time googling and couldn&#8217;t find anything on the net describing this and why it compiled.<br /><br />basically what I&#8217;m talking about is if you have some code<br /><br />private void MyMethod(string myparam)<br />{<br />   int a = @myparam.Length;<br />}<br /><br />Notice the @ sign in front of the myparam variable&#8230; That is what I saw in my co-workers code and I couldn&#8217;t explain how that worked&#8230;<br /><br />now, nearly a year later I was perusing through the SLUnity framework on codeplex [<a href="http://www.codeplex.com/unitycontributions">http://www.codeplex.com/unitycontributions</a>] and saw the @ sign again&#8230;<br /><br /><br />public void UnregisterSubscriber(string publishedEventName, EventHandler subscriber)<br />{<br />   PublishedEvent @event = GetEvent(publishedEventName);<br />   @event.RemoveSubscriber(subscriber);<br />   RemoveDeadEvents();<br />}<br /><br />I did some more googling and still can&#8217;t find anything, (I&#8217;m sure it&#8217;s out there, just can&#8217;t put together the right search criteria)&#8230;<br /><br />Then I went back to the code, looked at it for a minute, and it dawned on me that &#8220;event&#8221; is a keyword in c#&#8230; Then I thought, maybe this is what you can do to use a C# keyword in another context than the desired reason to have the keyword.<br /><br />So I wrote a little test to see if this hypothesis was correct.<br /><br />private static void MyMethod(string class)<br />{<br />   int a = class.Length;<br />}<br /><br />this won&#8217;t compile because of the &#8220;class&#8221; keyword&#8230;<br /><br />then I put the @ sign in front of class<br /><br />private static void MyMethod(string @class)<br />{<br />   int a = @class.Length;<br />}<br /><br />and it not only compiled, but you also get intellasense on the variable&#8230;<br /><br />How cool&#8230;<br /><br />I&#8217;m not sure I would do that on a regular basis, seems like it might be  a bit of a pain to write&#8230; However maybe framework code may need to have this to allow it to be more readable to it&#8217;s consumers? Anyone know why on this?</div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Anonymous</div>
-<div class='content'>
-nice one :), had me fooled for a bit too when I found a variable named @@delegate</div>
-</div>
-<div class='comment'>
-<div class='author'>Justin Chase</div>
-<div class='content'>
-That is exactly what it is for, so you can use reserved words for variable names. You&#8217;ll see this in some of the .NET framework even, with method parameters named @object in some places. I suspect it was added to C# specifically to be compatible with libraries written in other languages so that when it generates methods for you and uses the defined parameter name it won&#8217;t have a compile error if it happens to be a C# keyword.</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/14/">&larr; Older</a>
@@ -611,6 +598,10 @@ That is exactly what it is for, so you can use reserved words for variable names
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/04/migrating-blogspot-to-octopress-part-5-fix-links/">Migrating From BlogSpot to Octopress - Part 5 - Fix Links</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/04/migrating-blogspot-to-octopress-part-4-import-content-into-ctopress/">Migrating From BlogSpot to Octopress - Part 4 - Import Content Into Octopress</a>
       </li>
     
@@ -624,10 +615,6 @@ That is exactly what it is for, so you can use reserved words for variable names
     
       <li class="post">
         <a href="/2014/04/migrating-blogspot-to-octopress-part-1-introduction/">Migrating From BlogSpot to Octopress - Part 1 - Introduction</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/03/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
       </li>
     
   </ul>

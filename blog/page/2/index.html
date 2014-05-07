@@ -9,7 +9,7 @@
   <meta name="author" content="Jason Jarrett">
 
   
-  <meta name="description" content="If you’re unfamiliar with TypeScript, I’d highly recommend checking it out. It’s my new preferred way to write JavaScript based applications. If you &hellip;">
+  <meta name="description" content="I recently published a little sample project up in the ToTypeScriptD github organization that walks through converting a new Windows 8 WinJS &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,43 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/11/convert-existing-winjs-app-to-use/">Convert an Existing WinJS App to Use TypeScript</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-29T11:38:00-08:00" pubdate data-updated="true">Nov 29<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>I recently published a <a href="https://github.com/ToTypeScriptD/SampleWin8" target="_blank">little sample project</a> up in the <a href="https://github.com/ToTypeScriptD" target="_blank">ToTypeScriptD</a> github organization that walks through converting a new Windows 8 WinJS application to TypeScript.</p>  <p>It’s intended to show some of the basic first steps it takes to convert a project over to TypeScript and also how you can leverage <a href="https://github.com/ToTypeScriptD/ToTypeScriptD" target="_blank">ToTypeScriptD</a> to help automatically generate .d.ts based on the windows *.winmd assemblies.</p>  <p>If you’re writing any TypeScript WinJS apps, feel free to check it out. I’d appreciate any feedback you have that can improve on this guide’s steps/approach for porting an existing WinJS library over to TypeScript.</p>  <p>Happy Scripting!</p>  </div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -410,43 +447,6 @@ Last weekend I participated in a <a href="http://renohackathon.com/" target="_bl
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/02/it-markdown-no-powershell-wait-its/">It&#8217;s Markdown, No, PowerShell. Wait Its Markdown Formatted PowerShell.</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-02-12T22:48:00-08:00" pubdate data-updated="true">Feb 12<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p>I created an <a href="http://github.com/staxmanade/PowershellPresentation" target="_blank">introductory presentation on PowerShell</a> a while back and posted it <a href="http://github.com/staxmanade/" target="_blank">on my GitHub</a>. I first gave the presentation at the <a href="http://softwaredevelopersgroup.com/">NNSDG</a> and decided to also submit it as a talk to the <a href="http://boisecodecamp.com/">Boise Code Camp</a> this year. (Looks like I&#8217;ll be going – track me down <a href="https://twitter.com/staxmanade" target="_blank">@staxmanade</a> if you’d like to say hello)</p>  <p>I’ve become quite a fan of Markdown lately and thought, “what if this not only looked like PowerShell, but looked even better as Markdown…?”</p>  <p>&#160;</p>  <p>After experimenting a little, I found that it actually works quite well.</p>  <p>For example:</p>  <p><strong>PowerShell (Markdown)</strong></p>  <pre>## String Interpolation<br /><br />### Single quotes `don't` interpolate<br />    'Hello $groupName' <br />    <br />### Double quotes `DO` interpolate<br />    &quot;Hello $groupName&quot;<br />        <br />    <br />### Wrap `$(...)` around expression within an string<br />    &quot;groupName variable is of type: $($groupName.GetType().FullName)&quot;<br />    &quot;2 + 1564 = $(2 + 1564)&quot;<br />    &quot;Current DateTime is = $(get-date)&quot;<br />    &quot;Current DateTime is = $([System.DateTime]::Now)&quot;<br /><br />    <br />### Escape characters with the ` (back-tick)<br />    &quot;Escape a quotation `&quot;This is quoted`&quot;.&quot;</pre><br /><br /><p>&#160;</p><br /><br /><p><strong>Formatted Markdown</strong></p><br /><br /><p><a href="http://lh5.ggpht.com/-lUeiRSS4rBo/URs3LcasBbI/AAAAAAAAAcY/h2NTLneqWP8/s1600-h/image11.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image" src="http://lh5.ggpht.com/-iNFDygzQL0o/URs3L15uv8I/AAAAAAAAAcg/jbjRHwUTi8E/image_thumb4.png?imgmax=800" width="634" height="628" /></a></p><br /><br /><p>&#160;</p><br /><br /><p>One issue I have is the way GitHub/markdown formats extra whitespace (it doesn’t). So I’ve worked around that so that I can get the vertical whitespace that I need in the Markdown version by placing a link to a spacer image: </p><br /><br /><pre>![vertical space](<a href="http://is.gd/VertSpace">http://is.gd/VertSpace</a>)</pre><br /><br /><p>This isn’t ideal because my PowerShell is littered with this snippet, but something that can easily be search/replaced before using the raw version as a PowerShell script.</p><br /><br /><p>I also think that you could potentially do this with many different programming languages. (At least ones that don’t depend on whitespace and have a form of block comments)</p><br /><br /><p>Nifty eh?</p><br /><br /><p>Happy PowerDowning or MarkShelling!</p>  </div>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -485,6 +485,10 @@ Last weekend I participated in a <a href="http://renohackathon.com/" target="_bl
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/04/migrating-blogspot-to-octopress-part-5-fix-links/">Migrating From BlogSpot to Octopress - Part 5 - Fix Links</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/04/migrating-blogspot-to-octopress-part-4-import-content-into-ctopress/">Migrating From BlogSpot to Octopress - Part 4 - Import Content Into Octopress</a>
       </li>
     
@@ -498,10 +502,6 @@ Last weekend I participated in a <a href="http://renohackathon.com/" target="_bl
     
       <li class="post">
         <a href="/2014/04/migrating-blogspot-to-octopress-part-1-introduction/">Migrating From BlogSpot to Octopress - Part 1 - Introduction</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/03/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
       </li>
     
   </ul>

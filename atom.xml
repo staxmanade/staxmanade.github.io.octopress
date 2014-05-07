@@ -4,7 +4,7 @@
   <title><![CDATA[Developing on Staxmanade]]></title>
   <link href="http://staxmanade.com/atom.xml" rel="self"/>
   <link href="http://staxmanade.com/"/>
-  <updated>2014-04-29T11:48:46-07:00</updated>
+  <updated>2014-05-06T22:36:05-07:00</updated>
   <id>http://staxmanade.com/</id>
   <author>
     <name><![CDATA[Jason Jarrett]]></name>
@@ -14,6 +14,367 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Migrating From BlogSpot to Octopress - Part 5 - Fix Links]]></title>
+    <link href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-5-fix-links/"/>
+    <updated>2014-04-12T20:19:53-07:00</updated>
+    <id>http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-5-fix-links</id>
+    <content type="html"><![CDATA[
+
+<div class="seriesNote">
+    <p>This article is <strong>Part 5</strong> of <strong>5</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
+    <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        <li> Part  1 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-1-introduction/">Introduction</a>
+        
+        </li>
+    
+    
+    
+        
+        <li> Part  2 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-2-setup-octopress/">Setup Octopress</a>
+        
+        </li>
+    
+    
+    
+        
+        <li> Part  3 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-3-export-blogspot-content/">Export BlogSpot Content</a>
+        
+        </li>
+    
+    
+    
+        
+        <li> Part  4 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-4-import-content-into-ctopress/">Import Content into Octopress</a>
+        
+        </li>
+    
+    
+    
+        
+        <li> Part  5 - 
+        
+            (current) - Fix Links
+        
+        </li>
+    
+    
+    </ul>
+</div>
+
+
+<p>Once you&rsquo;ve ported your content into Octopress there were several steps I used to fixup links. The two types of links I cared about at this stage were:</p>
+
+<ol>
+<li>Cross-Post links (where I referenced one of my other posts)</li>
+<li>Broken links.</li>
+</ol>
+
+
+<h2>Cross post links</h2>
+
+<p>I used a text editor and some command line magic to search for <code>http://staxmanade.blogspot.com/</code> and replace it with <code>/blog/</code> so that my cross-referencing posts could link to a relative version of the blog instead of the full blogspot domain.</p>
+
+<p>Depending on how you configure your <a href="http://jekyllrb.com/docs/permalinks/">permalinks</a> you may need to do some more link manipulation. I had to search <code>.html</code> at the end of my cross-referencign posts and be sure to delete it since my old reference would look like</p>
+
+<pre><code>http://staxmanade.blogspot.com/2013/12/format-your-net-exceptions-to-see.html
+</code></pre>
+
+<p>but now should link to</p>
+
+<pre><code>/blog/2013/12/format-your-net-exceptions-to-see
+</code></pre>
+
+<p>If you&rsquo;re on Windows and not interested in figuring out a <code>PowerShell</code> or other command to quickly search and replace, a friend of mine <a href="http://programmerpayback.com/about/">Tim Greenfield</a> has a great utility GUI tool for easy <a href="https://seeker.codeplex.com">search and replace</a>.</p>
+
+<p>I don&rsquo;t recall exactly what I did, I think I either used <code>sed</code> or a python command on my Mac for the initial search/replace. I&rsquo;ll let you figure out the rest of how to get that task done.</p>
+
+<h2>Fix broken links</h2>
+
+<p>Once you&rsquo;re done fixing up cross-post links, we want to make sure we didn&rsquo;t mess anything up, and while we&rsquo;re at it, fix any old or out-dated links.</p>
+
+<p>One great feature of <a href="http://octopress.org">Octopress</a> is that we can run the site locally and use a spider tool to search for broken links.  Run <code>rake generate</code> and <code>rake preview</code> locally to browse your site.</p>
+
+<p>I used the <a href="http://peacockmedia.co.uk/integrity/">Integrity link checker</a> on my Mac to search the <code>http://localhost:4000</code> site locally. There are lots of these tools out there, so feel free to use what you feel happy with.</p>
+
+<p>This was a great exercise. Not only debugging any <em>oopsies</em> from the above cross-post fixup step, but allowed me to find any external links to blogs/images/etc that were out of date. I wasn&rsquo;t able to fix up all of my external links, but that&rsquo;s the way of the web unfortunately. I haven&rsquo;t done it yet, but have consider going back and linking the out-dated links to a version out on the <a href="http://web.archive.org/">Way Back Machine</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Migrating From BlogSpot to Octopress - Part 4 - Import Content Into Octopress]]></title>
     <link href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-4-import-content-into-ctopress/"/>
     <updated>2014-04-12T20:19:53-07:00</updated>
@@ -21,7 +382,7 @@
     <content type="html"><![CDATA[
 
 <div class="seriesNote">
-    <p>This article is <strong>Part 4</strong> of <strong>4</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
+    <p>This article is <strong>Part 4</strong> of <strong>5</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
     <ul>
     
     
@@ -323,6 +684,15 @@
         </li>
     
     
+    
+        
+        <li> Part  5 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-5-fix-links/">Fix Links</a>
+        
+        </li>
+    
+    
     </ul>
 </div>
 
@@ -381,7 +751,7 @@
     <content type="html"><![CDATA[
 
 <div class="seriesNote">
-    <p>This article is <strong>Part 3</strong> of <strong>4</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
+    <p>This article is <strong>Part 3</strong> of <strong>5</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
     <ul>
     
     
@@ -683,6 +1053,15 @@
         </li>
     
     
+    
+        
+        <li> Part  5 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-5-fix-links/">Fix Links</a>
+        
+        </li>
+    
+    
     </ul>
 </div>
 
@@ -765,7 +1144,7 @@
     <content type="html"><![CDATA[
 
 <div class="seriesNote">
-    <p>This article is <strong>Part 2</strong> of <strong>4</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
+    <p>This article is <strong>Part 2</strong> of <strong>5</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
     <ul>
     
     
@@ -1067,6 +1446,15 @@
         </li>
     
     
+    
+        
+        <li> Part  5 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-5-fix-links/">Fix Links</a>
+        
+        </li>
+    
+    
     </ul>
 </div>
 
@@ -1112,7 +1500,7 @@
 <p>If you currently have a blog on BlogSpot/Blogger and are interested in migrating to Octopress or any other blog, the following series of posts may be of use.</p>
 
 <div class="seriesNote">
-    <p>This article is <strong>Part 1</strong> of <strong>4</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
+    <p>This article is <strong>Part 1</strong> of <strong>5</strong> in a series about <strong>Migrating from BlogSpot to Octopress</strong>.</p>
     <ul>
     
     
@@ -1414,6 +1802,15 @@
         </li>
     
     
+    
+        
+        <li> Part  5 - 
+        
+            <a href="http://staxmanade.com/2014/04/migrating-blogspot-to-octopress-part-5-fix-links/">Fix Links</a>
+        
+        </li>
+    
+    
     </ul>
 </div>
 
@@ -1582,16 +1979,6 @@ Last weekend I participated in a <a href="http://renohackathon.com/" target="_bl
     <id>http://staxmanade.com/2013/02/how-do-i-undo-bad-rebase-in-git</id>
     <content type="html"><![CDATA[<div class='post'>
 <p>If you use <a href="http://git-scm.com/">git</a> and leverage the <a href="http://git-scm.com/book/en/Git-Branching-Rebasing">rebase</a> command, you&#8217;ve probably run across a merge issue during the rebase and if you’ve ever felt like, “man, I wish I had a ‘do-over’.</p>  <p>If you’re still in the middle of a rebase it&#8217;s easy to start over:</p>  <blockquote>   <p>git rebase &#8211;abort</p> </blockquote>  <p>But let&#8217;s say you started with this:</p>  <p><a href="http://lh6.ggpht.com/-S4iRqI3gJ9A/USl-FkXa8GI/AAAAAAAAAcw/DIiCekbZNNc/s1600-h/image3.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image" src="http://lh3.ggpht.com/-VUhs8KUeoYw/USl-GO4JjUI/AAAAAAAAAc4/ZIW6B8i84Jk/image_thumb1.png?imgmax=800" width="227" height="149" /></a></p>  <p>Did a git rebase and are now looking at:</p>  <p><a href="http://lh6.ggpht.com/-wKnvAJZeBE8/USl-GZw_02I/AAAAAAAAAdA/Rjrc0ACrf3A/s1600-h/image7.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image" src="http://lh5.ggpht.com/-Vm2Z6nDv_ow/USl-Gh_VygI/AAAAAAAAAdI/4JeII5vjceE/image_thumb3.png?imgmax=800" width="244" height="126" /></a></p>  <p>Except you screwed up during a merge conflict and now un-sure how you can get your ‘do-over’.</p>  <p>&#160;</p>  <p>I was pleasantly surprised at how easy it was. (If you know key)</p>  <p>Leveraging the <a href="http://www.kernel.org/pub/software/scm/git/docs/git-reflog.html">git reflog</a>, you can go back in time and check out your branch as though the rebase never happened.</p>  <p>In the following link, I put together a set of steps to create a git repo that puts you into this position (of a bad rebase) and then describes how to get out of it.</p>  <p><a href="https://github.com/staxmanade/GitRebaseReflogFixSample">https://github.com/staxmanade/GitRebaseReflogFixSample</a></p>  <p>I&#8217;d love to hear any feedback on this repo. Or try submitting a pull request or post a GitHub issue.</p>  <p>Happy Git&#8217;ing!</p>  </div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[It's Markdown, No, PowerShell. Wait Its Markdown Formatted PowerShell.]]></title>
-    <link href="http://staxmanade.com/2013/02/it-markdown-no-powershell-wait-its/"/>
-    <updated>2013-02-12T22:48:00-08:00</updated>
-    <id>http://staxmanade.com/2013/02/it-markdown-no-powershell-wait-its</id>
-    <content type="html"><![CDATA[<div class='post'>
-<p>I created an <a href="http://github.com/staxmanade/PowershellPresentation" target="_blank">introductory presentation on PowerShell</a> a while back and posted it <a href="http://github.com/staxmanade/" target="_blank">on my GitHub</a>. I first gave the presentation at the <a href="http://softwaredevelopersgroup.com/">NNSDG</a> and decided to also submit it as a talk to the <a href="http://boisecodecamp.com/">Boise Code Camp</a> this year. (Looks like I&#8217;ll be going – track me down <a href="https://twitter.com/staxmanade" target="_blank">@staxmanade</a> if you’d like to say hello)</p>  <p>I’ve become quite a fan of Markdown lately and thought, “what if this not only looked like PowerShell, but looked even better as Markdown…?”</p>  <p>&#160;</p>  <p>After experimenting a little, I found that it actually works quite well.</p>  <p>For example:</p>  <p><strong>PowerShell (Markdown)</strong></p>  <pre>## String Interpolation<br /><br />### Single quotes `don't` interpolate<br />    'Hello $groupName' <br />    <br />### Double quotes `DO` interpolate<br />    &quot;Hello $groupName&quot;<br />        <br />    <br />### Wrap `$(...)` around expression within an string<br />    &quot;groupName variable is of type: $($groupName.GetType().FullName)&quot;<br />    &quot;2 + 1564 = $(2 + 1564)&quot;<br />    &quot;Current DateTime is = $(get-date)&quot;<br />    &quot;Current DateTime is = $([System.DateTime]::Now)&quot;<br /><br />    <br />### Escape characters with the ` (back-tick)<br />    &quot;Escape a quotation `&quot;This is quoted`&quot;.&quot;</pre><br /><br /><p>&#160;</p><br /><br /><p><strong>Formatted Markdown</strong></p><br /><br /><p><a href="http://lh5.ggpht.com/-lUeiRSS4rBo/URs3LcasBbI/AAAAAAAAAcY/h2NTLneqWP8/s1600-h/image11.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; margin: 0px; display: inline; padding-right: 0px; border-top-width: 0px" border="0" alt="image" src="http://lh5.ggpht.com/-iNFDygzQL0o/URs3L15uv8I/AAAAAAAAAcg/jbjRHwUTi8E/image_thumb4.png?imgmax=800" width="634" height="628" /></a></p><br /><br /><p>&#160;</p><br /><br /><p>One issue I have is the way GitHub/markdown formats extra whitespace (it doesn’t). So I’ve worked around that so that I can get the vertical whitespace that I need in the Markdown version by placing a link to a spacer image: </p><br /><br /><pre>![vertical space](<a href="http://is.gd/VertSpace">http://is.gd/VertSpace</a>)</pre><br /><br /><p>This isn’t ideal because my PowerShell is littered with this snippet, but something that can easily be search/replaced before using the raw version as a PowerShell script.</p><br /><br /><p>I also think that you could potentially do this with many different programming languages. (At least ones that don’t depend on whitespace and have a form of block comments)</p><br /><br /><p>Nifty eh?</p><br /><br /><p>Happy PowerDowning or MarkShelling!</p>  </div>
 ]]></content>
   </entry>
   

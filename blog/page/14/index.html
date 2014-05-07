@@ -9,7 +9,7 @@
   <meta name="author" content="Jason Jarrett">
 
   
-  <meta name="description" content="We&#8217;ve implemented a silverlight 2 business application communicating through WCF and I just had to blog about something I found possible in . &hellip;">
+  <meta name="description" content="I remember a year ago I noticed in some code a coworker put together had a variable with an @ sign in front of it. At first I was baffled that it &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2008/09/how-can-c-variable-have-sign-in-front/">How Can C# Variable Have an @ Sign in Front of It?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-13T21:26:00-07:00" pubdate data-updated="true">Sep 13<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I remember a year ago I noticed in some code a coworker put together had a variable with an @ sign in front of it. At first I was baffled that it even compiled. I asked my c-worker about it and he said he had no clue as to why it was there and what it was for&#8230; so then I spent some time googling and couldn&#8217;t find anything on the net describing this and why it compiled.<br /><br />basically what I&#8217;m talking about is if you have some code<br /><br />private void MyMethod(string myparam)<br />{<br />   int a = @myparam.Length;<br />}<br /><br />Notice the @ sign in front of the myparam variable&#8230; That is what I saw in my co-workers code and I couldn&#8217;t explain how that worked&#8230;<br /><br />now, nearly a year later I was perusing through the SLUnity framework on codeplex [<a href="http://www.codeplex.com/unitycontributions">http://www.codeplex.com/unitycontributions</a>] and saw the @ sign again&#8230;<br /><br /><br />public void UnregisterSubscriber(string publishedEventName, EventHandler subscriber)<br />{<br />   PublishedEvent @event = GetEvent(publishedEventName);<br />   @event.RemoveSubscriber(subscriber);<br />   RemoveDeadEvents();<br />}<br /><br />I did some more googling and still can&#8217;t find anything, (I&#8217;m sure it&#8217;s out there, just can&#8217;t put together the right search criteria)&#8230;<br /><br />Then I went back to the code, looked at it for a minute, and it dawned on me that &#8220;event&#8221; is a keyword in c#&#8230; Then I thought, maybe this is what you can do to use a C# keyword in another context than the desired reason to have the keyword.<br /><br />So I wrote a little test to see if this hypothesis was correct.<br /><br />private static void MyMethod(string class)<br />{<br />   int a = class.Length;<br />}<br /><br />this won&#8217;t compile because of the &#8220;class&#8221; keyword&#8230;<br /><br />then I put the @ sign in front of class<br /><br />private static void MyMethod(string @class)<br />{<br />   int a = @class.Length;<br />}<br /><br />and it not only compiled, but you also get intellasense on the variable&#8230;<br /><br />How cool&#8230;<br /><br />I&#8217;m not sure I would do that on a regular basis, seems like it might be  a bit of a pain to write&#8230; However maybe framework code may need to have this to allow it to be more readable to it&#8217;s consumers? Anyone know why on this?</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+nice one :), had me fooled for a bit too when I found a variable named @@delegate</div>
+</div>
+<div class='comment'>
+<div class='author'>Justin Chase</div>
+<div class='content'>
+That is exactly what it is for, so you can use reserved words for variable names. You&#8217;ll see this in some of the .NET framework even, with method parameters named @object in some places. I suspect it was added to C# specifically to be compatible with libraries written in other languages so that when it generates methods for you and uses the defined parameter name it won&#8217;t have a compile error if it happens to be a C# keyword.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -357,6 +407,10 @@ Lambda, not lamda. ;)</div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/04/migrating-blogspot-to-octopress-part-5-fix-links/">Migrating From BlogSpot to Octopress - Part 5 - Fix Links</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/04/migrating-blogspot-to-octopress-part-4-import-content-into-ctopress/">Migrating From BlogSpot to Octopress - Part 4 - Import Content Into Octopress</a>
       </li>
     
@@ -370,10 +424,6 @@ Lambda, not lamda. ;)</div>
     
       <li class="post">
         <a href="/2014/04/migrating-blogspot-to-octopress-part-1-introduction/">Migrating From BlogSpot to Octopress - Part 1 - Introduction</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/03/infinite-scrolling-uicollectionview/">Infinite Scrolling UICollectionView With Asyncronously Loading</a>
       </li>
     
   </ul>
